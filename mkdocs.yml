@@ -1,0 +1,13 @@
+site_name: KWeaver
+site_url: https://kweaver.ai/
+nav:
+    - Home: index.md
+    - About: about.md
+
+theme:
+    name: material
+
+plugins:
+  - search
+  # - social
+  - tags
