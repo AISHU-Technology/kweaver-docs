@@ -1,13 +1,78 @@
 site_name: KWeaver
-site_url: https://kweaver.ai/
+site_url: https://docs.kweaver.ai/
+repo_url: https://github.com/AISHU-Technology/kweaver
+
 nav:
-    - Home: index.md
-    - About: about.md
+    - index.md
+    - Introduction:
+      - introduction/about_kw.md
+      - introduction/scenes.md
+      - introduction/users.md
+    - Getting Started:
+      - getting_started/knowledge_graphs.md
+      - getting_started/lexicons.md
+    
+extra_css:
+  - assets/stylesheets/extra.css
+extra_javascript:
+  - assets/javascripts/extra.js
 
 theme:
-    name: material
+  name: material
+  # language: en
+  features:
+    # - navigation.instant
+    # - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.sections
+    # - navigation.expand
+
+  palette:
+    # # Palette toggle for automatic mode
+    # - media: "(prefers-color-scheme)"
+    #   toggle:
+    #     icon: material/brightness-auto
+    #     name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+markdown_extensions:
+  - admonition
 
 plugins:
   - search
-  # - social
-  - tags
+  # - tags
+  - i18n:
+      docs_structure: folder
+      languages:
+        # default:
+        #   name: en
+        #   build: true
+        en:
+          name: "English"
+        zh:
+          name: "中文"
+      default_language: en
+      nav_translations:
+        zh:
+          Introduction: "简介"
+          Getting Started: "快速入门"
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AISHU-Technology/kweaver
+      name: KWeaver on Github
