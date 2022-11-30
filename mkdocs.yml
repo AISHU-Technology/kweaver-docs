@@ -1,6 +1,7 @@
 site_name: KWeaver
 site_url: https://docs.kweaver.ai/
 repo_url: https://github.com/AISHU-Technology/kweaver
+edit_uri: ""
 
 nav:
     - index.md
