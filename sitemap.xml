@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+         <loc>https://docs.kweaver.ai/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/en/"/>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/zh/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.kweaver.ai/getting_started/knowledge_graphs/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/en/getting_started/knowledge_graphs/"/>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/zh/getting_started/knowledge_graphs/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.kweaver.ai/getting_started/lexicons/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/en/getting_started/lexicons/"/>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/zh/getting_started/lexicons/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.kweaver.ai/introduction/about_kw/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/en/introduction/about_kw/"/>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/zh/introduction/about_kw/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.kweaver.ai/introduction/scenes/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/en/introduction/scenes/"/>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/zh/introduction/scenes/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.kweaver.ai/introduction/users/</loc>
+         <lastmod>2022-11-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/en/introduction/users/"/>
+         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/zh/introduction/users/"/>
+         
+    </url>
+</urlset>
