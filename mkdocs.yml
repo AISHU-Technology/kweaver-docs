@@ -1,79 +1,161 @@
-site_name: KWeaver
-site_url: https://docs.kweaver.ai/
-repo_url: https://github.com/AISHU-Technology/kweaver
-edit_uri: ""
-
-nav:
-    - index.md
-    - Introduction:
-      - introduction/about_kw.md
-      - introduction/scenes.md
-      - introduction/users.md
-    - Getting Started:
-      - getting_started/knowledge_graphs.md
-      - getting_started/lexicons.md
-    
-extra_css:
-  - assets/stylesheets/extra.css
-extra_javascript:
-  - assets/javascripts/extra.js
+site_name: KWeaver官方技术手册
+site_url: https://876812297.github.io/
+site_description: 价值驱动，认知智能走向开源共创
 
 theme:
-  name: material
-  # language: en
-  features:
-    # - navigation.instant
-    # - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.tracking
-    - navigation.sections
-    # - navigation.expand
-
-  palette:
-    # # Palette toggle for automatic mode
-    # - media: "(prefers-color-scheme)"
-    #   toggle:
-    #     icon: material/brightness-auto
-    #     name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: material/brightness-4
-        name: Switch to system preference
-
-markdown_extensions:
-  - admonition
-
+    name: material
+    palette:
+        - scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+              icon: material/brightness-7
+              name: Switch to dark mode
+        - scheme: slate
+          primary: black
+          accent: indigo
+          toggle:
+              icon: material/brightness-4
+              name: Switch to light mode
+    font:
+        text: Roboto
+        code: Roboto Mono
+    favicon: assets/favicon.png
+    icon:
+        logo: logo
+        repo: fontawesome/brands/github
+    features:
+      - navigation.tabs
+      - navigation.tabs.sticky
+      - navigation.expand
+      - navigation.indexes
+      - navigation.sections
+      - navigation.top
+      - search.highlight
+      - search.suggest
+      - search.share
+      - content.code.copy
+      - navigation.footer
+      - navigation.tracking
+      - header.autohide
 plugins:
-  - search
-  # - tags
+  - macros:
+      # 替换默认的jinja宏标志{{}}，否则类似的地方可能报错
+      # [[% raw %]]
+      j2_block_start_string: '[[%'
+      j2_block_end_string: '%]]'
+      j2_variable_start_string: '[['
+      j2_variable_end_string: ']]'
+      # [[% endraw %]]
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
+  - search:
+      lang:
+        - zh
+        - en
   - i18n:
       docs_structure: folder
       languages:
-        # default:
-        #   name: en
-        #   build: true
-        en:
-          name: "English"
-        zh:
-          name: "中文"
-      default_language: en
-      nav_translations:
-        zh:
-          Introduction: "简介"
-          Getting Started: "快速入门"
+        - locale: zh
+          name: 中文
+          build: true
+          default: true
+        - locale: en
+          name: English
+          build: true
+  - git-revision-date-localized: #最后更新时间
+      type: iso_datetime
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - md_in_html
+  - pymdownx.arithmatex:  # latex支持
+      generic: true
+  - toc:
+      permalink: true # 固定标题位置为当前位置
+  - pymdownx.highlight: # 代码块高亮
+      anchor_linenums: true
+      # linenums: true # 显示行号
+      # auto_title: true # 显示编程语言名称
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences # 代码块高亮插件
+  - meta # 支持Markdown文件上方自定义标题标签等
+
+#extra_javascript里有对数学公式的扩展，extra_css里是Css的知识了，及自定义网站格式颜色等
+extra_javascript:
+  - assets/extra.js
+  - assets/mathjax.js
+#  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - assets/tex-mml-chtml.js
+  - assets/baidu-tongji.js
+extra_css:
+  - assets/extra.css
+
+# 代码仓库
+repo_name: KWeaver
+repo_url: https://github.com/AISHU-Technology/kweaver
 
 extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/AISHU-Technology/kweaver
-      name: KWeaver on Github
+  keywords: '认知智能, 领域框架, AGI时代'
+  generator: false
+  KWeaver:
+    release: 1.0.0
+  version:
+    provider: mike
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      lang: zh
+
+# 底部日期
+copyright: Copyright &copy; 2013 - 2023 Martin Donath
+
+nav:
+#  - index.md
+  - 简介:
+      - introduction/about_kw.md
+      - introduction/scenes.md
+      - introduction/users.md
+  - 快速上手:
+      - getting_started/knowledge_graphs.md
+      - getting_started/lexicons.md
+  - 入门篇:
+      - basics/knowledge_graphs.md
+      - basics/lexicons.md
+  - 进阶篇:
+      - advanced/knowledge_graphs.md
+      - advanced/lexicons.md
+  - API:
+      - reference/knowledge_graphs.md
+      - reference/lexicons.md
+  - SDK & DEMO:
+      - sdk/knowledge_graphs.md
+      - sdk/lexicons.md
+  - 错误码:
+      - error_code/http_code.md
+      - error_code/lexicons.md
+  - FAQ:
+      - faq/knowledge_graphs.md
+      - faq/lexicons.md
+  - 附录:
+      - appendix/knowledge_graphs.md
+      - appendix/lexicons.md
