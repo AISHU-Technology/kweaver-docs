@@ -161,5 +161,5 @@ nav:
       - http错误码: error_code/http_code.md
   - 附录:
     - 词汇表: appendix/lexicons.md
-    - 版本更新日志: appendix/version_log.md
+    - 版本日志: appendix/version_log.md
     - 反馈方式: appendix/copyright.md
