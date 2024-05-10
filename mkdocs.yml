@@ -1,5 +1,5 @@
 site_name: KWeaver官方技术手册
-site_url: https://876812297.github.io/
+site_url: https://docs.kweaver.ai/
 site_description: 价值驱动，认知智能走向开源共创
 
 theme:
@@ -132,30 +132,36 @@ copyright: Copyright &copy; 2013 - 2023 Martin Donath
 nav:
 #  - index.md
   - 简介:
-      - introduction/about_kw.md
-      - introduction/scenes.md
-      - introduction/users.md
-  - 快速上手:
-      - getting_started/knowledge_graphs.md
-      - getting_started/lexicons.md
+      - KWeaver介绍: introduction/about_kw.md
+      - 架构介绍: introduction/scenes.md
+  - 快速上手&部署文档:
+      - 快速上手: getting_started/lexicons.md
+      - 开发部署简介: getting_started/knowledge_graphs.md
+      - 部署手册:
+          - 前端开发环境部署: getting_started/knowledge_graphs.md
+          - 后端开发环境部署: deploy/backend_environment.md
+          - docker、docker-compose部署: deploy/docker.md
+          - GPU部署: deploy/docker.md
   - 入门篇:
       - basics/knowledge_graphs.md
       - basics/lexicons.md
-  - 进阶篇:
-      - advanced/knowledge_graphs.md
-      - advanced/lexicons.md
+  - 知识进阶:
+      - 知识图谱: advanced/knowledge_graphs.md
+      - 大模型: advanced/lexicons.md
   - API:
-      - reference/knowledge_graphs.md
-      - reference/lexicons.md
-  - SDK & DEMO:
-      - sdk/knowledge_graphs.md
-      - sdk/lexicons.md
-  - 错误码:
-      - error_code/http_code.md
-      - error_code/lexicons.md
+      - 模型工厂: reference/knowledge_graphs.md
+      - 知识网络: reference/lexicons.md
+      - 系统管理: reference/system_management.md
+
   - FAQ:
-      - faq/knowledge_graphs.md
-      - faq/lexicons.md
+      - 前端常见错误处理: faq/knowledge_graphs.md
+      - 后端常见错误处理: faq/lexicons.md
+      - 部署常见错误处理: faq/lexicons.md
+      - 常见问题: faq/common_questions.md
+      - 如何使用KWeaver: faq/common_questions.md
+      - 错误码:
+          - http错误码: error_code/http_code.md
   - 附录:
-      - appendix/knowledge_graphs.md
-      - appendix/lexicons.md
+      - 词汇表: appendix/lexicons.md
+      - 版本更新日志: appendix/version_log.md
+      - 反馈方式: appendix/copyright.md
