@@ -79,6 +79,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.keys
   - md_in_html
   - pymdownx.arithmatex:  # latex支持
       generic: true
@@ -95,7 +97,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.superfences # 代码块高亮插件
   - meta # 支持Markdown文件上方自定义标题标签等
 
 #extra_javascript里有对数学公式的扩展，extra_css里是Css的知识了，及自定义网站格式颜色等
@@ -116,7 +117,7 @@ extra:
   keywords: '认知智能, 领域框架, AGI时代'
   generator: false
   KWeaver:
-    release: 1.0.0
+    release: 0.2.0
   version:
     provider: mike
   alternate:
@@ -132,36 +133,33 @@ copyright: Copyright &copy; 2013 - 2023 Martin Donath
 nav:
 #  - index.md
   - 简介:
-      - KWeaver介绍: introduction/about_kw.md
-      - 架构介绍: introduction/scenes.md
+    - KWeaver介绍: introduction/about_kw.md
+    - 架构介绍: introduction/scenes.md
   - 快速上手&部署文档:
-      - 快速上手: getting_started/lexicons.md
-      - 开发部署简介: getting_started/knowledge_graphs.md
-      - 部署手册:
-          - 前端开发环境部署: getting_started/knowledge_graphs.md
-          - 后端开发环境部署: deploy/backend_environment.md
-          - docker-compose部署: deploy/docker.md
-          - GPU部署: deploy/docker.md
-  - 入门篇:
-      - basics/knowledge_graphs.md
-      - basics/lexicons.md
+    - 快速上手: getting_started/lexicons.md
+    - 开发部署简介: getting_started/knowledge_graphs.md
+    - 部署手册:
+      - 前端开发环境部署: getting_started/knowledge_graphs.md
+      - 后端开发环境部署: deploy/backend_environment.md
+      - docker-compose部署: deploy/docker.md
+      - GPU部署: deploy/docker.md
   - 知识进阶:
-      - 知识图谱: advanced/knowledge_graphs.md
-      - 大模型: advanced/lexicons.md
+    - 知识图谱: advanced/knowledge_graphs.md
+    - 大模型: advanced/lexicons.md
   - API:
-      - 模型工厂: reference/knowledge_graphs.md
-      - 知识网络: reference/lexicons.md
-      - 系统管理: reference/system_management.md
+    - 模型工厂: reference/knowledge_graphs.md
+    - 知识网络: reference/lexicons.md
+    - 系统管理: reference/system_management.md
 
   - FAQ:
-      - 前端常见错误处理: faq/knowledge_graphs.md
-      - 后端常见错误处理: faq/lexicons.md
-      - 部署常见错误处理: faq/lexicons.md
-      - 常见问题: faq/common_questions.md
-      - 如何使用KWeaver: faq/common_questions.md
-      - 错误码:
-          - http错误码: error_code/http_code.md
+    - 前端常见错误处理: faq/knowledge_graphs.md
+    - 后端常见错误处理: faq/lexicons.md
+    - 部署常见错误处理: faq/lexicons.md
+    - 常见问题: faq/common_questions.md
+    - 如何使用KWeaver: faq/common_questions.md
+    - 错误码:
+      - http错误码: error_code/http_code.md
   - 附录:
-      - 词汇表: appendix/lexicons.md
-      - 版本更新日志: appendix/version_log.md
-      - 反馈方式: appendix/copyright.md
+    - 词汇表: appendix/lexicons.md
+    - 版本更新日志: appendix/version_log.md
+    - 反馈方式: appendix/copyright.md
