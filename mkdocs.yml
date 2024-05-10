@@ -28,8 +28,8 @@ theme:
 #      - navigation.tabs
 #      - navigation.tabs.sticky
 #      - navigation.expand
-#      - navigation.indexes
-      - navigation.sections
+      - navigation.indexes
+#      - navigation.sections
       - navigation.top
       - search.highlight
       - search.suggest
