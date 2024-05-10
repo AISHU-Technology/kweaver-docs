@@ -140,7 +140,7 @@ nav:
       - 部署手册:
           - 前端开发环境部署: getting_started/knowledge_graphs.md
           - 后端开发环境部署: deploy/backend_environment.md
-          - docker、docker-compose部署: deploy/docker.md
+          - docker-compose部署: deploy/docker.md
           - GPU部署: deploy/docker.md
   - 入门篇:
       - basics/knowledge_graphs.md
