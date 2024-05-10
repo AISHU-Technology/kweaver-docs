@@ -25,19 +25,19 @@ theme:
         logo: logo
         repo: fontawesome/brands/github
     features:
-      - navigation.tabs
-      - navigation.tabs.sticky
-      - navigation.expand
-      - navigation.indexes
-      - navigation.sections
-      - navigation.top
-      - search.highlight
-      - search.suggest
-      - search.share
+#      - navigation.tabs
+#      - navigation.tabs.sticky
+#      - navigation.expand
+#      - navigation.indexes
+#      - navigation.sections
+#      - navigation.top
+#      - search.highlight
+#      - search.suggest
+#      - search.share
       - content.code.copy
-      - navigation.footer
-      - navigation.tracking
-      - header.autohide
+#      - navigation.footer
+#      - navigation.tracking
+#      - header.autohide
 plugins:
   - macros:
       # 替换默认的jinja宏标志{{}}，否则类似的地方可能报错
@@ -94,9 +94,9 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+#  - pymdownx.emoji:
+#      emoji_index: !!python/name:material.extensions.emoji.twemoji
+#      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - meta # 支持Markdown文件上方自定义标题标签等
 
 #extra_javascript里有对数学公式的扩展，extra_css里是Css的知识了，及自定义网站格式颜色等
