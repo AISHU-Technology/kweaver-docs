@@ -1,16 +1,16 @@
-# Ò»¡¢windows °²×°
-## 1¡¢¿ªÆôhyper-v
-ÔÚ¿ØÖÆÃæ°å-³ÌĞò-Æô¶¯ºÍ¹Ø±Õwindows¹¦ÄÜ´°¿Ú
-- ¹´Ñ¡hyper-v¼°hyper-v¹ÜÀí¹¤¾ßºÍhyper-vÆ½Ì¨
-- ¹´Ñ¡ÊÊÓÃÓÚlinuxµÄwindows×ÓÏµÍ³ºÍĞéÄâ»úÆ½Ì¨
+# ä¸€ã€windows å®‰è£…
+## 1ã€å¼€å¯hyper-v
+åœ¨æ§åˆ¶é¢æ¿-ç¨‹åº-å¯åŠ¨å’Œå…³é—­windowsåŠŸèƒ½çª—å£
+- å‹¾é€‰hyper-våŠhyper-vç®¡ç†å·¥å…·å’Œhyper-vå¹³å°
+- å‹¾é€‰é€‚ç”¨äºlinuxçš„windowså­ç³»ç»Ÿå’Œè™šæ‹Ÿæœºå¹³å°
 
-ÖØÆôµçÄÔºóÔÚÈÎÎñ¹ÜÀíÆ÷ÖĞ²é¿´ĞéÄâ»¯¹¦ÄÜÊÇ·ñÒÑ¿ªÆô
-## 2¡¢docker°²×°
-×ÀÃæ°æÏÂÔØµØÖ·ÈçÏÂ£ºhttps://dockerdocs.cn/docker-for-windows/install/index.html
+é‡å¯ç”µè„‘ååœ¨ä»»åŠ¡ç®¡ç†å™¨ä¸­æŸ¥çœ‹è™šæ‹ŸåŒ–åŠŸèƒ½æ˜¯å¦å·²å¼€å¯
+## 2ã€dockerå®‰è£…
+æ¡Œé¢ç‰ˆä¸‹è½½åœ°å€å¦‚ä¸‹ï¼šhttps://dockerdocs.cn/docker-for-windows/install/index.html
 
-ÏÂÔØºóÖ±½Ó°²×°£¬Ä¬ÈÏÏÂÒ»²½¼´¿É£¬Ö±µ½°²×°Íê³É¡£¿ÉÒÔÔÚcmdÖĞ£¬Ê¹ÓÃdocker -vÃüÁîÅĞ¶ÏÊÇ·ñ°²×°³É¹¦¡£
+ä¸‹è½½åç›´æ¥å®‰è£…ï¼Œé»˜è®¤ä¸‹ä¸€æ­¥å³å¯ï¼Œç›´åˆ°å®‰è£…å®Œæˆã€‚å¯ä»¥åœ¨cmdä¸­ï¼Œä½¿ç”¨docker -vå‘½ä»¤åˆ¤æ–­æ˜¯å¦å®‰è£…æˆåŠŸã€‚
 
-ÔÚDocker DesktopµÄdocker EngineÖĞĞŞ¸ÄdockerµÄ¾µÏñÏÂÔØµØÖ·£º
+åœ¨Docker Desktopçš„docker Engineä¸­ä¿®æ”¹dockerçš„é•œåƒä¸‹è½½åœ°å€ï¼š
 ```
 {
   "builder": {
@@ -27,84 +27,84 @@
   ]
 }
 ```
-¿ÉÒÔÍ¨¹ıdocker infoÃüÁî²é¿´ÉèÖÃÊÇ·ñÉúĞ§
-## 3¡¢docker-compose °²×°
-Docker Desktop´øÓĞdocker-compose£¬²»ÓÃÁíÍâ°²×°
-# ¶ş¡¢linux °²×°
-ÒÔÏÂÒÔcentos7ÎªÀı£º
-## 1¡¢Ê¹ÓÃ root È¨ÏŞ¸üĞÂ yum °ü
+å¯ä»¥é€šè¿‡docker infoå‘½ä»¤æŸ¥çœ‹è®¾ç½®æ˜¯å¦ç”Ÿæ•ˆ
+## 3ã€docker-compose å®‰è£…
+Docker Desktopå¸¦æœ‰docker-composeï¼Œä¸ç”¨å¦å¤–å®‰è£…
+# äºŒã€linux å®‰è£…
+ä»¥ä¸‹ä»¥centos7ä¸ºä¾‹ï¼š
+## 1ã€ä½¿ç”¨ root æƒé™æ›´æ–° yum åŒ…
 ```
 yum -y update
 ```
-Õâ¸öÃüÁî²»ÊÇ±ØĞëÖ´ĞĞµÄ£¬¿´¸öÈËÇé¿ö£¬ºóÃæ³öÏÖ²»¼æÈİµÄÇé¿öµÄ»°¾Í±ØĞëupdateÁË
+è¿™ä¸ªå‘½ä»¤ä¸æ˜¯å¿…é¡»æ‰§è¡Œçš„ï¼Œçœ‹ä¸ªäººæƒ…å†µï¼Œåé¢å‡ºç°ä¸å…¼å®¹çš„æƒ…å†µçš„è¯å°±å¿…é¡»updateäº†
 
-×¢Òâ£º
+æ³¨æ„ï¼š
 ```
-yum -y update£ºÉı¼¶ËùÓĞ°üÍ¬Ê±Ò²Éı¼¶Èí¼şºÍÏµÍ³ÄÚºË£»
-yum -y upgrade£ºÖ»Éı¼¶ËùÓĞ°ü£¬²»Éı¼¶Èí¼şºÍÏµÍ³ÄÚºË
+yum -y updateï¼šå‡çº§æ‰€æœ‰åŒ…åŒæ—¶ä¹Ÿå‡çº§è½¯ä»¶å’Œç³»ç»Ÿå†…æ ¸ï¼›
+yum -y upgradeï¼šåªå‡çº§æ‰€æœ‰åŒ…ï¼Œä¸å‡çº§è½¯ä»¶å’Œç³»ç»Ÿå†…æ ¸
 ```
-## 2¡¢Ğ¶ÔØ¾É°æ±¾£¨Èç¹ûÖ®Ç°°²×°¹ıµÄ»°£©
+## 2ã€å¸è½½æ—§ç‰ˆæœ¬ï¼ˆå¦‚æœä¹‹å‰å®‰è£…è¿‡çš„è¯ï¼‰
 ```
 yum remove docker  docker-common docker-selinux docker-engine
 ```
-## 3¡¢°²×°ĞèÒªµÄÈí¼ş°ü
-yum-util Ìá¹©yum-config-manager¹¦ÄÜ£¬ÁíÁ½¸öÊÇdevicemapperÇı¶¯ÒÀÀµ
+## 3ã€å®‰è£…éœ€è¦çš„è½¯ä»¶åŒ…
+yum-util æä¾›yum-config-manageråŠŸèƒ½ï¼Œå¦ä¸¤ä¸ªæ˜¯devicemapperé©±åŠ¨ä¾èµ–
 ```
 yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
-## 4¡¢ÉèÖÃ yum Ô´
+## 4ã€è®¾ç½® yum æº
 
-ÉèÖÃÒ»¸öyumÔ´£¬ÏÂÃæÁ½¸ö¶¼¿ÉÓÃ
+è®¾ç½®ä¸€ä¸ªyumæºï¼Œä¸‹é¢ä¸¤ä¸ªéƒ½å¯ç”¨
 ```
-yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repo£¨ÖĞÑë²Ö¿â£©
+yum-config-manager --add-repo http://download.docker.com/linux/centos/docker-ce.repoï¼ˆä¸­å¤®ä»“åº“ï¼‰
 
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo£¨°¢Àï²Ö¿â£©
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repoï¼ˆé˜¿é‡Œä»“åº“ï¼‰
 ```
-## 5¡¢Ñ¡Ôñdocker°æ±¾²¢°²×°
-£¨1£©²é¿´¿ÉÓÃ°æ±¾ÓĞÄÄĞ©
+## 5ã€é€‰æ‹©dockerç‰ˆæœ¬å¹¶å®‰è£…
+ï¼ˆ1ï¼‰æŸ¥çœ‹å¯ç”¨ç‰ˆæœ¬æœ‰å“ªäº›
 ```
 yum list docker-ce --showduplicates | sort -r
 ```
-£¨2£©Ñ¡ÔñÒ»¸ö°æ±¾²¢°²×°£ºyum install docker-ce-°æ±¾ºÅ
+ï¼ˆ2ï¼‰é€‰æ‹©ä¸€ä¸ªç‰ˆæœ¬å¹¶å®‰è£…ï¼šyum install docker-ce-ç‰ˆæœ¬å·
 ```
 yum -y install docker-ce-18.03.1.ce
-#¾¡Á¿°²×°×îĞÂ°æ±¾£¬ÀÏ°æ±¾»á³öÏÖdockerÀ­È¡¾µÏñ´íÎómissing signature key
+#å°½é‡å®‰è£…æœ€æ–°ç‰ˆæœ¬ï¼Œè€ç‰ˆæœ¬ä¼šå‡ºç°dockeræ‹‰å–é•œåƒé”™è¯¯missing signature key
 yum install -y docker-ce
 ```
-£¨3£©¾µÏñ¼ÓËÙÅäÖÃ
+ï¼ˆ3ï¼‰é•œåƒåŠ é€Ÿé…ç½®
 
-ÔÚ /etc/docker/daemon.json ÖĞĞ´ÈëÈçÏÂÄÚÈİ£¨Èç¹ûÎÄ¼ş²»´æÔÚÇëĞÂ½¨¸ÃÎÄ¼ş£©£º
+åœ¨ /etc/docker/daemon.json ä¸­å†™å…¥å¦‚ä¸‹å†…å®¹ï¼ˆå¦‚æœæ–‡ä»¶ä¸å­˜åœ¨è¯·æ–°å»ºè¯¥æ–‡ä»¶ï¼‰ï¼š
 ```
 {"registry-mirrors":["https://reg-mirror.qiniu.com/"]}
 ```
-Ö®ºóÖØĞÂÆô¶¯·şÎñ£º
+ä¹‹åé‡æ–°å¯åŠ¨æœåŠ¡ï¼š
 ```
 $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```
-## 6¡¢docker-compose °²×° 
+## 6ã€docker-compose å®‰è£…
 ```
-#ÏÂÔØdocker-composeÎÄ¼ş
+#ä¸‹è½½docker-composeæ–‡ä»¶
 curl -L https://github.com/docker/compose/releases/download/1.21.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 
-#½«ÎÄ¼ş¸´ÖÆµ½/usr/local/bin»·¾³±äÁ¿ÏÂÃæ
+#å°†æ–‡ä»¶å¤åˆ¶åˆ°/usr/local/binç¯å¢ƒå˜é‡ä¸‹é¢
 mv docker-compose /usr/local/bin
 
-#¸øËûÒ»¸öÖ´ĞĞÈ¨ÏŞ
+#ç»™ä»–ä¸€ä¸ªæ‰§è¡Œæƒé™
 chmod +x /usr/local/bin/docker-compose
 
-#²é¿´ÊÇ·ñ°²×°³É¹¦
+#æŸ¥çœ‹æ˜¯å¦å®‰è£…æˆåŠŸ
 docker-compose -version
 ```
-# Èı¡¢mac °²×°
-## 1¡¢docker °²×°
-£¨1£©Homebrew  µÄ Cask ÒÑ¾­Ö§³Ö Docker for Mac£¬Òò´Ë¿ÉÒÔºÜ·½±ãµÄÊ¹ÓÃ Homebrew Cask À´½øĞĞ°²×°£º
+# ä¸‰ã€mac å®‰è£…
+## 1ã€docker å®‰è£…
+ï¼ˆ1ï¼‰Homebrew  çš„ Cask å·²ç»æ”¯æŒ Docker for Macï¼Œå› æ­¤å¯ä»¥å¾ˆæ–¹ä¾¿çš„ä½¿ç”¨ Homebrew Cask æ¥è¿›è¡Œå®‰è£…ï¼š
 ```
 $ brew install --cask --appdir=/Applications docker
 
 ==> Creating Caskroom at /usr/local/Caskroom
 ==> We'll set permissions properly so we won't need sudo in the future
-Password:          # ÊäÈë macOS ÃÜÂë
+Password:          # è¾“å…¥ macOS å¯†ç 
 ==> Satisfying dependencies
 ==> Downloading https://download.docker.com/mac/stable/21090/Docker.dmg
 ######################################################################## 100.0%
@@ -113,11 +113,11 @@ Password:          # ÊäÈë macOS ÃÜÂë
 ==> Moving App 'Docker.app' to '/Applications/Docker.app'.
 &#x1f37a;  docker was successfully installed!
 ```
-ÔÚÔØÈë Docker app ºó£¬µã»÷ Next£¬¿ÉÄÜ»áÑ¯ÎÊÄãµÄ macOS µÇÂ½ÃÜÂë£¬ÄãÊäÈë¼´¿É¡£Ö®ºó»áµ¯³öÒ»¸ö Docker ÔËĞĞµÄÌáÊ¾´°¿Ú£¬×´Ì¬À¸ÉÏÒ²ÓĞÓĞ¸öĞ¡¾¨ÓãµÄÍ¼±ê¡£
+åœ¨è½½å…¥ Docker app åï¼Œç‚¹å‡» Nextï¼Œå¯èƒ½ä¼šè¯¢é—®ä½ çš„ macOS ç™»é™†å¯†ç ï¼Œä½ è¾“å…¥å³å¯ã€‚ä¹‹åä¼šå¼¹å‡ºä¸€ä¸ª Docker è¿è¡Œçš„æç¤ºçª—å£ï¼ŒçŠ¶æ€æ ä¸Šä¹Ÿæœ‰æœ‰ä¸ªå°é²¸é±¼çš„å›¾æ ‡ã€‚
 
-£¨2£©¾µÏñ¼ÓËÙÅäÖÃ
+ï¼ˆ2ï¼‰é•œåƒåŠ é€Ÿé…ç½®
 
-ÔÚÈÎÎñÀ¸µã»÷ Docker for mac Ó¦ÓÃÍ¼±ê-> Perferences...-> Daemon-> Registrymirrors¡£ÔÚÁĞ±íÖĞÌîĞ´¼ÓËÙÆ÷µØÖ·¡£ĞŞ¸ÄÍê³ÉÖ®ºó£¬µã»÷ Apply&Restart °´Å¥£¬Docker ¾Í»áÖØÆô²¢Ó¦ÓÃÅäÖÃµÄ¾µÏñµØÖ·ÁË¡£
+åœ¨ä»»åŠ¡æ ç‚¹å‡» Docker for mac åº”ç”¨å›¾æ ‡-> Perferences...-> Daemon-> Registrymirrorsã€‚åœ¨åˆ—è¡¨ä¸­å¡«å†™åŠ é€Ÿå™¨åœ°å€ã€‚ä¿®æ”¹å®Œæˆä¹‹åï¼Œç‚¹å‡» Apply&Restart æŒ‰é’®ï¼ŒDocker å°±ä¼šé‡å¯å¹¶åº”ç”¨é…ç½®çš„é•œåƒåœ°å€äº†ã€‚
 
-## 2¡¢docker-compose °²×°
-Docker Desktop´øÓĞdocker-compose£¬²»ÓÃÁíÍâ°²×°
+## 2ã€docker-compose å®‰è£…
+Docker Desktopå¸¦æœ‰docker-composeï¼Œä¸ç”¨å¦å¤–å®‰è£…
