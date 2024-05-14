@@ -147,8 +147,8 @@ nav:
     - 知识图谱: advanced/knowledge_graphs.md
     - 大模型: advanced/lexicons.md
   - API:
-    - 模型工厂: api/knowledge_graphs.md
-    - 知识网络: api/lexicons.md
+    - 模型工厂: api/models-factory.md
+    - 知识网络: api/knowledge_graphs.md
     - 系统管理: api/system_management.md
 
   - FAQ:
@@ -160,6 +160,6 @@ nav:
     - 错误码:
       - http错误码: error_code/http_code.md
   - 附录:
-    - 词汇表: appendix/lexicons.md
+    - 词汇表: appendix/vocabulary.md
     - 版本日志: appendix/version_log.md
-    - 反馈方式: appendix/copyright.md
+    - 反馈方式: appendix/feedback.md
