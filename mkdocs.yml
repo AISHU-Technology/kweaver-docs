@@ -147,9 +147,9 @@ nav:
     - 知识图谱: advanced/knowledge_graphs.md
     - 大模型: advanced/lexicons.md
   - API:
-    - 模型工厂: reference/knowledge_graphs.md
-    - 知识网络: reference/lexicons.md
-    - 系统管理: reference/system_management.md
+    - 模型工厂: api/knowledge_graphs.md
+    - 知识网络: api/lexicons.md
+    - 系统管理: api/system_management.md
 
   - FAQ:
     - 前端常见错误处理: faq/knowledge_graphs.md
