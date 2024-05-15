@@ -1,6 +1,6 @@
 # 一、模型工厂
-
-## 1、获取大模型列表信息接口
+## 1、大模型
+### 1.1、获取大模型列表信息接口
 
 ```
 GET  /api/model-factory/v1/llm-source
@@ -8,14 +8,14 @@ GET  /api/model-factory/v1/llm-source
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 字段说明                                                     |
-| :--- | :------- | :------- | -------- | :------- | :----------------------------------------------------------- |
-| 1    | page     | integer  | query    | 是       | 页码                                                         |
-| 2    | size     | integer  | query    | 是       | 每页数量                                                     |
-| 3    | order    | string   | query    | 否       | 默认按从新至旧排序，接受参数为：'desc'（从新到旧），'asc'（从旧到新） |
-| 4    | name     | string   | query    | 否       | 对LLM进行模糊搜索，不填此参数则返回所有                      |
-| 5    | rule     | string   | query    | 否       | 默认按照更新时间排序，接受参数为：'update_time'（按LLM更新时间排序），'create_time'（按LLM创建时间排序）,'model_name'（按LLM名称排序）" |
-| 6    | series   | string   | query    | 否       | 对LLM模型进行筛选，接参数为：‘all’（默认所有供应商），‘openai‘（openai模型），'aishu_baichuan'（本地部署模型） |
+| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
+| :--- | :------- | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
+| 1    | page     | integer  | query    | 是       | 20   | 页码                                                         |
+| 2    | size     | integer  | query    | 是       | 20   | 每页数量                                                     |
+| 3    | order    | string   | query    | 否       | 4    | 默认按从新至旧排序，接受参数为：'desc'（从新到旧），'asc'（从旧到新） |
+| 4    | name     | string   | query    | 否       | 100  | 对LLM进行模糊搜索，不填此参数则返回所有                      |
+| 5    | rule     | string   | query    | 否       | 11   | 默认按照更新时间排序，接受参数为：'update_time'（按LLM更新时间排序），'create_time'（按LLM创建时间排序）,'model_name'（按LLM名称排序）" |
+| 6    | series   | string   | query    | 否       | 50   | 对LLM模型进行筛选，接参数为：‘all’（默认所有供应商），‘openai‘（openai模型），'aishu_baichuan'（本地部署模型） |
 
 请求示例：
 
@@ -25,20 +25,22 @@ page=5&size=10&order=desc&name=baichuan-llm&rule=update_time&series=openai
 
 响应参数：
 
-| 序号 | 字段名称 |       |              | 字段类型  | 字段说明                                                     |
-| :--- | :------- | ----- | ------------ | :-------- | :----------------------------------------------------------- |
-| 1    | res      |       |              | list      | 响应结果                                                     |
-| 2    |          | total |              | int       | 回复信息的个数                                               |
-| 3    |          | data  |              | list      | 回复的信息                                                   |
-| 4    |          |       | model_id     | string    | 模型id                                                       |
-| 5    |          |       | model_series | string    | 模型归属的供应商                                             |
-| 6    |          |       | model_name   | string    | 模型的名称（用户修改后的）                                   |
-| 7    |          |       | model        | string    | 本身的模型名称                                               |
-| 8    |          |       | model_api    | string    | 对应OpenAPI文档，当前版本，通过独立接口返回，这里目前返回null |
-| 9    |          |       | create_time  | timestamp | 创建时间                                                     |
-| 10   |          |       | create_by    | string    | 创建人                                                       |
-| 11   |          |       | update_time  | timestamp | 更新时间                                                     |
-| 12   |          |       | update_by    | string    | 更新人                                                       |
+| 序号 | 字段名称 |      | 字段类型 | 字段说明       |
+| :--- | -------- | ---- | :------- | :------------- |
+| 1    | total    |      | int      | 回复信息的个数 |
+| 2    | data     |      | list     | 回复的信息     |
+
+| 序号 | 字段名称     | 字段类型  | 字段说明                   |
+| :--- | ------------ | :-------- | :------------------------- |
+| 1    | model_id     | string    | 模型id                     |
+| 2    | model_series | string    | 模型归属的供应商           |
+| 3    | model_name   | string    | 模型的名称（用户修改后的） |
+| 4    | model        | string    | 本身的模型名称             |
+| 5    | model_api    | string    | 目前返回null               |
+| 6    | create_time  | timestamp | 创建时间                   |
+| 7    | create_by    | string    | 创建人                     |
+| 8    | update_time  | timestamp | 更新时间                   |
+| 9    | update_by    | string    | 更新人                     |
 
 响应示例：
 
@@ -52,7 +54,7 @@ page=5&size=10&order=desc&name=baichuan-llm&rule=update_time&series=openai
                 "model_name": "这是一个名称",
                 "model_series": "openai",
                 "model": "gpt-35-turbo-16k",
-                "model_api": "这应该是一个文件（暂时不知道怎么写）",
+                "model_api": "",
                 "create_time": "1682870400",
                 "create_by": "zhang",
                 "update_time": "1682870400",
@@ -63,7 +65,7 @@ page=5&size=10&order=desc&name=baichuan-llm&rule=update_time&series=openai
                 "model_name": "这是一个名称",
                 "model_series": "aishu-baichuan",
                 "model": "gpt-35-turbo-16k",
-                "model_api": "这应该是一个文件（暂时不知道怎么写）",
+                "model_api": "",
                 "create_time": "1682870400",
                 "create_by": "zhang",
                 "update_time": "1682870400",
@@ -96,7 +98,7 @@ page=5&size=10&order=desc&name=baichuan-llm&rule=update_time&series=openai
 }
 ```
 
-## 2、新增大模型接口-参数获取
+### 1.2、新增大模型接口-参数获取
 
 ```
 GET  /api/model-factory/v1/llm-param
@@ -108,23 +110,31 @@ GET  /api/model-factory/v1/llm-param
 
 响应参数：
 
-| 序号 | 字段名称 |        |          |             |          | 字段类型 | 字段说明                                                     |
-| :--- | -------- | ------ | -------- | :---------- | -------- | :------- | :----------------------------------------------------------- |
-| 1    | res      |        |          |             |          | list     | 响应结果                                                     |
-| 2    |          | openai |          |             |          | string   | 系列名称中的一种，另一种是本地部署模型，配置信息参考3.3      |
-| 3    |          |        | title    |             |          | string   | 模型系列名称                                                 |
-| 4    |          |        | icon     |             |          | string   | 前端配置信息                                                 |
-| 5    |          |        | formData |             |          | list     | 参数数据                                                     |
-| 6    |          |        |          | field       |          | string   | 参数名称                                                     |
-| 7    |          |        |          | component   |          | string   | 前端输入框的类型：输入框(input) \| 文本框(textarea) \| 下拉框(selector) \| 单选(radio) \| 多选(checkbox) |
-| 8    |          |        |          | type        |          | string   | 输入框支持的数据类型：字符串(string) \| 数值(number) \| 布尔(boolean) \| 数组(array) \| 字典或对象(object) |
-| 9    |          |        |          | label       |          | object   | 参数在前端展示的标签名称                                     |
-| 10   |          |        |          | placeholder |          | object   | 缺醒水印                                                     |
-| 11   |          |        |          | rules       |          | list     | 校验信息                                                     |
-| 12   |          |        |          |             | required | boolean  | 是否必填                                                     |
-| 13   |          |        |          |             | max      | int      | 最大长度，或者最大值                                         |
-| 14   |          |        |          |             | pattern  | string   | 正则化校验规则                                               |
-| 15   |          |        |          |             | message  | object   | 违反约束提示信息                                             |
+| 序号 | 字段名称 | 字段类型 | 字段说明                               |
+| :--- | -------- | :------- | :------------------------------------- |
+| 1    | openai   | string   | 系列名称中的一种，另一种是本地部署模型 |
+
+| 序号 | 字段名称 | 字段类型 | 字段说明     |
+| :--- | -------- | :------- | :----------- |
+| 3    | title    | string   | 模型系列名称 |
+| 4    | icon     | string   | 前端配置信息 |
+| 5    | formData | list     | 参数数据     |
+
+| 序号 | 字段名称    | 字段类型     | 字段说明                                                     |
+| :--- | :---------- | :----------- | :----------------------------------------------------------- |
+| 1    | field       | string       | 参数名称                                                     |
+| 2    | component   | string       | 前端输入框的类型：输入框(input) \| 文本框(textarea) \| 下拉框(selector) \| 单选(radio) \| 多选(checkbox) |
+| 3    | type        | string       | 输入框支持的数据类型：字符串(string) \| 数值(number) \| 布尔(boolean) \| 数组(array) \| 字典或对象(object) |
+| 4    | label       | object       | 参数在前端展示的标签名称                                     |
+| 5    | placeholder | object       | 缺醒水印                                                     |
+| 6    | rules       | list<object> | 校验信息                                                     |
+
+| 序号 | 字段名称 | 字段类型 | 字段说明             |
+| :--- | -------- | :------- | :------------------- |
+| 1    | required | boolean  | 是否必填             |
+| 2    | max      | int      | 最大长度，或者最大值 |
+| 3    | pattern  | string   | 正则化校验规则       |
+| 4    | message  | object   | 违反约束提示信息     |
 
 响应示例：
 
@@ -199,7 +209,7 @@ GET  /api/model-factory/v1/llm-param
 }
 ```
 
-## 3、大模型测试接口
+### 1.3、大模型测试接口
 
 ```
 POST  /api/model-factory/v1/llm-test
@@ -209,10 +219,10 @@ POST  /api/model-factory/v1/llm-test
 
 第一种测试方式，新增测试
 
-| 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 字段说明                                                     |
-| :--- | :----------- | :------- | -------- | :------- | :----------------------------------------------------------- |
-| 1    | model_series | string   | body     | 是       | 模型系列类型，例如：openai，本地部署模型                     |
-| 2    | model_config | object   | body     | 是       | 当前模型的配置信息，模型系列不同，所需参数不同，例如openai需要api_key，api_model，具体参数参考示例 |
+| 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
+| :--- | :----------- | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
+| 1    | model_series | string   | body     | 是       | 50   | 模型系列类型，例如：openai，本地部署模型                     |
+| 2    | model_config | object   | body     | 是       |      | 当前模型的配置信息，模型系列不同，所需参数不同，例如openai需要api_key，api_model，具体参数参考示例 |
 
 请求示例：
 
@@ -238,9 +248,9 @@ openai：api_key, api_model
 
 第二种测试方式，数据保存到数据库后的测试
 
-| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :------- | :------- | -------- | :------- | :------- |
-| 1    | model_id | string   | body     | 是       | 模型id   |
+| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | model_id | string   | body     | 是       | 50   | 模型id   |
 
 请求示例：
 
@@ -252,11 +262,10 @@ openai：api_key, api_model
 
 响应参数：
 
-| 序号 | 字段名称 |            | 字段类型 | 字段说明                                 |
-| :--- | -------- | ---------- | :------- | :--------------------------------------- |
-| 1    | res      |            | object   | 模型验证结果                             |
-| 3    |          | status     | boolean  | 验证的状态：True，False                  |
-| 4    |          | model_type | string   | 验证成功后返回的模型类型，验证失败为空值 |
+| 序号 | 字段名称   | 字段类型 | 字段说明                                 |
+| :--- | ---------- | :------- | :--------------------------------------- |
+| 1    | status     | boolean  | 验证的状态：True，False                  |
+| 2    | model_type | string   | 验证成功后返回的模型类型，验证失败为空值 |
 
 响应示例：
 
@@ -292,7 +301,7 @@ openai：api_key, api_model
 }
 ```
 
-## 4、新增大模型接口-数据保存
+### 1.4、新增大模型接口-数据保存
 
 ```
 POST  /api/model-factory/v1/llm-add
@@ -300,12 +309,12 @@ POST  /api/model-factory/v1/llm-add
 
 请求参数：
 
-| 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 字段说明                                       |
-| :--- | :----------- | :------- | -------- | :------- | :--------------------------------------------- |
-| 1    | model_series | string   | body     | 是       | 模型系列供应商：openai，aishu-baichuan         |
-| 2    | model_type   | string   | body     | 是       | 模型类型：chat，completion                     |
-| 3    | model_config | object   | body     | 是       | 当前模型的配置信息，模型系列不同，所需参数不同 |
-| 4    | model_name   | string   | body     | 是       | 模型名称                                       |
+| 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                       |
+| :--- | :----------- | :------- | -------- | :------- | ---- | :--------------------------------------------- |
+| 1    | model_series | string   | body     | 是       | 50   | 模型系列供应商：openai，aishu-baichuan         |
+| 2    | model_type   | string   | body     | 是       | 50   | 模型类型：chat，completion                     |
+| 3    | model_config | object   | body     | 是       |      | 当前模型的配置信息，模型系列不同，所需参数不同 |
+| 4    | model_name   | string   | body     | 是       | 100  | 模型名称                                       |
 
 请求示例：
 
@@ -369,7 +378,7 @@ aishu-baichuan：api_base, api_key, api_model
 }
 ```
 
-## 5、删除大模型接口
+### 1.5、删除大模型接口
 
 ```
 POST  /api/model-factory/v1/llm-remove
@@ -377,9 +386,9 @@ POST  /api/model-factory/v1/llm-remove
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :------- | :------- | -------- | :------- | :------- |
-| 1    | model_id | string   | body     | 是       | 模型id   |
+| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | model_id | string   | body     | 是       | 50   | 模型id   |
 
 请求示例：
 
@@ -425,7 +434,7 @@ POST  /api/model-factory/v1/llm-remove
 }
 ```
 
-## 6、查看大模型信息接口
+### 1.6、查看大模型信息接口
 
 ```
 GET  /api/model-factory/v1/llm-check
@@ -433,9 +442,9 @@ GET  /api/model-factory/v1/llm-check
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :------- | :------- | -------- | :------- | :------- |
-| 1    | model_id | string   | query    | 是       | 模型id   |
+| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | model_id | string   | query    | 是       | 50   | 模型id   |
 
 请求示例：
 
@@ -445,14 +454,13 @@ model_id=1234567890123456789
 
 响应参数：
 
-| 序号 | 字段名称 |              | 字段类型 | 字段说明                                           |
-| :--- | :------- | ------------ | :------- | :------------------------------------------------- |
-| 1    | res      |              | object   |                                                    |
-| 2    |          | model_id     | string   | 模型id                                             |
-| 3    |          | model_series | string   | 模型的供应商名称：aishu-baichuan、openai           |
-| 4    |          | model_name   | string   | 模型名称（不是model，model和model_name都代表名称） |
-| 5    |          | model_url    | string   | 模型url                                            |
-| 6    |          | model_config | object   | 模型的配置信息，模型系列不同，配置参数不同         |
+| 序号 | 字段名称     | 字段类型 | 字段说明                                           |
+| :--- | ------------ | :------- | :------------------------------------------------- |
+| 1    | model_id     | string   | 模型id                                             |
+| 2    | model_series | string   | 模型的供应商名称：aishu-baichuan、openai           |
+| 3    | model_name   | string   | 模型名称（不是model，model和model_name都代表名称） |
+| 4    | model_url    | string   | 模型url                                            |
+| 5    | model_config | object   | 模型的配置信息，模型系列不同，配置参数不同         |
 
 响应示例：
 
@@ -495,7 +503,7 @@ model_id=1234567890123456789
 }
 ```
 
-## 7、修改大模型配置接口
+### 1.7、修改大模型配置接口
 
 ```
 POST  /api/factory/v1/llm-edit
@@ -503,13 +511,13 @@ POST  /api/factory/v1/llm-edit
 
 请求参数：
 
-| 序号 | 字段名称       | 字段类型 | 参数位置 | 是否必须 | 字段说明                                   |
-| :--- | :------------- | :------- | -------- | :------- | :----------------------------------------- |
-| 1    | model_id       | string   | body     | 是       | 模型id                                     |
-| 2    | model_series   | string   | body     | 是       | 模型的供应商名称：aishu-baichuan、openai   |
-| 3    | model_name     | string   | body     | 是       | 模型名称                                   |
-| 4    | model_describe | string   | body     | 否       | 模型的描述                                 |
-| 5    | model_config   | string   | body     | 是       | 模型的配置信息，模型系列不同，配置参数不同 |
+| 序号 | 字段名称       | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                   |
+| :--- | :------------- | :------- | -------- | :------- | ---- | :----------------------------------------- |
+| 1    | model_id       | string   | body     | 是       | 50   | 模型id                                     |
+| 2    | model_series   | string   | body     | 是       | 50   | 模型的供应商名称：aishu-baichuan、openai   |
+| 3    | model_name     | string   | body     | 是       | 100  | 模型名称                                   |
+| 4    | model_describe | string   | body     | 否       | 255  | 模型的描述                                 |
+| 5    | model_config   | object   | body     | 是       |      | 模型的配置信息，模型系列不同，配置参数不同 |
 
 请求示例：
 
@@ -561,8 +569,7 @@ POST  /api/factory/v1/llm-edit
     "ErrorLink": ""
 }
 ```
-
-## 8、URL调用接口
+### 1.8、URL调用接口
 
 ```
 POST  /api/model-factory/v1/llm-used/{llm_id}
@@ -570,18 +577,18 @@ POST  /api/model-factory/v1/llm-used/{llm_id}
 
 请求参数：
 
-| 序号 | 字段名称          | 字段类型 | 参数位置 | 是否必须 | 字段说明                       |
-| :--- | :---------------- | :------- | -------- | :------- | :----------------------------- |
-| 1    | llm_id            | string   | path     | 是       | 当前模型的唯一标识符，路径参数 |
-| 2    | ai_system         | string   | body     | 否       |                                |
-| 3    | ai_user           | string   | body     | 否       |                                |
-| 4    | ai_assistant      | string   | body     | 否       |                                |
-| 5    | ai_history        | list     | body     | 否       |                                |
-| 6    | top_p             | float    | body     | 否       |                                |
-| 7    | temperature       | float    | body     | 否       |                                |
-| 8    | max_token         | integer  | body     | 否       |                                |
-| 9    | frequency_penalty | float    | body     | 否       |                                |
-| 10   | presence_penalty  | float    | body     | 否       |                                |
+| 序号 | 字段名称          | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                       |
+| :--- | :---------------- | :------- | -------- | :------- | ---- | :----------------------------- |
+| 1    | llm_id            | string   | path     | 是       | 50   | 当前模型的唯一标识符，路径参数 |
+| 2    | ai_system         | string   | body     | 否       |      |                                |
+| 3    | ai_user           | string   | body     | 否       |      |                                |
+| 4    | ai_assistant      | string   | body     | 否       |      |                                |
+| 5    | ai_history        | list     | body     | 否       |      |                                |
+| 6    | top_p             | float    | body     | 否       |      |                                |
+| 7    | temperature       | float    | body     | 否       |      |                                |
+| 8    | max_token         | integer  | body     | 否       |      |                                |
+| 9    | frequency_penalty | float    | body     | 否       |      |                                |
+| 10   | presence_penalty  | float    | body     | 否       |      |                                |
 
 请求示例：
 
@@ -647,8 +654,8 @@ POST  /api/model-factory/v1/llm-used/{llm_id}
     "ErrorLink": ""
 }
 ```
-
-## 9、获取提示词项目列表信息接口
+## 2、提示词
+### 2.1、获取提示词项目列表信息接口
 
 ```
 GET  /api/model-factory/v1/prompt-item-source
@@ -656,9 +663,9 @@ GET  /api/model-factory/v1/prompt-item-source
 
 请求参数：
 
-| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 字段说明                                   |
-| :--- | :--------------- | :------- | -------- | :------- | :----------------------------------------- |
-| 1    | prompt_item_name | string   | query    | 否       | 对提示词进行模糊搜索，不填此参数则返回所有 |
+| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                   |
+| :--- | :--------------- | :------- | -------- | :------- | ---- | :----------------------------------------- |
+| 1    | prompt_item_name | string   | query    | 否       | 50   | 对提示词进行模糊搜索，不填此参数则返回所有 |
 
 请求示例：
 
@@ -668,20 +675,22 @@ prompt_item_name=AnyShare
 
 响应参数：
 
-| 序号 | 字段名称 |             |                   | 字段类型  | 字段说明                  |
-| :--- | :------- | ----------- | ----------------- | :-------- | :------------------------ |
-| 1    | res      |             |                   | object    |                           |
-| 2    |          | total       |                   | int       | 总个数                    |
-| 3    |          | searchTotal |                   | int       | 满足搜索条件的个数        |
-| 4    |          | data        |                   | list      | 返回的数据                |
-| 5    |          |             | prompt_item_id    | string    | 提示词项目id              |
-| 6    |          |             | prompt_item_name  | string    | 提示词项目名称            |
-| 7    |          |             | prompt_item_types | list      | 提示词项目的分类          |
-| 8    |          |             | create_time       | timestamp | 创建时间                  |
-| 9    |          |             | create_by         | string    | 创建人                    |
-| 10   |          |             | update_time       | timestamp | 更新时间                  |
-| 11   |          |             | update_by         | string    | 最终操作人                |
-| 12   |          |             | is_built_in       | boolean   | true为内置，false为自定义 |
+| 序号 | 字段名称    | 字段类型 | 字段说明           |
+| :--- | ----------- | :------- | :----------------- |
+| 1    | total       | int      | 总个数             |
+| 2    | searchTotal | int      | 满足搜索条件的个数 |
+| 3    | data        | list     | 返回的数据         |
+
+| 序号 | 字段名称          | 字段类型  | 字段说明                  |
+| :--- | ----------------- | :-------- | :------------------------ |
+| 1    | prompt_item_id    | string    | 提示词项目id              |
+| 2    | prompt_item_name  | string    | 提示词项目名称            |
+| 3    | prompt_item_types | list      | 提示词项目的分类          |
+| 4    | create_time       | timestamp | 创建时间                  |
+| 5    | create_by         | string    | 创建人                    |
+| 6    | update_time       | timestamp | 更新时间                  |
+| 7    | update_by         | string    | 最终操作人                |
+| 8    | is_built_in       | boolean   | true为内置，false为自定义 |
 
 响应示例：
 
@@ -699,7 +708,7 @@ prompt_item_name=AnyShare
                 "create_by": "zhang",
                 "update_time": "2023-11-10 17：01：02",
                 "update_by": "li",
-                "is_built_in": true
+                "is_built_in": True
             },
             {
                 "prompt_item_id": "1723580620199825408",
@@ -709,7 +718,7 @@ prompt_item_name=AnyShare
                 "create_by": "zhang",
                 "update_time": "2023-11-10 17：01：02",
                 "update_by": "li",
-                "is_built_in": true
+                "is_built_in": True
             },
         ]
     }
@@ -738,7 +747,7 @@ prompt_item_name=AnyShare
 }
 ```
 
-## 10、新建提示词项目接口
+### 2.2、新建提示词项目接口
 
 ```
 POST  /api/model-factory/v1/prompt-item-add
@@ -746,9 +755,9 @@ POST  /api/model-factory/v1/prompt-item-add
 
 请求参数：
 
-| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 字段说明       |
-| :--- | :--------------- | :------- | -------- | :------- | :------------- |
-| 1    | prompt_item_name | string   | body     | 是       | 提示词项目名称 |
+| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明       |
+| :--- | :--------------- | :------- | -------- | :------- | ---- | :------------- |
+| 1    | prompt_item_name | string   | body     | 是       | 50   | 提示词项目名称 |
 
 请求示例：
 
@@ -794,7 +803,7 @@ POST  /api/model-factory/v1/prompt-item-add
 }
 ```
 
-## 11、编辑提示词项目接口
+### 2.3、编辑提示词项目接口
 
 ```
 POST  /api/model-factory/v1/prompt-item-edit
@@ -802,10 +811,10 @@ POST  /api/model-factory/v1/prompt-item-edit
 
 请求参数：
 
-| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 字段说明       |
-| :--- | :--------------- | :------- | -------- | :------- | :------------- |
-| 1    | prompt_item_id   | string   | body     | 是       | 提示词项目id   |
-| 2    | prompt_item_name | string   | body     | 是       | 提示词项目名称 |
+| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明       |
+| :--- | :--------------- | :------- | -------- | :------- | ---- | :------------- |
+| 1    | prompt_item_id   | string   | body     | 是       | 50   | 提示词项目id   |
+| 2    | prompt_item_name | string   | body     | 是       | 50   | 提示词项目名称 |
 
 请求示例：
 
@@ -852,7 +861,7 @@ POST  /api/model-factory/v1/prompt-item-edit
 }
 ```
 
-## 12、新建提示词分组接口
+### 2.4、新建提示词分组接口
 
 ```
 POST  /api/model-factory/v1/prompt-type-add
@@ -860,10 +869,10 @@ POST  /api/model-factory/v1/prompt-type-add
 
 请求参数：
 
-| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 字段说明           |
-| :--- | :--------------- | :------- | -------- | :------- | :----------------- |
-| 1    | prompt_item_id   | string   | body     | 是       | 提示词项目id       |
-| 2    | prompt_item_type | string   | body     | 是       | 提示词项目分组名称 |
+| 序号 | 字段名称         | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明           |
+| :--- | :--------------- | :------- | -------- | :------- | ---- | :----------------- |
+| 1    | prompt_item_id   | string   | body     | 是       | 50   | 提示词项目id       |
+| 2    | prompt_item_type | string   | body     | 是       | 50   | 提示词项目分组名称 |
 
 请求示例：
 
@@ -910,7 +919,7 @@ POST  /api/model-factory/v1/prompt-type-add
 }
 ```
 
-## 13、编辑提示词分组接口
+### 2.5、编辑提示词分组接口
 
 ```
 POST  /api/model-factory/v1/prompt-type-edit
@@ -918,10 +927,10 @@ POST  /api/model-factory/v1/prompt-type-edit
 
 请求参数：
 
-| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 字段说明           |
-| :--- | :------------------ | :------- | -------- | :------- | :----------------- |
-| 1    | prompt_item_type    | string   | body     | 是       | 提示词项目分组名称 |
-| 2    | prompt_item_type_id | string   | body     | 是       | 提示词项目分组id   |
+| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明           |
+| :--- | :------------------ | :------- | -------- | :------- | ---- | :----------------- |
+| 1    | prompt_item_type    | string   | body     | 是       | 50   | 提示词项目分组名称 |
+| 2    | prompt_item_type_id | string   | body     | 是       | 50   | 提示词项目分组id   |
 
 请求示例：
 
@@ -968,7 +977,7 @@ POST  /api/model-factory/v1/prompt-type-edit
 }
 ```
 
-## 14、获取提示词列表信息接口
+### 2.6、获取提示词列表信息接口
 
 ```
 GET  /api/model-factory/v1/prompt-source
@@ -976,17 +985,17 @@ GET  /api/model-factory/v1/prompt-source
 
 请求参数：
 
-| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 字段说明                                                     |
-| :--- | :------------------ | :------- | -------- | :------- | :----------------------------------------------------------- |
-| 1    | prompt_item_id      | string   | query    | 否       | 提示词项目id                                                 |
-| 2    | prompt_item_type_id | string   | query    | 否       | 提示词项目分类id                                             |
-| 3    | page                | integer  | query    | 是       | 页码                                                         |
-| 4    | size                | integer  | query    | 是       | 每页数量                                                     |
-| 5    | order               | string   | query    | 否       | 默认按从新至旧排序，接受参数为：'desc'（从新到旧），'asc'（从旧到新） |
-| 6    | prompt_name         | string   | query    | 否       | 对提示词进行模糊搜索，不填此参数则返回所有                   |
-| 7    | rule                | string   | query    | 否       | 默认按照更新时间排序，接受参数为：'update_time'（按提示词更新时间排序），'create_time'（按提示词创建时间排序）,'prompt_name'（按提示词名称排序） |
-| 8    | deploy              | string   | query    | 否       | 对提示词发布状态进行筛选，接受参数为：‘all’（默认所有），‘yes'（已发布），‘no‘（未发布），当前版本不存在未发布 |
-| 9    | prompt_type         | string   | query    | 否       | 对提示词类型进行筛选，接受参数为：‘all’（默认所有），’chat'（对话型），'completion'（文本生成型） |
+| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
+| :--- | :------------------ | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
+| 1    | prompt_item_id      | string   | query    | 否       | 50   | 提示词项目id                                                 |
+| 2    | prompt_item_type_id | string   | query    | 否       | 50   | 提示词项目分类id                                             |
+| 3    | page                | integer  | query    | 是       | 20   | 页码                                                         |
+| 4    | size                | integer  | query    | 是       | 20   | 每页数量                                                     |
+| 5    | order               | string   | query    | 否       | 4    | 默认按从新至旧排序，接受参数为：'desc'（从新到旧），'asc'（从旧到新） |
+| 6    | prompt_name         | string   | query    | 否       | 50   | 对提示词进行模糊搜索，不填此参数则返回所有                   |
+| 7    | rule                | string   | query    | 否       | 11   | 默认按照更新时间排序，接受参数为：'update_time'（按提示词更新时间排序），'create_time'（按提示词创建时间排序）,'prompt_name'（按提示词名称排序） |
+| 8    | deploy              | string   | query    | 否       | 4    | 对提示词发布状态进行筛选，接受参数为：‘all’（默认所有），‘yes'（已发布），‘no‘（未发布），当前版本不存在未发布 |
+| 9    | prompt_type         | string   | query    | 否       | 10   | 对提示词类型进行筛选，接受参数为：‘all’（默认所有），’chat'（对话型），'completion'（文本生成型） |
 
 请求示例：
 
@@ -996,33 +1005,35 @@ prompt_item_id=1234567890123456789&prompt_item_type_id=2134567890123456742&page=
 
 响应参数：
 
-| 序号 | 字段名称 |       |                     | 字段类型  | 字段说明                            |
-| :--- | -------- | ----- | :------------------ | :-------- | :---------------------------------- |
-| 1    | res      |       |                     | object    |                                     |
-| 2    |          | total |                     | int       | 回复信息的个数                      |
-| 3    |          | data  |                     | list      | 回复的信息                          |
-| 4    |          |       | prompt_item_id      | string    | 提示词项目id                        |
-| 5    |          |       | prompt_item_name    | string    | 提示词项目名称                      |
-| 6    |          |       | prompt_item_type_id | string    | 提示词项目分类id                    |
-| 7    |          |       | prompt_item_type    | string    | 提示词项目分类                      |
-| 8    |          |       | prompt_id           | string    | 提示词id                            |
-| 9    |          |       | prompt_service_id   | string    | 提示词服务id，供外部调用            |
-| 10   |          |       | prompt_name         | string    | 提示词名称                          |
-| 11   |          |       | prompt_type         | string    | 提示词类型                          |
-| 12   |          |       | model_name          | string    | 选择的模型名称                      |
-| 13   |          |       | prompt_desc         | string    | 提示词的描述                        |
-| 15   |          |       | prompt_deploy       | string    | 发布状态                            |
-| 16   |          |       | create_time         | timestamp | 创建时间                            |
-| 17   |          |       | create_by           | string    | 创建人                              |
-| 18   |          |       | update_time         | timestamp | 最终操作时间                        |
-| 19   |          |       | update_by           | string    | 操作人                              |
-| 20   |          |       | icon                | string    | 颜色配置                            |
-| 21   |          |       | model_id            | string    | 模型id                              |
-| 22   |          |       | model_series        | string    | 模型系列                            |
-| 23   |          |       | is_built_in         | boolean   | 是否内置，true为内置，false为自定义 |
-| 24   |          |       | messages            | string    | 提示词内容                          |
-| 25   |          |       | variables           | list      | 提示词变量列表                      |
-| 26   |          |       | model_para          | object    | 提示词对应模型变量                  |
+| 序号 | 字段名称 | 字段类型 | 字段说明       |
+| :--- | -------- | :------- | :------------- |
+| 1    | total    | int      | 回复信息的个数 |
+| 2    | data     | list     | 回复的信息     |
+
+| 序号 | 字段名称            | 字段类型  | 字段说明                            |
+| :--- | :------------------ | :-------- | :---------------------------------- |
+| 1    | prompt_item_id      | string    | 提示词项目id                        |
+| 2    | prompt_item_name    | string    | 提示词项目名称                      |
+| 3    | prompt_item_type_id | string    | 提示词项目分类id                    |
+| 4    | prompt_item_type    | string    | 提示词项目分类                      |
+| 5    | prompt_id           | string    | 提示词id                            |
+| 6    | prompt_service_id   | string    | 提示词服务id，供外部调用            |
+| 7    | prompt_name         | string    | 提示词名称                          |
+| 8    | prompt_type         | string    | 提示词类型                          |
+| 9    | model_name          | string    | 选择的模型名称                      |
+| 10   | prompt_desc         | string    | 提示词的描述                        |
+| 11   | prompt_deploy       | string    | 发布状态                            |
+| 12   | create_time         | timestamp | 创建时间                            |
+| 13   | create_by           | string    | 创建人                              |
+| 14   | update_time         | timestamp | 最终操作时间                        |
+| 15   | update_by           | string    | 操作人                              |
+| 16   | icon                | string    | 颜色配置                            |
+| 17   | model_id            | string    | 模型id                              |
+| 18   | model_series        | string    | 模型系列                            |
+| 19   | is_built_in         | boolean   | 是否内置，true为内置，false为自定义 |
+| 20   | messages            | string    | 提示词内容                          |
+| 21   | variables           | list      | 提示词变量列表                      |
+| 22   | model_para          | object    | 提示词对应模型变量                  |
 
 响应示例：
 
@@ -1098,7 +1109,7 @@ prompt_item_id=1234567890123456789&prompt_item_type_id=2134567890123456742&page=
 }
 ```
 
-## 15、新增提示词接口-数据保存
+### 2.7、新增提示词接口-数据保存
 
 ```
 POST  /api/model-factory/v1/prompt-add
@@ -1106,20 +1117,20 @@ POST  /api/model-factory/v1/prompt-add
 
 请求参数：
 
-| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 字段说明                              |
-| :--- | :------------------ | :------- | -------- | :------- | :------------------------------------ |
-| 1    | prompt_item_id      | string   | body     | 是       | 提示词项目id                          |
-| 2    | prompt_item_type_id | string   | body     | 是       | 提示词项目分类id                      |
-| 3    | prompt_service_id   | string   | body     | 是       | 提示词业务id                          |
-| 4    | prompt_name         | string   | body     | 是       | 提示词名称                            |
-| 5    | prompt_desc         | string   | body     | 否       | 提示词描述                            |
-| 6    | prompt_type         | string   | body     | 是       | 提示词类型                            |
-| 7    | model_id            | string   | body     | 否       | 选择的模型名称id                      |
-| 8    | icon                | string   | body     | 是       | 颜色配置，将交互设计给定颜色按0-9排序 |
-| 9    | model_para          | object   | body     | 否       | 模型参数                              |
-| 10   | messages            | string   | body     | 是       | 提示词文本                            |
-| 11   | variables           | list     | body     | 否       | 提示词变量                            |
-| 12   | opening_remarks     | string   | body     | 否       | 对话开场白                            |
+| 序号 | 字段名称            | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明                    |
+| :--- | :------------------ | :----------- | -------- | :------- | ---- | :-------------------------- |
+| 1    | prompt_item_id      | string       | body     | 是       | 50   | 提示词项目id                |
+| 2    | prompt_item_type_id | string       | body     | 是       | 50   | 提示词项目分类id            |
+| 3    | prompt_service_id   | string       | body     | 是       | 50   | 提示词业务id                |
+| 4    | prompt_name         | string       | body     | 是       | 50   | 提示词名称                  |
+| 5    | prompt_desc         | string       | body     | 否       | 255  | 提示词描述                  |
+| 6    | prompt_type         | string       | body     | 是       | 50   | 提示词类型                  |
+| 7    | model_id            | string       | body     | 否       | 50   | 选择的模型名称id            |
+| 8    | icon                | string       | body     | 是       | 50   | 颜色配置，暂定颜色按0-9排序 |
+| 9    | model_para          | object       | body     | 否       |      | 模型参数                    |
+| 10   | messages            | string       | body     | 是       | 5000 | 提示词文本                  |
+| 11   | variables           | list<object> | body     | 否       |      | 提示词变量                  |
+| 12   | opening_remarks     | string       | body     | 否       | 150  | 对话开场白                  |
 
 请求示例：
 
@@ -1161,9 +1172,9 @@ POST  /api/model-factory/v1/prompt-add
 
 响应参数：
 
-| 序号 | 字段名称 | 字段类型 | 字段说明 |
-| :--- | :------- | :------- | :------- |
-| 1    | res      | string   | 提示词id |
+| 序号 | 字段名称  | 字段类型 | 字段说明 |
+| :--- | :-------- | :------- | :------- |
+| 1    | prompt_id | string   | 提示词id |
 
 响应示例：
 
@@ -1197,7 +1208,7 @@ POST  /api/model-factory/v1/prompt-add
 }
 ```
 
-## 16、获取大模型列表接口
+### 2.8、获取大模型列表接口
 
 ```
 GET  /api/model-factory/v1/prompt-llm-source
@@ -1205,9 +1216,9 @@ GET  /api/model-factory/v1/prompt-llm-source
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型 | 字段位置 | 是否必须 | 字段说明 |
-| :--- | :------- | :------- | -------- | :------- | :------- |
-| 1    | types    | string   | query    | 是       | 模型类型 |
+| 序号 | 字段名称 | 字段类型 | 字段位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | types    | string   | query    | 是       | 50   | 模型类型 |
 
 请求示例：
 
@@ -1217,18 +1228,20 @@ types=chat
 
 响应参数：
 
-| 序号 | 字段名称 |       |              | 字段类型 | 字段说明       |
-| :--- | -------- | ----- | :----------- | :------- | :------------- |
-| 1    | res      |       |              | list     |                |
-| 2    |          | total |              | int      | 回复信息的个数 |
-| 3    |          | data  |              | list     | 回复的信息     |
-| 4    |          |       | model_id     | string   | 模型id         |
-| 5    |          |       | model_series | string   | 模型的供应商   |
-| 6    |          |       | model_type   | string   | 模型类型       |
-| 7    |          |       | model_name   | string   | 模型的名称     |
-| 8    |          |       | model        | string   | 模型本身名称   |
-| 9    |          |       | model_config | object   | 模型配置       |
-| 10   |          |       | model_para   | object   | 模型参数       |
+| 序号 | 字段名称 | 字段类型 | 字段说明       |
+| :--- | -------- | :------- | :------------- |
+| 1    | total    | int      | 回复信息的个数 |
+| 2    | data     | list     | 回复的信息     |
+
+| 序号 | 字段名称     | 字段类型 | 字段说明     |
+| :--- | :----------- | :------- | :----------- |
+| 1    | model_id     | string   | 模型id       |
+| 2    | model_series | string   | 模型的供应商 |
+| 3    | model_type   | string   | 模型类型     |
+| 4    | model_name   | string   | 模型的名称   |
+| 5    | model        | string   | 模型本身名称 |
+| 6    | model_config | object   | 模型配置     |
+| 7    | model_para   | object   | 模型参数     |
 
 响应示例：
 
@@ -1379,7 +1392,7 @@ types=chat
 }
 ```
 
-## 17、提示词名称编辑接口
+### 2.9、提示词名称编辑接口
 
 ```
 POST  /api/factory/v1/prompt-name-edit
@@ -1387,15 +1400,15 @@ POST  /api/factory/v1/prompt-name-edit
 
 请求参数：
 
-| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 字段说明                   |
-| :--- | :------------------ | :------- | -------- | :------- | :------------------------- |
-| 1    | prompt_id           | string   | body     | 是       | 提示词id                   |
-| 2    | prompt_name         | string   | body     | 是       | 提示词名称                 |
-| 3    | model_id            | string   | body     | 否       | 选择的模型id               |
-| 4    | icon                | string   | body     | 是       | 颜色配置                   |
-| 5    | prompt_desc         | string   | body     | 否       | 提示词描述                 |
-| 6    | prompt_item_type_id | string   | body     | 是       | 提示词分组id，用于修改分组 |
-| 7    | prompt_item_id      | string   | body     | 是       | 提示词项目id，用于修改项目 |
+| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                   |
+| :--- | :------------------ | :------- | -------- | :------- | ---- | :------------------------- |
+| 1    | prompt_id           | string   | body     | 是       | 50   | 提示词id                   |
+| 2    | prompt_name         | string   | body     | 是       | 50   | 提示词名称                 |
+| 3    | model_id            | string   | body     | 否       | 50   | 选择的模型id               |
+| 4    | icon                | string   | body     | 是       | 50   | 颜色配置                   |
+| 5    | prompt_desc         | string   | body     | 否       | 255  | 提示词描述                 |
+| 6    | prompt_item_type_id | string   | body     | 是       | 50   | 提示词分组id，用于修改分组 |
+| 7    | prompt_item_id      | string   | body     | 是       | 50   | 提示词项目id，用于修改项目 |
 
 请求示例：
 
@@ -1447,7 +1460,7 @@ POST  /api/factory/v1/prompt-name-edit
 }
 ```
 
-## 18、获取提示词模板列表信息接口
+### 2.10、获取提示词模板列表信息接口
 
 ```
 GET  /api/model-factory/v1/prompt-template-source
@@ -1455,10 +1468,10 @@ GET  /api/model-factory/v1/prompt-template-source
 
 请求参数：
 
-| 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 字段说明                                       |
-| :--- | :---------- | :------- | -------- | :------- | :--------------------------------------------- |
-| 1    | prompt_name | string   | query    | 否       | 对提示词模板进行模糊搜索，不填此参数则返回所有 |
-| 2    | prompt_type | string   | query    | 是       | 提示词类型                                     |
+| 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                       |
+| :--- | :---------- | :------- | -------- | :------- | ---- | :--------------------------------------------- |
+| 1    | prompt_name | string   | query    | 否       | 50   | 对提示词模板进行模糊搜索，不填此参数则返回所有 |
+| 2    | prompt_type | string   | query    | 是       | 50   | 提示词类型                                     |
 
 请求示例：
 
@@ -1468,20 +1481,22 @@ prompt_name=阅读理解&prompt_type=chat
 
 响应参数：
 
-| 序号 | 字段名称 |       |                 | 字段类型 | 字段说明       |
-| :--- | -------- | ----- | :-------------- | :------- | :------------- |
-| 1    | res      |       |                 | object   |                |
-| 2    |          | total |                 | int      | 回复信息的个数 |
-| 3    |          | data  |                 | list     | 回复的信息     |
-| 4    |          |       | prompt_id       | string   | 提示词id       |
-| 5    |          |       | prompt_name     | string   | 提示词名称     |
-| 6    |          |       | prompt_type     | string   | 提示词类型     |
-| 7    |          |       | prompt_desc     | string   | 提示词的描述   |
-| 8    |          |       | messages        | string   | 提示词文本     |
-| 9    |          |       | variables       | list     | 提示词变量     |
-| 10   |          |       | input           | string   | 变量样例       |
-| 11   |          |       | opening_remarks | string   | 对话开场白     |
-| 12   |          |       | icon            | string   | 颜色配置       |
+| 序号 | 字段名称 | 字段类型     | 字段说明       |
+| :--- | -------- | :----------- | :------------- |
+| 1    | total    | int          | 回复信息的个数 |
+| 2    | data     | list<object> | 回复的信息     |
+
+| 序号 | 字段名称        | 字段类型     | 字段说明     |
+| :--- | :-------------- | :----------- | :----------- |
+| 1    | prompt_id       | string       | 提示词id     |
+| 2    | prompt_name     | string       | 提示词名称   |
+| 3    | prompt_type     | string       | 提示词类型   |
+| 4    | prompt_desc     | string       | 提示词的描述 |
+| 5    | messages        | string       | 提示词文本   |
+| 6    | variables       | list<object> | 提示词变量   |
+| 7    | input           | string       | 变量样例     |
+| 8    | opening_remarks | string       | 对话开场白   |
+| 9    | icon            | string       | 颜色配置     |
 
 响应示例：
 
@@ -1586,7 +1601,7 @@ prompt_name=阅读理解&prompt_type=chat
 }
 ```
 
-## 19、提示词查看接口
+### 2.11、提示词查看接口
 
 ```
 GET  /api/model-factory/v1/prompt/{prompt_id}
@@ -1594,9 +1609,9 @@ GET  /api/model-factory/v1/prompt/{prompt_id}
 
 请求参数：
 
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :-------- | :------- | -------- | :------- | :------- |
-| 1    | prompt_id | string   | path     | 是       | 提示词id |
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | prompt_id | string   | path     | 是       | 50   | 提示词id |
 
 请求示例：
 
@@ -1606,27 +1621,26 @@ GET  /api/model-factory/v1/prompt/{prompt_id}
 
 响应参数：
 
-| 序号 | 字段名称 |                     | 字段类型 | 字段说明         |
-| :--- | -------- | :------------------ | :------- | :--------------- |
-| 1    | res      |                     | object   |                  |
-| 2    |          | prompt_name         | string   | 提示词名称       |
-| 3    |          | model_name          | string   | 模型名称         |
-| 4    |          | model_id            | string   | 模型id           |
-| 5    |          | model_para          | object   | 模型参数         |
-| 6    |          | messages            | string   | 提示词文本       |
-| 7    |          | variables           | string   | 提示词变量       |
-| 8    |          | opening_remarks     | string   | 对话开场白       |
-| 9    |          | prompt_item_id      | string   | 提示词项目id     |
-| 10   |          | prompt_item_name    | string   | 提示词项目名称   |
-| 11   |          | prompt_item_type_id | string   | 提示词项目分类id |
-| 12   |          | prompt_item_type    | string   | 提示词项目分类   |
-| 13   |          | prompt_service_id   | string   | 提示词业务id     |
-| 14   |          | prompt_id           | string   | 提示词id         |
-| 15   |          | prompt_type         | string   | 提示词类型       |
-| 16   |          | prompt_desc         | string   | 提示词的描述     |
-| 17   |          | prompt_deploy       | string   | 发布状态         |
-| 18   |          | icon                | string   | 颜色配置         |
-| 19   |          | model_series        | string   | 模型系列         |
+| 序号 | 字段名称            | 字段类型 | 字段说明         |
+| :--- | :------------------ | :------- | :--------------- |
+| 1    | prompt_name         | string   | 提示词名称       |
+| 2    | model_name          | string   | 模型名称         |
+| 3    | model_id            | string   | 模型id           |
+| 4    | model_para          | object   | 模型参数         |
+| 5    | messages            | string   | 提示词文本       |
+| 6    | variables           | string   | 提示词变量       |
+| 7    | opening_remarks     | string   | 对话开场白       |
+| 8    | prompt_item_id      | string   | 提示词项目id     |
+| 9    | prompt_item_name    | string   | 提示词项目名称   |
+| 10   | prompt_item_type_id | string   | 提示词项目分类id |
+| 11   | prompt_item_type    | string   | 提示词项目分类   |
+| 12   | prompt_service_id   | string   | 提示词业务id     |
+| 13   | prompt_id           | string   | 提示词id         |
+| 14   | prompt_type         | string   | 提示词类型       |
+| 15   | prompt_desc         | string   | 提示词的描述     |
+| 19   | prompt_deploy       | string   | 发布状态         |
+| 17   | icon                | string   | 颜色配置         |
+| 18   | model_series        | string   | 模型系列         |
 
 响应示例：
 
@@ -1690,7 +1704,7 @@ GET  /api/model-factory/v1/prompt/{prompt_id}
 }
 ```
 
-## 20、提示词编辑接口
+### 2.12、提示词编辑接口
 
 ```
 POST  /api/factory/v1/prompt-edit
@@ -1698,14 +1712,14 @@ POST  /api/factory/v1/prompt-edit
 
 请求参数：
 
-| 序号 | 字段名称        | 字段类型 | 参数位置 | 是否必须 | 字段说明   |
-| :--- | :-------------- | :------- | -------- | :------- | :--------- |
-| 1    | prompt_id       | string   | body     | 是       | 提示词id   |
-| 2    | model_para      | object   | body     | 否       | 模型参数   |
-| 3    | messages        | string   | body     | 是       | 提示词文本 |
-| 4    | variables       | list     | body     | 否       | 提示词变量 |
-| 5    | opening_remarks | string   | body     | 否       | 对话开场白 |
-| 6    | model_id        | string   | body     | 否       | 模型id     |
+| 序号 | 字段名称        | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明   |
+| :--- | :-------------- | :----------- | -------- | :------- | ---- | :--------- |
+| 1    | prompt_id       | string       | body     | 是       | 50   | 提示词id   |
+| 2    | model_para      | object       | body     | 否       |      | 模型参数   |
+| 3    | messages        | string       | body     | 是       | 5000 | 提示词文本 |
+| 4    | variables       | list<object> | body     | 否       |      | 提示词变量 |
+| 5    | opening_remarks | string       | body     | 否       | 150  | 对话开场白 |
+| 6    | model_id        | string       | body     | 否       | 50   | 模型id     |
 
 请求示例：
 
@@ -1769,7 +1783,7 @@ POST  /api/factory/v1/prompt-edit
 }
 ```
 
-## 21、提示词发布接口
+### 2.13、提示词发布接口
 
 ```
 POST  /api/model-factory/v1/prompt-deploy
@@ -1777,9 +1791,9 @@ POST  /api/model-factory/v1/prompt-deploy
 
 请求参数：
 
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :-------- | :------- | -------- | :------- | :------- |
-| 1    | prompt_id | string   | body     | 是       | 提示词id |
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | prompt_id | string   | body     | 是       | 50   | 提示词id |
 
 请求示例：
 
@@ -1825,7 +1839,7 @@ POST  /api/model-factory/v1/prompt-deploy
 }
 ```
 
-## 22、提示词取消发布接口
+### 2.14、提示词取消发布接口
 
 ```
 POST  /api/model-factory/v1/prompt-undeploy
@@ -1833,9 +1847,9 @@ POST  /api/model-factory/v1/prompt-undeploy
 
 请求参数：
 
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :-------- | :------- | -------- | :------- | :------- |
-| 1    | prompt_id | string   | body     | 是       | 提示词id |
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | prompt_id | string   | body     | 是       | 50   | 提示词id |
 
 请求示例：
 
@@ -1881,7 +1895,7 @@ POST  /api/model-factory/v1/prompt-undeploy
 }
 ```
 
-## 23、提示词运行接口
+### 2.15、提示词运行接口
 
 ```
 POST  /api/model-factory/v1/prompt-run
@@ -1889,14 +1903,14 @@ POST  /api/model-factory/v1/prompt-run
 
 请求参数：
 
-| 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 字段说明               |
-| :--- | :---------- | :------- | -------- | :------- | :--------------------- |
-| 1    | model_id    | string   | body     | 是       | 选择的模型id           |
-| 2    | model_para  | object   | body     | 是       | 模型参数               |
-| 3    | messages    | string   | body     | 是       | 提示词文本             |
-| 4    | variables   | list     | body     | 否       | 变量                   |
-| 5    | inputs      | object   | body     | 否       | 输入的变量值           |
-| 6    | history_dia | list     | body     | 否       | 对话型提示词的聊天记录 |
+| 序号 | 字段名称    | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明               |
+| :--- | :---------- | :----------- | -------- | :------- | ---- | :--------------------- |
+| 1    | model_id    | string       | body     | 是       | 50   | 选择的模型id           |
+| 2    | model_para  | object       | body     | 是       |      | 模型参数               |
+| 3    | messages    | string       | body     | 是       | 5000 | 提示词文本             |
+| 4    | variables   | list<object> | body     | 否       |      | 变量                   |
+| 5    | inputs      | object       | body     | 否       |      | 输入的变量值           |
+| 6    | history_dia | list<object> | body     | 否       |      | 对话型提示词的聊天记录 |
 
 请求示例：
 
@@ -1983,7 +1997,7 @@ POST  /api/model-factory/v1/prompt-run
 }
 ```
 
-## 24、提示词运行接口-流式返回
+### 2.16、提示词运行接口-流式返回
 
 ```
 POST  /api/model-factory/v1/prompt-run-stream
@@ -1991,14 +2005,14 @@ POST  /api/model-factory/v1/prompt-run-stream
 
 请求参数：
 
-| 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 字段说明               |
-| :--- | :---------- | :------- | -------- | :------- | :--------------------- |
-| 1    | model_id    | string   | body     | 是       | 选择的模型id           |
-| 2    | model_para  | object   | body     | 是       | 模型参数               |
-| 3    | messages    | string   | body     | 是       | 提示词文本             |
-| 4    | variables   | list     | body     | 否       | 变量                   |
-| 5    | inputs      | object   | body     | 否       | 输入的变量值           |
-| 6    | history_dia | list     | body     | 否       | 对话型提示词的聊天记录 |
+| 序号 | 字段名称    | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明               |
+| :--- | :---------- | :----------- | -------- | :------- | ---- | :--------------------- |
+| 1    | model_id    | string       | body     | 是       | 50   | 选择的模型id           |
+| 2    | model_para  | object       | body     | 是       |      | 模型参数               |
+| 3    | messages    | string       | body     | 是       | 5000 | 提示词文本             |
+| 4    | variables   | list<object> | body     | 否       |      | 变量                   |
+| 5    | inputs      | object       | body     | 否       |      | 输入的变量值           |
+| 6    | history_dia | list<object> | body     | 否       |      | 对话型提示词的聊天记录 |
 
 请求示例：
 
@@ -2067,7 +2081,7 @@ POST  /api/model-factory/v1/prompt-run-stream
 }
 ```
 
-## 25、提示词调用接口
+### 2.17、提示词调用接口
 
 ```
 POST  /api/model-factory/v1/prompt/{service_id}/used
@@ -2075,11 +2089,11 @@ POST  /api/model-factory/v1/prompt/{service_id}/used
 
 请求参数：
 
-| 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 字段说明               |
-| :--- | :---------- | :------- | -------- | :------- | :--------------------- |
-| 1    | service_id  | string   | path     | 是       | 提示词id               |
-| 2    | inputs      | object   | body     | 否       | 输入的变量             |
-| 3    | history_dia | list     | body     | 否       | 对话型提示词的聊天记录 |
+| 序号 | 字段名称    | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明               |
+| :--- | :---------- | :----------- | -------- | :------- | ---- | :--------------------- |
+| 1    | service_id  | string       | path     | 是       | 50   | 提示词id               |
+| 2    | inputs      | object       | body     | 否       |      | 输入的变量             |
+| 3    | history_dia | list<object> | body     | 否       |      | 对话型提示词的聊天记录 |
 
 请求示例：
 
@@ -2145,7 +2159,7 @@ POST  /api/model-factory/v1/prompt/{service_id}/used
 }
 ```
 
-## 26、查看代码接口
+### 2.18、查看代码接口
 
 ```
 GET /api/model-factory/v1/prompt-code
@@ -2153,10 +2167,10 @@ GET /api/model-factory/v1/prompt-code
 
 请求参数：
 
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 字段说明 |
-| :--- | :-------- | :------- | -------- | :------- | :------- |
-| 1    | model_id  | string   | query    | 是       | 大模型id |
-| 2    | prompt_id | string   | query    | 否       | 提示词id |
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | model_id  | string   | query    | 是       | 50   | 大模型id |
+| 2    | prompt_id | string   | query    | 否       | 50   | 提示词id |
 
 请求示例：
 
@@ -2166,28 +2180,26 @@ model_id=1723933405655207936&prompt_id=353467867978094
 
 响应参数：
 
-| 序号 | 字段名称 |              | 字段类型 | 字段说明 |
-| :--- | -------- | :----------- | :------- | :------- |
-| 1    | res      |              | object   |          |
-|      |          | model_series | string   | 模型系列 |
-|      |          | model_name   | string   | 模型名称 |
-|      |          | model_type   | string   | 模型类型 |
-|      |          | model_para   | object   | 模型参数 |
-|      |          | model_config | object   | 模型配置 |
+| 序号 | 字段名称          | 字段类型 | 字段说明      |
+| :--- | :---------------- | :------- | :------------ |
+| 1    | model_series      | string   | 模型系列      |
+| 2    | model_type        | string   | 模型类型      |
+| 3    | model_config      | object   | 模型配置      |
+| 4    | prompt_deploy_url | string   | 提示词部署url |
 
 响应示例：
 
 ```json
 {
     "res": {               
-             "model_series": "aishu-baichuan",
-             "model_type": "chat",
-             "model_config": {
-                     "api_base": "http://10.4.29.18:8301/v1",
-                     "api_type": "openai",
-                     "api_model": "baichuan2"
-               },
-             "prompt_deploy_url":/api/model-factory/v1/prompt-used/1725466658891501568
+         "model_series": "aishu-baichuan",
+         "model_type": "chat",
+         "model_config": {
+                 "api_base": "http://10.4.29.18:8301/v1",
+                 "api_type": "openai",
+                 "api_model": "baichuan2"
+           },
+         "prompt_deploy_url":/api/model-factory/v1/prompt-used/1725466658891501568
    }    
 }
 ```
@@ -2214,7 +2226,7 @@ model_id=1723933405655207936&prompt_id=353467867978094
 }
 ```
 
-## 27、填充提示词接口
+### 2.19、填充提示词接口
 
 ```
 GET /api/model-factory/v1/open/prompt_completion/{prompt_id}
@@ -2222,22 +2234,15 @@ GET /api/model-factory/v1/open/prompt_completion/{prompt_id}
 
 请求参数：
 
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 字段说明   |
-| :--- | :-------- | :------- | -------- | :------- | :--------- |
-| 1    | prompt_id | string   | path     | 是       | 提示词id   |
-| 2    | inputs    | string   | query    | 否       | 输入的变量 |
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明   |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :--------- |
+| 1    | prompt_id | string   | path     | 是       | 50   | 提示词id   |
+| 2    | inputs    | string   | query    | 否       |      | 输入的变量 |
 
 请求示例：
 
-```json
-{
-    "inputs": {
-        "var1": "变量值1",
-        "var2": "变量值2",
-        "var3": "变量值3",
-        "var4": "变量值4"
-    }
-}
+```
+{"inputs": {"var1": "变量值1","var2": "变量值2","var3": "变量值3","var4": "变量值4"}}
 ```
 
 响应参数：
@@ -2276,7 +2281,7 @@ GET /api/model-factory/v1/open/prompt_completion/{prompt_id}
 }
 ```
 
-## 28、删除提示词接口
+### 2.20、删除提示词接口
 
 ```
 POST /api/model-factory/v1/delete-prompt
@@ -2284,12 +2289,12 @@ POST /api/model-factory/v1/delete-prompt
 
 请求参数：
 
-| 序号 | 字段名称       | 字段类型     | 参数位置 | 是否必须 | 字段说明     |
-| :--- | :------------- | :----------- | -------- | :------- | :----------- |
-| 1    | prompt_id      | string       | body     | 是       | 提示词id     |
-| 2    | item_id        | string       | body     | 是       | 提示词项目id |
-| 3    | type_id        | string       | body     | 是       | 提示词分类id |
-| 4    | prompt_id_list | list<string> | body     | 是       | 提示词id列表 |
+| 序号 | 字段名称       | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明     |
+| :--- | :------------- | :----------- | -------- | :------- | ---- | :----------- |
+| 1    | prompt_id      | string       | body     | 是       | 50   | 提示词id     |
+| 2    | item_id        | string       | body     | 是       | 50   | 提示词项目id |
+| 3    | type_id        | string       | body     | 是       | 50   | 提示词分类id |
+| 4    | prompt_id_list | list<string> | body     | 是       | 50   | 提示词id列表 |
 
 请求示例：
 
@@ -2345,7 +2350,7 @@ POST /api/model-factory/v1/delete-prompt
 }
 ```
 
-## 29、获取服务id接口
+### 2.21、获取服务id接口
 
 ```
 GET /api/model-factory/v1/get-id
@@ -2391,7 +2396,7 @@ GET /api/model-factory/v1/get-id
 }
 ```
 
-## 30、移动提示词接口
+### 2.22、移动提示词接口
 
 ```
 POST /api/model-factory/v1/prompt/move
@@ -2399,11 +2404,11 @@ POST /api/model-factory/v1/prompt/move
 
 请求参数：
 
-| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 字段说明                   |
-| :--- | :------------------ | :------- | -------- | :------- | :------------------------- |
-| 1    | prompt_id           | string   | body     | 是       | 提示词id                   |
-| 2    | prompt_item_type_id | string   | body     | 是       | 提示词分类id               |
-| 3    | prompt_item_id      | string   | body     | 是       | 提示词项目id，用于修改项目 |
+| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                   |
+| :--- | :------------------ | :------- | -------- | :------- | ---- | :------------------------- |
+| 1    | prompt_id           | string   | body     | 是       | 50   | 提示词id                   |
+| 2    | prompt_item_type_id | string   | body     | 是       | 50   | 提示词分类id               |
+| 3    | prompt_item_id      | string   | body     | 是       | 50   | 提示词项目id，用于修改项目 |
 
 请求示例：
 
@@ -2451,7 +2456,7 @@ POST /api/model-factory/v1/prompt/move
 }
 ```
 
-## 31、使用创建的提示词模板调用大模型接口
+### 2.23、使用创建的提示词模板调用大模型接口
 
 ```
 POST  /api/model-factory/v1/prompt-template-run
@@ -2459,13 +2464,13 @@ POST  /api/model-factory/v1/prompt-template-run
 
 请求参数：
 
-| 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 字段说明               |
-| :--- | :---------- | :------- | -------- | :------- | :--------------------- |
-| 1    | inputs      | object   | body     | 否       | 输入的变量值           |
-| 2    | prompt_id   | string   | body     | 是       | 提示词文本id           |
-| 3    | history_dia | array    | body     | 否       | 对话型提示词的聊天记录 |
-| 4    | model_para  | object   | body     | 是       | 模型参数               |
-| 5    | model_name  | string   | body     | 是       | 选择使用的模型名称     |
+| 序号 | 字段名称    | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明               |
+| :--- | :---------- | :----------- | -------- | :------- | ---- | :--------------------- |
+| 1    | inputs      | object       | body     | 否       |      | 输入的变量值           |
+| 2    | prompt_id   | string       | body     | 是       | 50   | 提示词文本id           |
+| 3    | history_dia | list<object> | body     | 否       |      | 对话型提示词的聊天记录 |
+| 4    | model_para  | object       | body     | 是       |      | 模型参数               |
+| 5    | model_name  | string       | body     | 是       | 100  | 选择使用的模型名称     |
 
 请求示例：
 
@@ -2537,7 +2542,7 @@ POST  /api/model-factory/v1/prompt-template-run
 }
 ```
 
-## 32、提示词管理内编辑接口
+### 2.24、提示词管理内编辑接口
 
 ```
 POST  /api/model-factory/v1/prompt-template-edit
@@ -2545,17 +2550,17 @@ POST  /api/model-factory/v1/prompt-template-edit
 
 请求参数：
 
-| 序号 | 字段名称            | 字段类型 | 参数位置 | 是否必须 | 字段说明                   |
-| :--- | :------------------ | :------- | -------- | :------- | :------------------------- |
-| 1    | prompt_id           | string   | body     | 是       | 提示词id                   |
-| 2    | prompt_name         | string   | body     | 是       | 提示词名称                 |
-| 3    | messages            | string   | body     | 是       | 提示词文本                 |
-| 4    | variables           | list     | body     | 否       | 提示词变量                 |
-| 5    | opening_remarks     | string   | body     | 否       | 对话开场白                 |
-| 4    | icon                | string   | body     | 是       | 颜色配置                   |
-| 5    | prompt_desc         | string   | body     | 否       | 提示词描述                 |
-| 6    | prompt_item_type_id | string   | body     | 是       | 提示词分组id，用于修改分组 |
-| 7    | prompt_item_id      | string   | body     | 是       | 提示词项目id，用于修改项目 |
+| 序号 | 字段名称            | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明                   |
+| :--- | :------------------ | :----------- | -------- | :------- | ---- | :------------------------- |
+| 1    | prompt_id           | string       | body     | 是       | 50   | 提示词id                   |
+| 2    | prompt_name         | string       | body     | 是       | 50   | 提示词名称                 |
+| 3    | messages            | string       | body     | 是       | 5000 | 提示词文本                 |
+| 4    | variables           | list<object> | body     | 否       |      | 提示词变量                 |
+| 5    | opening_remarks     | string       | body     | 否       | 150  | 对话开场白                 |
+| 4    | icon                | string       | body     | 是       | 50   | 颜色配置                   |
+| 5    | prompt_desc         | string       | body     | 否       | 255  | 提示词描述                 |
+| 6    | prompt_item_type_id | string       | body     | 是       | 50   | 提示词分组id，用于修改分组 |
+| 7    | prompt_item_id      | string       | body     | 是       | 50   | 提示词项目id，用于修改项目 |
 
 请求示例：
 
@@ -2616,7 +2621,7 @@ POST  /api/model-factory/v1/prompt-template-edit
 }
 ```
 
-## 33、批量创建提示词接口
+### 2.25、批量创建提示词接口
 
 ```
 POST  /api/model-factory/v1/prompt/batch_add
@@ -2624,19 +2629,19 @@ POST  /api/model-factory/v1/prompt/batch_add
 
 请求参数：
 
-| 序号 | 字段名称              | 字段类型 | 参数位置 | 是否必须 | 字段说明             |
-| :--- | :-------------------- | :------- | -------- | :------- | :------------------- |
-| 1    | prompt_item_name      | string   | body     | 是       | 提示词项目名称       |
-| 2    | prompt_item_type_name | string   | body     | 是       | 提示词分组名称       |
-| 3    | prompt_list           | objects  | body     | 是       | 需要创建的提示词列表 |
+| 序号 | 字段名称              | 字段类型     | 参数位置 | 是否必须 | 长度 | 字段说明             |
+| :--- | :-------------------- | :----------- | -------- | :------- | ---- | :------------------- |
+| 1    | prompt_item_name      | string       | body     | 是       | 50   | 提示词项目名称       |
+| 2    | prompt_item_type_name | string       | body     | 是       | 50   | 提示词分组名称       |
+| 3    | prompt_list           | list<object> | body     | 是       |      | 需要创建的提示词列表 |
 
 请求示例：
 
 ```json
 [
     {
-    "prompt_item_name": "test",
-    "prompt_item_type_name": "分组1",
+    	"prompt_item_name": "test",
+    	"prompt_item_type_name": "分组1",
         "prompt_list": [
             {
              "prompt_name": "这w111",
@@ -2690,9 +2695,9 @@ POST  /api/model-factory/v1/prompt/batch_add
 
 响应参数：
 
-| 序号 | 字段名称 | 字段类型 | 字段说明     |
-| :--- | :------- | :------- | :----------- |
-| 1    | res      | object   | 模型保存结果 |
+| 序号 | 字段名称 | 字段类型     | 字段说明     |
+| :--- | :------- | :----------- | :----------- |
+| 1    | res      | list<object> | 模型保存结果 |
 
 响应示例：
 
