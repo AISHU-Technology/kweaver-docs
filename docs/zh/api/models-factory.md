@@ -10,8 +10,8 @@ GET  /api/model-factory/v1/llm-source
 
 | 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
 | :--- | :------- | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
-| 1    | page     | integer  | query    | 是       | 20   | 页码                                                         |
-| 2    | size     | integer  | query    | 是       | 20   | 每页数量                                                     |
+| 1    | page     | int      | query    | 是       |      | 页码                                                         |
+| 2    | size     | int      | query    | 是       |      | 每页数量                                                     |
 | 3    | order    | string   | query    | 否       | 4    | 默认按从新至旧排序，接受参数为：'desc'（从新到旧），'asc'（从旧到新） |
 | 4    | name     | string   | query    | 否       | 100  | 对LLM进行模糊搜索，不填此参数则返回所有                      |
 | 5    | rule     | string   | query    | 否       | 11   | 默认按照更新时间排序，接受参数为：'update_time'（按LLM更新时间排序），'create_time'（按LLM创建时间排序）,'model_name'（按LLM名称排序）" |
@@ -25,10 +25,10 @@ page=5&size=10&order=desc&name=baichuan-llm&rule=update_time&series=openai
 
 响应参数：
 
-| 序号 | 字段名称 |      | 字段类型 | 字段说明       |
-| :--- | -------- | ---- | :------- | :------------- |
-| 1    | total    |      | int      | 回复信息的个数 |
-| 2    | data     |      | list     | 回复的信息     |
+| 序号 | 字段名称 | 字段类型 | 字段说明       |
+| :--- | -------- | :------- | :------------- |
+| 1    | total    | int      | 回复信息的个数 |
+| 2    | data     | list     | 回复的信息     |
 
 | 序号 | 字段名称     | 字段类型  | 字段说明                   |
 | :--- | ------------ | :-------- | :------------------------- |
@@ -344,9 +344,9 @@ aishu-baichuan：api_base, api_key, api_model
 
 响应参数：
 
-| 序号 | 字段名称 |      | 字段类型 | 字段说明     |
-| :--- | -------- | ---- | :------- | :----------- |
-| 1    | res      |      | boolean  | 模型保存结果 |
+| 序号 | 字段名称 | 字段类型 | 字段说明     |
+| :--- | -------- | :------- | :----------- |
+| 1    | res      | boolean  | 模型保存结果 |
 
 响应示例：
 
@@ -400,9 +400,9 @@ POST  /api/model-factory/v1/llm-remove
 
 响应参数：
 
-| 序号 | 字段名称 |      | 字段类型 | 字段说明     |
-| :--- | -------- | ---- | :------- | :----------- |
-| 1    | res      |      | boolean  | 模型删除结果 |
+| 序号 | 字段名称 | 字段类型 | 字段说明     |
+| :--- | -------- | :------- | :----------- |
+| 1    | res      | boolean  | 模型删除结果 |
 
 响应示例：
 
@@ -586,7 +586,7 @@ POST  /api/model-factory/v1/llm-used/{llm_id}
 | 5    | ai_history        | list     | body     | 否       |      |                                |
 | 6    | top_p             | float    | body     | 否       |      |                                |
 | 7    | temperature       | float    | body     | 否       |      |                                |
-| 8    | max_token         | integer  | body     | 否       |      |                                |
+| 8    | max_token         | int      | body     | 否       |      |                                |
 | 9    | frequency_penalty | float    | body     | 否       |      |                                |
 | 10   | presence_penalty  | float    | body     | 否       |      |                                |
 
@@ -989,8 +989,8 @@ GET  /api/model-factory/v1/prompt-source
 | :--- | :------------------ | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
 | 1    | prompt_item_id      | string   | query    | 否       | 50   | 提示词项目id                                                 |
 | 2    | prompt_item_type_id | string   | query    | 否       | 50   | 提示词项目分类id                                             |
-| 3    | page                | integer  | query    | 是       | 20   | 页码                                                         |
-| 4    | size                | integer  | query    | 是       | 20   | 每页数量                                                     |
+| 3    | page                | int      | query    | 是       |      | 页码                                                         |
+| 4    | size                | int      | query    | 是       |      | 每页数量                                                     |
 | 5    | order               | string   | query    | 否       | 4    | 默认按从新至旧排序，接受参数为：'desc'（从新到旧），'asc'（从旧到新） |
 | 6    | prompt_name         | string   | query    | 否       | 50   | 对提示词进行模糊搜索，不填此参数则返回所有                   |
 | 7    | rule                | string   | query    | 否       | 11   | 默认按照更新时间排序，接受参数为：'update_time'（按提示词更新时间排序），'create_time'（按提示词创建时间排序）,'prompt_name'（按提示词名称排序） |

@@ -11,11 +11,11 @@ GET  /api/eventStats/v1/menu/list
 | 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                               |
 | :--- | :------- | :------- | :------- | :------- | ---- | :----------------------------------------------------- |
 | 1    | pid      | string   | query    | 否       | 20   | 父资源，pid>=0，默认0不使用                            |
-| 2    | isTree   | int      | query    | 是       | 1    | 是否以树形结构返回，1-是，2-否                         |
-| 3    | menuType | int      | query    | 否       | 1    | 1-系统类 2-业务类 3-所有                               |
+| 2    | isTree   | int      | query    | 是       |      | 是否以树形结构返回，1-是，2-否                         |
+| 3    | menuType | int      | query    | 否       |      | 1-系统类 2-业务类 3-所有                               |
 | 4    | key      | string   | query    | 否       | 255  | 模糊查询中英文名称及菜单编码                           |
-| 5    | page     | int      | query    | 是       | 20   | 第几页，page>0                                         |
-| 6    | size     | int      | query    | 是       | 20   | 当前页显示数量，size>0 \| size=-1（size=-1时查询所有） |
+| 5    | page     | int      | query    | 是       |      | 第几页，page>0                                         |
+| 6    | size     | int      | query    | 是       |      | 当前页显示数量，size>0 \| size=-1（size=-1时查询所有） |
 
 请求示例：
 
@@ -223,10 +223,10 @@ POST  /api/eventStats/v1/menu/add
 | 5    | selectedIcon | string   | body     | 否       | 128  | 选中图标                       |
 | 6    | path         | string   | body     | 否       | 128  | 绝对路径                       |
 | 7    | component    | string   | body     | 否       | 255  | 组件路径                       |
-| 8    | menuType     | int      | body     | 是       | 1    | 菜单类型 （1-系统类 2-业务类） |
+| 8    | menuType     | int      | body     | 是       |      | 菜单类型 （1-系统类 2-业务类） |
 | 9    | pid          | string   | body     | 否       | 20   | 父菜单id                       |
-| 10   | sortOrder    | int      | body     | 否       | 6    | 排序数值                       |
-| 11   | visible      | int      | body     | 否       | 1    | 是否显示（0-显示 1-不显示）    |
+| 10   | sortOrder    | int      | body     | 否       |      | 排序数值                       |
+| 11   | visible      | int      | body     | 否       |      | 是否显示（0-显示 1-不显示）    |
 
 请求示例：
 
@@ -299,10 +299,10 @@ POST  /api/eventStats/v1/menu/update
 | 5    | selectedIcon | string   | body     | 否       | 128  | 选中图标                       |
 | 6    | path         | string   | body     | 否       | 128  | 绝对路径                       |
 | 7    | component    | string   | body     | 否       | 255  | 组件路径                       |
-| 8    | menuType     | int      | body     | 是       | 1    | 菜单类型 （1-系统类 2-业务类） |
+| 8    | menuType     | int      | body     | 是       |      | 菜单类型 （1-系统类 2-业务类） |
 | 9    | pid          | string   | body     | 否       | 20   | 父菜单id                       |
-| 10   | sortOrder    | int      | body     | 否       | 6    | 排序数值                       |
-| 11   | visible      | int      | body     | 否       | 1    | 是否显示（0-显示 1-不显示）    |
+| 10   | sortOrder    | int      | body     | 否       |      | 排序数值                       |
+| 11   | visible      | int      | body     | 否       |      | 是否显示（0-显示 1-不显示）    |
 
 请求示例：
 
@@ -425,8 +425,8 @@ GET  /api/eventStats/v1/dict/list
 | 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                              |
 | :--- | -------- | :------- | -------- | -------- | ---- | :---------------------------------------------------- |
 | 1    | key      | string   | query    | 否       | 150  | 模糊查询                                              |
-| 2    | page     | int      | query    | 是       | 20   | 第几页，page>0                                        |
-| 3    | size     | int      | query    | 是       | 20   | 当前页显示数量，size>0 \|size=-1（size=-1时查询所有） |
+| 2    | page     | int      | query    | 是       |      | 第几页，page>0                                        |
+| 3    | size     | int      | query    | 是       |      | 当前页显示数量，size>0 \|size=-1（size=-1时查询所有） |
 
 请求示例：
 
@@ -436,10 +436,10 @@ key=dict&page=1&size=-1
 
 响应参数：
 
-| 序号 | 字段名称 |      | 字段类型     | 字段说明 |
-| :--- | -------- | ---- | :----------- | :------- |
-| 1    | total    |      | int          | 总个数   |
-| 2    | data     |      | list<object> | 具体结果 |
+| 序号 | 字段名称 | 字段类型     | 字段说明 |
+| :--- | -------- | :----------- | :------- |
+| 1    | total    | int          | 总个数   |
+| 2    | data     | list<object> | 具体结果 |
 
 | 序号 | 字段名称   | 字段类型 | 字段说明 |
 | :--- | ---------- | :------- | :------- |
@@ -765,11 +765,11 @@ GET  /api/eventStats/v1/dict/itemList
 
 | 序号 | 字段名称   | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                              |
 | :--- | ---------- | :------- | -------- | -------- | ---- | :---------------------------------------------------- |
-| 1    | fieldType  | int      | query    | 是       | 1    | 1-字典id  2-字典类型                                  |
+| 1    | fieldType  | int      | query    | 是       |      | 1-字典id  2-字典类型                                  |
 | 2    | fieldValue | string   | query    | 是       | 50   | 字典id或字典类型                                      |
 | 3    | key        | string   | query    | 否       | 150  | 模糊查询                                              |
-| 4    | page       | int      | query    | 是       | 20   | 第几页，page>0                                        |
-| 5    | size       | int      | query    | 是       | 20   | 当前页显示数量，size>0 \|size=-1（size=-1时查询所有） |
+| 4    | page       | int      | query    | 是       |      | 第几页，page>0                                        |
+| 5    | size       | int      | query    | 是       |      | 当前页显示数量，size>0 \|size=-1（size=-1时查询所有） |
 
 请求示例：
 
