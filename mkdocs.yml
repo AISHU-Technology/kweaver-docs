@@ -133,32 +133,32 @@ copyright: Copyright &copy; 2023 - 2024 Martin Donath
 nav:
 #  - index.md
   - 简介:
-    - KWeaver介绍: introduction/about_kw.md
-    - 架构介绍: introduction/scenes.md
+    - KWeaver介绍: introduction/about.md
+    - 架构介绍: introduction/framework.md
   - 快速上手&部署文档:
-    - 快速上手: getting_started/lexicons.md
-    - 开发部署简介: getting_started/knowledge_graphs.md
+    - 快速上手: getting_started/quick_start.md
+    - 开发部署简介: getting_started/deploy_introduction.md
     - 部署手册:
-      - 前端开发环境部署: getting_started/knowledge_graphs.md
-      - 后端开发环境部署: deploy/backend_environment.md
-      - docker-compose部署: deploy/docker.md
-      - GPU部署: deploy/docker.md
+      - 前端开发环境: deploy/front_deploy.md
+      - 后端开发环境: deploy/backend_deploy.md
+      - docker-compose: deploy/docker.md
+      - GPU部署: deploy/docker_gpu.md
   - 知识进阶:
     - 知识图谱: advanced/knowledge_graphs.md
-    - 大模型: advanced/lexicons.md
+    - 大模型: advanced/big_models.md
   - API:
     - 模型工厂: api/models-factory.md
     - 知识网络: api/knowledge_graphs.md
     - 系统管理: api/system_management.md
 
   - FAQ:
-    - 前端常见错误处理: faq/knowledge_graphs.md
-    - 后端常见错误处理: faq/lexicons.md
-    - 部署常见错误处理: faq/lexicons.md
-    - 常见问题: faq/common_questions.md
-    - 如何使用KWeaver: faq/common_questions.md
-    - 错误码:
-      - http错误码: error_code/http_code.md
+    - 前端常见问题: faq/front_errors.md
+    - 后端常见问题: faq/backend_errors.md
+    - 部署常见问题: faq/deploy_errors.md
+    - 其他常见问题: faq/other_errors.md
+    - 常见状态码:
+      - http状态码: error_code/http_status_code.md
+      - KWeaver状态码: error_code/kw_status_code.md
   - 附录:
     - 词汇表: appendix/vocabulary.md
     - 版本日志: appendix/version_log.md

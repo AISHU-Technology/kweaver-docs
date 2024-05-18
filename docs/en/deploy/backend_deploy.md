@@ -1,9 +1,34 @@
-# 一、Golang安装
+# 后端部署
+
+## 前提条件
+
+- 已安装Golang环境
+- 已安装Python3环境
+- 已安装MySQL或NebulaGraph数据库
+- 已安装Redis或Redis Cluster
+- 已安装Opensearch
+- 已安装MongoDB
+
+## 准备工作 
+
+- 下载代码
+- 配置数据库
+- 配置Redis
+- 配置Opensearch
+- 配置MongoDB
+- 配置Celery
+- 配置NebulaGraph
+- 配置向量服务
+- 启动服务
+- 启动Celery任务
+
+
+## 一、Golang安装
 安装文档 https://golang.google.cn/doc/install
 
 从https://golang.org/dl/ 或 https://go.dev/dl/ 下载对应操作系统平台指定的版本即可。
 
-## 1、windows 安装
+### 1、windows 安装
 #### 1.1 从官网下载 go1.x.y.windows-amd64.msi ，按照安装向导安装
 
 #### 1.2 添加环境变量
@@ -12,7 +37,7 @@ go env -w GO111MODULE=on
 go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 ```
 
-## 2、Linux 安装
+### 2、Linux 安装
 以下以centos7为例：
 
 #### 2.1 解压
@@ -37,7 +62,8 @@ source $HOME/.profile或/etc/profile
 ```
 go env
 ```
-## 3、Mac 安装
+
+### 3、Mac 安装
 #### 3.1 双击下载的.pkg文件，然后按照向导指示完成安装。
 #### 3.2 配置环境变量
 ```
@@ -56,19 +82,19 @@ mkdir /Users/xxx/go_path
 ```
 source ~/.zshrc
 ```
-# 二、Python安装
+## 二、Python安装
 下载地址：（选择3.9.x版本）
 
 https://www.python.org/downloads
 https://www.python.org/downloads/windows/
 
-## 1、windows 安装
+### 1、windows 安装
 #### 1.1 根据系统位数下载相应的安装包，然后按照向导指示完成安装
 #### 1.2 验证Python版本
 ```
 python -V
 ```
-## 2、Linux 安装
+### 2、Linux 安装
 以下以centos7为例：
 
 centos系统本身默认安装有python2.x，版本x根据不同版本系统有所不同，可通过 python --V 或 python --version 查看系统自带的python版本。
@@ -113,7 +139,7 @@ which pip
 ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
 ln -s /usr/local/python3/bin/pip /usr/bin/pip
 ```
-## 3、Mac 安装
+### 3、Mac 安装
 #### 3.1 根据操作系统相应的安装包，然后按照向导指示完成安装
 #### 3.2 验证Python版本
 ```
