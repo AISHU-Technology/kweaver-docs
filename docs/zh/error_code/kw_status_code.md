@@ -1,4 +1,4 @@
-# KWealth 状态码
+# KWeaver 状态码
 
 ## 全局状态码
 
