@@ -1,30 +1,28 @@
-# docker-compose部署
+# Docker-Compose部署
 
-docker-compose 是 Docker 官方编排（Orchestration）工具，用于定义和运行多容器 Docker 应用。
+Docker-Compose 是 Docker 官方编排（Orchestration）工具，用于定义和运行多容器 Docker 应用。
 
 本文将介绍如何在 Linux、Windows 和 macOS 上安装 docker-compose。
 
-# 准备工作
+## 准备工作
 
 - 安装 Docker 环境
 - 了解 Docker 镜像、容器、仓库概念
 - 了解 Docker Compose 基本概念
 
-# 安装 docker-compose
-
-## 一、windows 安装
+## windows 安装
 ### 1、开启hyper-v
-在控制面板-程序-启动和关闭windows功能窗口
+
+- 在控制面板-程序-启动和关闭windows功能窗口
+
 - 勾选hyper-v及hyper-v管理工具和hyper-v平台
 - 勾选适用于linux的windows子系统和虚拟机平台
+- 重启电脑后在任务管理器中查看虚拟化功能是否已开启
 
-重启电脑后在任务管理器中查看虚拟化功能是否已开启
 ### 2、docker安装
-桌面版下载地址如下：https://dockerdocs.cn/docker-for-windows/install/index.html
-
-下载后直接安装，默认下一步即可，直到安装完成。可以在cmd中，使用docker -v命令判断是否安装成功。
-
-在Docker Desktop的docker Engine中修改docker的镜像下载地址：
+- 桌面版下载地址如下：https://dockerdocs.cn/docker-for-windows/install/index.html
+- 下载后直接安装，默认下一步即可，直到安装完成。可以在cmd中，使用docker -v命令判断是否安装成功。
+- 在Docker Desktop的docker Engine中修改docker的镜像下载地址：
 ```
 {
   "builder": {
@@ -41,10 +39,10 @@ docker-compose 是 Docker 官方编排（Orchestration）工具，用于定义�
   ]
 }
 ```
-可以通过docker info命令查看设置是否生效
+- 可以通过docker info命令查看设置是否生效
 ### 3、docker-compose 安装
 Docker Desktop带有docker-compose，不用另外安装
-## 二、linux 安装
+## linux 安装
 以下以centos7为例：
 ### 1、使用 root 权限更新 yum 包
 ```
@@ -110,7 +108,7 @@ chmod +x /usr/local/bin/docker-compose
 #查看是否安装成功
 docker-compose -version
 ```
-## 三、mac 安装
+## mac 安装
 ### 1、docker 安装
 （1）Homebrew  的 Cask 已经支持 Docker for Mac，因此可以很方便的使用 Homebrew Cask 来进行安装：
 ```

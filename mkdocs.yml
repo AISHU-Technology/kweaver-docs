@@ -141,7 +141,7 @@ nav:
     - 部署手册:
       - 前端开发环境: deploy/front_deploy.md
       - 后端开发环境: deploy/backend_deploy.md
-      - docker-compose: deploy/docker_compose.md
+      - Docker-Compose: deploy/docker_compose.md
       - GPU部署: deploy/docker_gpu.md
   - 知识进阶:
     - 知识图谱: advanced/knowledge_graphs.md
