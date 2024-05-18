@@ -2,7 +2,7 @@
 
 Docker-Compose 是 Docker 官方编排（Orchestration）工具，用于定义和运行多容器 Docker 应用。
 
-本文将介绍如何在 Linux、Windows 和 macOS 上安装 docker-compose。
+本文将介绍如何在 Linux、Windows 和 macOS 上安装 Docker和Docker-Compose。
 
 ## 准备工作
 
