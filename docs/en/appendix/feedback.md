@@ -11,7 +11,7 @@ KWeaver 项目是一个开源项目，欢迎您参与到 KWeaver 项目的开发
 - 欢迎加入 KWeaver 社区，共同推进 KWeaver 项目的发展。
 - 欢迎访问 KWeaver 项目主页 [github.com/AISHU-Technology/kweaver](https://github.com/AISHU-Technology/kweaver)。
 - 欢迎访问 KWeaver 文档中心 [docs.kweaver.ai](https://docs.kweaver.ai)。
-- 欢迎加入 KWeaver 开发者交流群，与 KWeaver 开发者进行技术交流。
+- 欢迎加入 KWeaver 开发者社区交流群，与 KWeaver 开发者进行技术交流。
 
 
 ![KWeaver 社区微信群二维码](../../images/wx_qr_code.png)
