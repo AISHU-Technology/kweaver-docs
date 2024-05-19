@@ -145,7 +145,7 @@ ln -s /usr/local/python3/bin/pip /usr/bin/pip
 ```
 python3 -V
 ```
-# 三、环境变量配置
+## 三、环境变量配置
 ```
 CELERY_CONCURRENCY=4
 

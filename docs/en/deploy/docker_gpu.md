@@ -57,7 +57,7 @@ services:
 
 然后，在命令行中执行 `docker-compose up -d` 启动服务。
 
-### k8s 部署GPU
+### K8S 部署GPU
 
 如果您使用 k8s 部署，则可以在 k8s 的 yaml 文件中增加以下内容：
 

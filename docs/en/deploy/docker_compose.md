@@ -178,7 +178,7 @@ docker-compose down
 ```
 
 
-# 参考资料
+## 参考资料
 - [docker-compose 官方文档](https://docs.docker.com/compose/)
 - [docker-compose 安装指南](https://docs.docker.com/compose/install/)
 - [docker-compose 常用命令](https://docs.docker.com/compose/reference/overview/)

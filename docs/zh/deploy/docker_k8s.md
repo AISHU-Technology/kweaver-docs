@@ -65,7 +65,7 @@ k8s 部署应用主要有三种方式：
 - Helm：通过 Helm Charts 定义应用，然后通过 Helm 命令行安装应用。
 
 
-## 参考
+## 参考资料
 
 - [kubernetes 官方文档](https://kubernetes.io/docs/home/)
 - [k8s 架构](https://kubernetes.io/docs/concepts/architecture/)
@@ -109,42 +109,49 @@ k8s 部署应用主要有三种方式：
 - [k8s 集群扩展](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/)
 
 
-## 后续
+## 后续更多
 
 k8s 是一个复杂的系统，本文只是介绍了 k8s 的一些基本概念和安装方法，后续还会介绍 k8s 的各个组件的功能和用法，敬请期待。
 
+
 k8s + Istio 是一个很好的组合，可以实现微服务架构的部署、服务治理、流量管理、安全防护等。
-k8s + Istio 参考架构：[https://istio.io/latest/docs/ops/deployment/architecture/](https://istio.io/latest/docs/ops/deployment/architecture/)
-k8s + Istio 部署：[https://istio.io/latest/docs/setup/getting-started/](https://istio.io/latest/docs/setup/getting-started/)
-k8s 智能路由：[https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/](https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/)
-k8s + Traefik 参考架构：[https://traefik.io/blog/traefik-2-0-released/](https://traefik.io/blog/traefik-2-0-released/)
-k8s + Traefik 部署：[https://traefik.io/docs/v2.0/getting-started/install-traefik/](https://traefik.io/docs/v2.0/getting-started/install-traefik/)
-k8s + Prometheus 参考架构：[https://prometheus.io/docs/introduction/overview/](https://prometheus.io/docs/introduction/overview/)
-k8s + Prometheus 部署：[https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
-k8s + Grafana 参考架构：[https://grafana.com/docs/grafana/latest/installation/](https://grafana.com/docs/grafana/latest/installation/)
-k8s + Grafana 部署：[https://grafana.com/docs/grafana/latest/installation/docker/](https://grafana.com/docs/grafana/latest/installation/docker/)
-k8s + Elasticsearch 参考架构：[https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
-k8s + Elasticsearch 部署：[https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
-k8s + Fluentd 参考架构：[https://www.fluentd.org/architecture](https://www.fluentd.org/architecture)
-k8s + Fluentd 部署：[https://docs.fluentd.org/v1.0/articles/quickstart](https://docs.fluentd.org/v1.0/articles/quickstart)
-k8s + Kibana 参考架构：[https://www.elastic.co/guide/en/kibana/current/index.html](https://www.elastic.co/guide/en/kibana/current/index.html)
-k8s + Kibana 部署：[https://www.elastic.co/guide/en/kibana/current/docker.html](https://www.elastic.co/guide/en/kibana/current/docker.html)
-k8s + NFS 参考架构：[https://kubernetes.io/docs/concepts/storage/volumes/#nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs)
-k8s + NFS 部署：[https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
-k8s + Calico 参考架构：[https://docs.projectcalico.org/getting-started/kubernetes/requirements](https://docs.projectcalico.org/getting-started/kubernetes/requirements)
-k8s + Calico 部署：[https://docs.projectcalico.org/getting-started/kubernetes/installation/calico](https://docs.projectcalico.org/getting-started/kubernetes/installation/calico)
-k8s + Weave Net 参考架构：[https://www.weave.works/docs/net/latest/kubernetes/kube-addon/](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/)
-k8s + Weave Net 部署：[https://www.weave.works/docs/net/latest/kubernetes/kube-addon/](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/)
-k8s + Rook 参考架构：[https://rook.io/docs/rook/v1.6/ceph-cluster-crd.html](https://rook.io/docs/rook/v1.6/ceph-cluster-crd.html)
-k8s + Rook 部署：[https://rook.io/docs/rook/v1.6/ceph-quickstart.html](https://rook.io/docs/rook/v1.6/ceph-quickstart.html)
-k8s + Kubeflow 参考架构：[https://www.kubeflow.org/docs/started/k8s/overview/](https://www.kubeflow.org/docs/started/k8s/overview/)
-k8s + Kubeflow 部署：[https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/](https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/)
-k8s + Knative 参考架构：[https://knative.dev/docs/install/](https://knative.dev/docs/install/)
-k8s + Knative 部署：[https://knative.dev/docs/install/knative-with-minikube/](https://knative.dev/docs/install/knative-with-minikube/)
-k8s + Kubespray 参考架构：[https://kubespray.io/](https://kubespray.io/)
-k8s + Kubespray 部署：[https://kubespray.io/getting-started/](https://kubespray.io/getting-started/)
+
+
+- [istio 介绍](https://istio.io/latest/docs/concepts/what-is-istio/)
+- [istio 功能](https://istio.io/latest/docs/concepts/traffic-management/)
+- k8s + Istio 参考架构：[https://istio.io/latest/docs/ops/deployment/architecture/](https://istio.io/latest/docs/ops/deployment/architecture/)
+- k8s + Istio 部署：[https://istio.io/latest/docs/setup/getting-started/](https://istio.io/latest/docs/setup/getting-started/)
+- k8s 智能路由：[https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/](https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/)
+- k8s + Traefik 参考架构：[https://traefik.io/blog/traefik-2-0-released/](https://traefik.io/blog/traefik-2-0-released/)
+- k8s + Traefik 部署：[https://traefik.io/docs/v2.0/getting-started/install-traefik/](https://traefik.io/docs/v2.0/getting-started/install-traefik/)
+- k8s + Prometheus 参考架构：[https://prometheus.io/docs/introduction/overview/](https://prometheus.io/docs/introduction/overview/)
+- k8s + Prometheus 部署：[https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
+- k8s + Grafana 参考架构：[https://grafana.com/docs/grafana/latest/installation/](https://grafana.com/docs/grafana/latest/installation/)
+- k8s + Grafana 部署：[https://grafana.com/docs/grafana/latest/installation/docker/](https://grafana.com/docs/grafana/latest/installation/docker/)
+- k8s + Elasticsearch 参考架构：[https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
+- k8s + Elasticsearch 部署：[https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
+- k8s + Fluentd 参考架构：[https://www.fluentd.org/architecture](https://www.fluentd.org/architecture)
+- k8s + Fluentd 部署：[https://docs.fluentd.org/v1.0/articles/quickstart](https://docs.fluentd.org/v1.0/articles/quickstart)
+- k8s + Kibana 参考架构：[https://www.elastic.co/guide/en/kibana/current/index.html](https://www.elastic.co/guide/en/kibana/current/index.html)
+- k8s + Kibana 部署：[https://www.elastic.co/guide/en/kibana/current/docker.html](https://www.elastic.co/guide/en/kibana/current/docker.html)
+- k8s + NFS 参考架构：[https://kubernetes.io/docs/concepts/storage/volumes/#nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs)
+- k8s + NFS 部署：[https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume)
+- k8s + Calico 参考架构：[https://docs.projectcalico.org/getting-started/kubernetes/requirements](https://docs.projectcalico.org/getting-started/kubernetes/requirements)
+- k8s + Calico 部署：[https://docs.projectcalico.org/getting-started/kubernetes/installation/calico](https://docs.projectcalico.org/getting-started/kubernetes/installation/calico)
+- k8s + Weave Net 参考架构：[https://www.weave.works/docs/net/latest/kubernetes/kube-addon/](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/)
+- k8s + Weave Net 部署：[https://www.weave.works/docs/net/latest/kubernetes/kube-addon/](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/)
+- k8s + Rook 参考架构：[https://rook.io/docs/rook/v1.6/ceph-cluster-crd.html](https://rook.io/docs/rook/v1.6/ceph-cluster-crd.html)
+- k8s + Rook 部署：[https://rook.io/docs/rook/v1.6/ceph-quickstart.html](https://rook.io/docs/rook/v1.6/ceph-quickstart.html)
+- k8s + Kubeflow 参考架构：[https://www.kubeflow.org/docs/started/k8s/overview/](https://www.kubeflow.org/docs/started/k8s/overview/)
+- k8s + Kubeflow 部署：[https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/](https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/)
+- k8s + Knative 参考架构：[https://knative.dev/docs/install/](https://knative.dev/docs/install/)
+- k8s + Knative 部署：[https://knative.dev/docs/install/knative-with-minikube/](https://knative.dev/docs/install/knative-with-minikube/)
+- k8s + Kubespray 参考架构：[https://kubespray.io/](https://kubespray.io/)
+- k8s + Kubespray 部署：[https://kubespray.io/getting-started/](https://kubespray.io/getting-started/)
+
 
 另外，k8s 还有很多其他的功能，比如：
+
 
 - 集群自动伸缩：通过 HPA（Horizontal Pod Autoscaling）可以根据集群的负载自动扩展 Pod 数量。
 - 集群升级：通过滚动升级（Rolling Update）可以逐步升级集群中的节点。
