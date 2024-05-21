@@ -24,7 +24,7 @@ docker build -t kweaverai/kw-models-m3e:v0.2.0-arm64:gpu-latest -f Dockerfile  .
 #### 1. 启动容器
 
 ```
-nvidia-docker run -p 9897:9897 --runtime=nvidia -v $PWD/serving_model:/models paddleserving/serving:gpu-latest
+nvidia-docker run -p 9897:9897 --runtime=nvidia -v $PWD/serving_model:/models kweaverai/kw-models-m3e:gpu-latest
 ```
 
 其中，`-p 9897:9897` 将容器的 9292 端口映射到主机的 9292 端口，`-v $PWD/serving_model:/models` 将当前目录下的 `serving_model` 目录挂载到容器的 `/models` 目录，这样容器内的模型文件可以被访问到。
