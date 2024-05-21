@@ -336,7 +336,7 @@ gzip_min_length 4k; # 小于4k的文件不会被压缩，大于4k的文件才会
 gzip_buffers 16 8k; # 处理请求压缩的缓冲区数量和大小，比如8k为单位申请16倍内存空间；使用默认即可，不用修改
 gzip_http_version 1.1; # 早期版本http不支持，指定默认兼容，不用修改
 gzip_comp_level 2; # gzip 压缩级别，1-9，理论上数字越大压缩的越好，也越占用CPU时间。实际上超过2的再压缩，只能压缩一点点了，但是cpu确是有点浪费。因为2就够用了
-# 压缩的文件类型 MIME类型，百度一下，一大把                                    # css             # xml             # 识别php     # 图片
+# 压缩的文件类型 MIME类型
 gzip_types text/plain application/x-javascript application/javascript text/javascript text/css application/xml application/x-httpd-php image/jpeg image/gif image/png application/vnd.ms-fontobject font/x-woff font/ttf;# text、早期js、js、js的另一种写法、css、xml、php、jpeg、gif、png、woff字体、ttf字体
 gzip_vary on; # 是否在http header中添加Vary: Accept-Encoding，一般情况下建议开启
 
