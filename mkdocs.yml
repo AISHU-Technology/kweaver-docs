@@ -153,10 +153,10 @@ nav:
     - 系统管理: api/system_management.md
 
   - FAQ:
-    - 前端常见问题: faq/front_errors.md
-    - 后端常见问题: faq/backend_errors.md
-    - 部署常见问题: faq/deploy_errors.md
-    - 其他常见问题: faq/other_errors.md
+    - 前端问题集锦: faq/front_errors.md
+    - 后端问题集锦: faq/backend_errors.md
+    - 部署问题集锦: faq/deploy_errors.md
+    - 其他问题集锦: faq/other_errors.md
     - 常见状态码:
       - http状态码: error_code/http_status_code.md
       - KWeaver状态码: error_code/kw_status_code.md
