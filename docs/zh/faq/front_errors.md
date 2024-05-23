@@ -4,6 +4,7 @@
 - [前端缓存的作用](#_2)
 - [SEO的作用](#seo)
 - [页面性能优化](#_4)
+- [前端localStorage、sessionStorage、cookie使用场景](#localstoragesessionstoragecookie)
 - [React性能优化](#react)
 - [前端抓包分析](#_5)
 - [其他问题](#_6)
@@ -321,13 +322,188 @@ export default App;
 
 ## 页面的性能优化有哪些方法？
 
-- 减少HTTP请求：减少HTTP请求可以减少页面加载时间，提高页面的加载速度。
-- 压缩JavaScript、CSS、图片：压缩JavaScript、CSS、图片可以减少文件体积，加快页面的加载速度。
-- 优化CSS选择器：优化CSS选择器可以减少页面的渲染时间，提高页面的加载速度。
-- 优化图片格式：优化图片格式可以减少图片的体积，加快页面的加载速度。
-- 优化HTML结构：优化HTML结构可以减少DOM元素数量，减少页面的渲染时间，提高页面的加载速度。
-- 优化JavaScript代码：优化JavaScript代码可以减少页面的渲染时间，提高页面的加载速度。
-- 优化服务器响应：优化服务器响应可以减少服务器的负载，提高页面的加载速度。
+- 减少HTTP请求：减少HTTP请求可以减少页面加载时间，提高页面的加载速度。例如：合并CSS、JavaScript、图片，压缩HTML、CSS、JavaScript，使用CDN等。
+- 减少DOM元素数量：减少DOM元素数量可以减少页面的渲染时间，提高页面的加载速度。例如：减少DOM操作，使用虚拟DOM等。
+- 减少JavaScript执行时间：减少JavaScript执行时间可以减少页面的渲染时间，提高页面的加载速度。例如：使用Web Worker，异步加载等。
+- 优化CSS样式：优化CSS样式可以减少页面的渲染时间，提高页面的加载速度。例如：使用CSS Sprites，CSS雪碧图，CSS动画，CSS Media Query等。
+- 优化图片：优化图片可以减少页面的渲染时间，提高页面的加载速度。例如：压缩图片，使用WebP格式等。
+- 优化服务器响应：优化服务器响应可以减少服务器的负载，提高页面的加载速度。例如：压缩HTTP响应，使用CDN等。
+- 优化服务器配置：优化服务器配置可以减少服务器的负载，提高页面的加载速度。例如：配置Etag，配置Gzip，配置缓存等。
+- 优化数据库查询：优化数据库查询可以减少服务器的负载，提高页面的加载速度。例如：使用缓存，使用索引，使用预加载等。
+- 优化服务器硬件：优化服务器硬件可以减少服务器的负载，提高页面的加载速度。例如：使用SSD硬盘，使用更快的CPU，使用更大的内存等。
+- 优化网络连接：优化网络连接可以减少服务器的负载，提高页面的加载速度。例如：使用CDN，使用更快的网络等。
+- 优化DNS解析：优化DNS解析可以减少服务器的负载，提高页面的加载速度。例如：使用DNS预解析，使用HTTP/2等。
+- 优化浏览器缓存：优化浏览器缓存可以减少服务器的负载，提高页面的加载速度。例如：使用浏览器缓存，使用本地缓存等。
+- 优化浏览器插件：优化浏览器插件可以减少服务器的负载，提高页面的加载速度。例如：禁用Flash，禁用Java等。
+- 优化服务器软件：优化服务器软件可以减少服务器的负载，提高页面的加载速度。例如：使用Nginx，使用Apache等。
+- 优化服务器架构：优化服务器架构可以减少服务器的负载，提高页面的加载速度。例如：使用负载均衡，使用集群等。
+- 压缩JavaScript、CSS、图片：压缩JavaScript、CSS、图片可以减少文件体积，加快页面的加载速度。例如：gzip压缩，brotli压缩等。
+- 优化CSS选择器：优化CSS选择器可以减少页面的渲染时间，提高页面的加载速度。例如：使用ID选择器，避免使用通用选择器等。
+- 优化字体文件：优化字体文件可以减少页面的渲染时间，提高页面的加载速度。例如：使用WOFF、WOFF2格式等。
+- 优化Web字体：优化Web字体可以减少页面的渲染时间，提高页面的加载速度。例如：使用字体压缩，使用字体内嵌等。
+- 优化HTML结构：优化HTML结构可以减少DOM元素数量，减少页面的渲染时间，提高页面的加载速度。例如：使用语义化标签，减少无用标签等。
+- 优化JavaScript事件：优化JavaScript事件可以减少页面的渲染时间，提高页面的加载速度。例如：使用事件委托，避免使用多次绑定事件等。
+- 优化浏览器渲染：优化浏览器渲染可以减少页面的渲染时间，提高页面的加载速度。例如：使用WebGL，CSS3动画，使用硬件加速等。
+- 优化JavaScript代码：优化JavaScript代码可以减少页面的渲染时间，提高页面的加载速度。例如：使用压缩代码，使用缓存等。
+- 使用CDN：使用CDN可以提高页面的加载速度，降低服务器的负载。
+- 缓存：缓存可以减少服务器的负载，提高页面的加载速度。
+- 预加载：预加载可以提高页面的加载速度，降低服务器的负载。
+- 异步加载：异步加载可以提高页面的加载速度，降低服务器的负载。例如：懒加载，按需加载等。
+- 避免重定向：避免重定向可以提高页面的加载速度，降低服务器的负载。例如：使用HTML5 History API，使用HTTP缓存等。
+- 避免空闲连接：避免空闲连接可以减少服务器的负载，提高页面的加载速度。例如：使用keep-alive连接，使用长连接等。
+- 压缩HTML：压缩HTML可以减少页面的加载时间，提高页面的加载速度。例如：gzip压缩，brotli压缩等。
+- 压缩HTTP响应：压缩HTTP响应可以减少页面的加载时间，提高页面的加载速度。例如：gzip压缩，brotli压缩等。
+- 避免使用iframe：避免使用iframe可以减少页面的渲染时间，提高页面的加载速度。例如：使用CSS3动画，使用WebGL等。
+- 避免使用CSS表达式：避免使用CSS表达式可以减少页面的渲染时间，提高页面的加载速度。例如：background-image: url('expression(this.src="https://example.com/image.png?v=" + this.value)');
+- 避免使用CSS导入：避免使用CSS导入可以减少页面的渲染时间，提高页面的加载速度。例如：@import url('https://example.com/style.css');
+- 避免使用JavaScript框架：避免使用JavaScript框架可以减少页面的渲染时间，提高页面的加载速度。例如：jQuery、AngularJS、ReactJS、VueJS等。
+- 避免使用CSS框架：避免使用CSS框架可以减少页面的渲染时间，提高页面的加载速度。例如：Bootstrap、Material UI等。
+- 避免使用CSS预处理器：避免使用CSS预处理器可以减少页面的渲染时间，提高页面的加载速度。例如：Sass、Less、Stylus等。
+- 避免使用JavaScript模板：避免使用JavaScript模板可以减少页面的渲染时间，提高页面的加载速度。例如：Handlebars、Mustache等。
+
+## 前端localStorage、sessionStorage、cookie使用场景？
+
+- localStorage、sessionStorage、cookie的作用
+
+```
+1. localStorage：localStorage是HTML5新增的本地存储，可以将数据存储在本地，除非主动删除，否则数据在浏览器关闭后依然存在。
+2. sessionStorage：sessionStorage和localStorage类似，也是在浏览器端存储数据，但生命周期与页面会话相同，页面关闭后数据也会被清除。
+3. cookie：cookie是服务器发送到用户浏览器并保存在本地的小数据块，它会在同一浏览器上所有同域请求中携带，用于保存用户的相关信息。
+```
+
+
+- localStorage、sessionStorage、cookie的区别
+
+```
+1. 生命周期：localStorage和sessionStorage的生命周期长于cookie，除非被清除，否则一直存在。cookie的生命周期与设置的过期时间有关。
+2. 存储大小：localStorage和sessionStorage的存储容量更大，可以存储更多数据。cookie的大小限制是4KB。
+3. 安全性：localStorage和sessionStorage在客户端，不安全，可能会被窃取、篡改。cookie在客户端，安全，不会被窃取、篡改。
+4. 访问权限：localStorage和sessionStorage只能由同源的文档共享，而cookie可以在不同源的文档间共享。
+5. 存储位置：localStorage和sessionStorage存储在本地，cookie存储在服务器。
+```
+
+- 如何使用localStorage、sessionStorage、cookie？
+
+```
+1. localStorage、sessionStorage、cookie的使用方法
+
+localStorage.setItem('key', 'value'); // 设置localStorage
+sessionStorage.setItem('key', 'value'); // 设置sessionStorage
+document.cookie = 'key=value'; // 设置cookie
+
+2. localStorage、sessionStorage、cookie的读取方法
+
+localStorage.getItem('key'); // 读取localStorage
+sessionStorage.getItem('key'); // 读取sessionStorage
+document.cookie.split('; ').find(row => row.startsWith('key=')).split('=')[1]; // 读取cookie
+
+3. localStorage、sessionStorage、cookie的删除方法
+
+localStorage.removeItem('key'); // 删除localStorage
+sessionStorage.removeItem('key'); // 删除sessionStorage
+document.cookie = 'key=;expires=' + new Date(0).toUTCString(); // 删除cookie
+```
+
+- React中如何使用localStorage、sessionStorage、cookie？
+
+```
+1. 在React组件中使用localStorage、sessionStorage、cookie：
+
+import React, { useState, useEffect } from "react";
+
+function App() {
+  const [name, setName] = useState(localStorage.getItem("name") || "");
+
+  useEffect(() => {
+    localStorage.setItem("name", name);
+  }, [name]);
+
+  return (
+    <div>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+    </div>
+  );
+}
+
+2. 在React组件中使用cookie：
+
+import React, { useState, useEffect } from "react";
+
+function App() {
+  const [name, setName] = useState(
+    document.cookie.split("; ").find((row) => row.startsWith("name="))
+     ?.split("=")[1] || ""
+  );
+
+  useEffect(() => {
+    document.cookie = `name=${name}`;
+  }, [name]);
+
+  return (
+    <div>
+      <input value={name} onChange={(e) => setName(e.target.value)} />
+    </div>
+  );
+}
+```
+
+- Vue 如何使用localStorage、sessionStorage、cookie？
+
+```
+1. 在Vue组件中使用localStorage、sessionStorage、cookie：
+
+<template>
+  <div>
+    <input v-model="name" />
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: localStorage.getItem("name") || "",
+    };
+  },
+  watch: {
+    name: {
+      handler(newValue) {
+        localStorage.setItem("name", newValue);
+      },
+      deep: true,
+    },
+  },
+};
+</script>
+
+2. 在Vue组件中使用cookie：
+
+<template>
+  <div>
+    <input v-model="name" />
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: document.cookie.split("; ").find((row) => row.startsWith("name="))
+       ?.split("=")[1] || "",
+    };
+  },
+  watch: {
+    name: {
+      handler(newValue) {
+        document.cookie = `name=${newValue}`;
+      },
+      deep: true,
+    },
+  },
+};
+</script>
+```
+
 
 ## React 性能优化有哪些方法？
 
