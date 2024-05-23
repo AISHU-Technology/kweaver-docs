@@ -1,6 +1,6 @@
 # 后端常见问题集锦
 
-## 内容列表
+## 集锦列表
 - [GoLang 常见问题](#golang)
 - [GoLang 性能优化](#golang_1)
 - [Python 常见问题](#python)
