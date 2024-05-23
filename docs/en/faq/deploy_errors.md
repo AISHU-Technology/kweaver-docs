@@ -335,7 +335,7 @@ python3 -c "import torch; print(torch.rand(5, 3))"
 
 ## nginx 常见问题
 
-### nginx gzip压缩配置？
+### nginx 动态压缩配置？
 
 ```
 gzip on; # 开启gzip压缩

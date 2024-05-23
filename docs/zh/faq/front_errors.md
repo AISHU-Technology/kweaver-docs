@@ -47,9 +47,21 @@ React框架中按需加载是指在应用中只加载当前需要的组件，而
 
 ```
 const OtherComponent = React.lazy(() => import('./OtherComponent'));
-使用动态 import() 语法实现代码分割，按需加载功能模块。这样可以将应用分块，只在用户需要时加载对应的代码。
-懒加载：在 SPA 中，懒加载优化一般用于从一个路由跳转到另一个路由，或者展示用户操作后才显示的复杂组件（如弹窗模块）。结合 Webpack 的动态导入和 React.lazy 方法来实现懒加载。
-懒渲染：只在组件进入或即将进入可视区域时才渲染组件。常见的场景包括页面中出现多次的组件、或者需要用户操作后才展示的组件。使用 react-visibility-observer 监听组件是否出现在可视区域内。
+1. 在组件中使用React.lazy()方法来动态导入组件。使用动态 import() 语法实现代码分割，按需加载功能模块。这样可以将应用分块，只在用户需要时加载对应的代码。
+2. 懒加载：懒加载优化一般用于从一个路由跳转到另一个路由，或者展示用户操作后才显示的复杂组件（如弹窗模块）; 
+   a. 结合 Webpack 的动态导入和 React.lazy 方法来实现懒加载。
+   b. 在组件中使用Suspense组件来渲染加载中的状态, Suspense组件可以渲染加载中的状态，直到组件加载完成; 结合React.lazy和Suspense组件来实现懒加载。
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <OtherComponent />
+    </React.Suspense>
+3. 懒渲染：只在组件进入或即将进入可视区域时才渲染组件。常见的场景包括页面中出现多次的组件、或者需要用户操作后才展示的组件。
+   a.使用 react-visibility-observer 监听组件是否出现在可视区域内。
+   b. 使用React.memo来对纯函数组件进行优化，避免传递相同的props时触发不必要的渲染。
+   c. 使用React.lazy和React.Suspense来实现懒加载，延迟加载组件，减少首屏渲染时间。
+   d. 使用IntersectionObserver API来监听组件是否出现在可视区域内，减少不必要的渲染。
+4. 代码拆分：代码拆分是指将代码分割成多个文件，从而减少应用的初始加载时间。
+   a. 使用Webpack的SplitChunksPlugin插件将公共模块提取到单独的chunk中。
+   b. 使用Webpack的AggressiveSplittingPlugin插件将模块分割成多个块，并将块按需加载。
 ```
 
 - React框架中如何对组件进行性能优化？
@@ -166,6 +178,25 @@ new CompressionPlugin({
 8.使用React-Router-Dom的Prompt组件来处理路由跳转确认。
 9.使用React-Router-Dom的useSearchParams组件来处理查询参数。
 ```
+
+- React 状态管理性能优化？
+
+```
+1.使用React-Redux的 useSelector、useDispatch等hooks来获取状态和更新状态、避免不必要的渲染、缓存计算结果、传递相同的props、传递函数、传递大对象、传递可变对象、传递过多的props、传递过多的state、传递过多的依赖。
+2.使用React-Redux的 connect、Provider等组件来实现状态管理。
+3.使用React-Redux的 useSelector、useDispatch等hooks来避免不必要的事件绑定、事件冒泡、事件捕获、事件委托。
+```
+
+- React 异步编程性能优化？
+
+```
+1.使用React的Suspense组件来实现异步组件的懒加载。
+2.使用React的useCallback、useMemo等hooks来避免不必要的渲染、缓存计算结果、传递相同的props、传递函数、传递大对象、传递可变对象、传递过多的props、传递过多的state、传递过多的依赖。
+3.使用React的 useCallback、useMemo等hooks来避免不必要的事件绑定、事件冒泡、事件捕获、事件委托。
+4.使用React的useRef、useImperativeHandle等hooks来避免不必要的渲染。
+```
+
+1.使用React的useCallback、useMemo等hooks来避免不必要的渲染、缓存计算结果、传递相同的props、传递函数、传递大对象、传递可变对象、传递过多的props、传递过多的state、传递过多的依赖。
 
 ## 如何查看前端错误日志？ 
 
