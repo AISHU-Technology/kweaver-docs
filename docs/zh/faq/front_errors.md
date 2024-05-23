@@ -15,16 +15,11 @@
 
 HTTP缓存机制是指浏览器和服务器之间缓存资源副本，以便下次请求时可以直接使用缓存的副本，而无需再次向服务器请求。HTTP缓存机制的作用是减少网络请求，提高页面加载速度。当浏览器向服务器请求某个资源时，如果该资源在缓存中，则直接从缓存中获取，不再向服务器请求，这样可以大大提高页面加载速度。但是，如果缓存过期，则需要向服务器请求该资源，这样才能获取最新的资源。因此，HTTP缓存机制的有效期可以用来指定缓存的有效期，以防止缓存过期,从而减少网络请求，提高页面加载速度。
 ```
-HTTP缓存机制中，可以通过指定过期时间来控制缓存的有效期。在HTTP响应中，可以使用以下两个首部字段来指定过期时间：
-
+1. HTTP缓存机制中，可以通过指定过期时间来控制缓存的有效期。在HTTP响应中，可以使用以下两个首部字段来指定过期时间：
 - Cache-Control：用于指定缓存的有效期，单位为秒。
 - Expires：用于指定缓存的到期时间，格式为GMT格式的日期。
-
-Cache-Control优先级高于Expires，如果同时指定了这两个首部字段，则Cache-Control的设置将生效。
-
-例如，设置Cache-Control为31536000秒，表示缓存的有效期为1年：
-
-Cache-Control: max-age=31536000
+2. Cache-Control优先级高于Expires，如果同时指定了这两个首部字段，则Cache-Control的设置将生效。
+例如: 设置Cache-Control为31536000秒，表示缓存的有效期为1年： Cache-Control: max-age=31536000
 ```
 
 -  前端页面的缓存有什么作用？
@@ -515,10 +510,10 @@ new CompressionPlugin({
 ```
 - 抓包工具的选择建议？
 ```
-1.对于初级用户，建议使用Wireshark，它是开源的、功能强大的抓包工具，可以抓取HTTP、HTTPS、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包。
-2.对于高级用户，建议使用Fiddler，它是一款功能强大的抓包工具，可以抓取HTTP、HTTPS、WebSocket、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包，并且可以自定义规则。
-3.对于专业用户，建议使用Charles，它是一款功能强大的抓包工具，可以抓取HTTP、HTTPS、WebSocket、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包，并且可以自定义规则。
-4.对于抓包分析人员，建议使用Wireshark，它是开源的、功能强大的抓包工具，可以抓取HTTP、HTTPS、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包，并且可以自定义规则。
+1. 对于初级用户，建议使用Wireshark，它是开源的、功能强大的抓包工具，可以抓取HTTP、HTTPS、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包。
+2. 对于高级用户，建议使用Fiddler，它是一款功能强大的抓包工具，可以抓取HTTP、HTTPS、WebSocket、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包，并且可以自定义规则。
+3. 对于专业用户，建议使用Charles，它是一款功能强大的抓包工具，可以抓取HTTP、HTTPS、WebSocket、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包，并且可以自定义规则。
+4. 对于抓包分析人员，建议使用Wireshark，它是开源的、功能强大的抓包工具，可以抓取HTTP、HTTPS、FTP、SMTP、POP3、IMAP、RTSP、RTMP、SSH、Telnet等协议的数据包，并且可以自定义规则。
 ```
 
 ## 其他问题
