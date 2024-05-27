@@ -4,6 +4,7 @@ site_description: 价值驱动，认知智能走向开源共创
 
 theme:
     name: material
+    custom_dir: overrides
     palette:
         - scheme: default
           primary: indigo
@@ -106,6 +107,7 @@ extra_javascript:
 #  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - assets/tex-mml-chtml.js
   - assets/baidu-tongji.js
+  - assets//busuanzi.pure.mini.js
 extra_css:
   - assets/extra.css
 
@@ -147,6 +149,7 @@ nav:
   - 知识进阶:
     - 知识图谱: advanced/knowledge_graphs.md
     - 大模型知识: advanced/big_models.md
+    - Agent知识: advanced/agents.md
   - API:
     - 模型工厂: api/models-factory.md
     - 知识网络: api/knowledge_graphs.md

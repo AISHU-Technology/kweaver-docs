@@ -88,6 +88,148 @@ k8s 部署应用主要有三种方式：
 - YAML 文件：通过 YAML 文件定义应用，然后通过 kubectl 命令行创建应用。
 - Helm：通过 Helm Charts 定义应用，然后通过 Helm 命令行安装应用。
 
+## 网络配置kube-proxy 与 EndpointSlices 功能介绍
+
+k8s 集群中存在着多个节点，每个节点上都有多个容器，当容器之间需要通信时，kube-proxy 会根据 Service 的配置，通过 iptables 规则实现流量转发。但是，在 k8s 集群中，Service 的 IP 地址并不是固定的，而是由 k8s 自动分配的，因此，kube-proxy 无法区分不同 Service 之间的流量。
+
+为了解决这个问题，k8s 提供了一种机制，即 EndpointSlices，它可以让 Service 的 IP 地址固定下来，并通过 EndpointSlices 资源记录 Service 的网络信息，这样就可以让 kube-proxy 进行流量转发。
+
+### 查看服务器的iptables规则
+
+```
+iptables -L -n
+```
+
+如果看到如下输出，说明iptables规则中没有KUBE-SERVICES规则：
+
+```
+Chain KUBE-SERVICES (2 references)
+target     prot opt source               destination
+```
+
+解决方案：
+
+- 升级k8s到1.21或以上版本。
+- 开启kube-proxy的ipvs模式：
+
+```
+--proxy-mode=ipvs
+```
+
+- 重启kube-proxy：
+
+```
+systemctl restart kube-proxy
+```
+
+- 验证kube-proxy的ipvs模式：
+
+```
+kubectl get configmap kube-proxy -n kube-system -o yaml | grep proxyMode
+```
+
+如果看到如下输出，说明kube-proxy的ipvs模式开启成功：
+
+```
+proxyMode: ipvs
+```
+
+### 查看服务器的ipvs规则  
+
+```
+ipvsadm -ln
+```
+
+如果看到如下输出，说明ipvs规则中没有KUBE-SVC规则：
+
+```
+IP Virtual Server version 1.2.1 (size=4096)
+Prot LocalAddress:Port Scheduler Flags
+  -> RemoteAddress:Port           Forward Weight ActiveConn InActConn
+```
+
+解决方案：
+
+- 升级k8s到1.21或以上版本。
+- 开启kube-proxy的ipvs模式：
+
+```
+--proxy-mode=ipvs
+```
+
+- 重启kube-proxy：
+
+```
+systemctl restart kube-proxy
+```
+
+- 验证kube-proxy的ipvs模式：
+
+```
+kubectl get configmap kube-proxy -n kube-system -o yaml | grep proxyMode
+```
+
+如果看到如下输出，说明kube-proxy的ipvs模式开启成功：
+
+```
+proxyMode: ipvs
+```
+
+### EndpointSlices功能介绍
+
+EndpointSlices 是 K8s 1.21 版本引入的新功能，它可以让 Service 的 IP 地址固定下来，并通过 EndpointSlices 资源记录 Service 的网络信息。
+
+EndpointSlices 资源的主要字段如下：
+
+- addresses：Service 的 IP 地址列表。
+- ports：Service 的端口列表。
+- endpoints：Pod 的 IP 地址列表。
+- age：EndpointSlices 资源的创建时间。
+- conditions：EndpointSlices 资源的状态信息。
+
+
+#### 查看服务器的EndpointSlices的iptables规则
+
+```
+iptables-save | grep KUBE-SVC
+```
+
+如果看到如下输出，说明没有EndpointSlices资源：
+
+```
+-A KUBE-SERVICES -m comment --comment "kubernetes service portals" -j KUBE-SVC-NP
+-A KUBE-SVC-NP -m comment --comment "kubernetes service nodeports" -j KUBE-SEP-NP
+-A KUBE-SEP-NP -m comment --comment "kubernetes service endpoint slice" -j KUBE-SEP-PORT-NP
+```
+
+解决方案：
+
+- 升级k8s到1.21或以上版本。
+- 开启EndpointSlices功能：
+
+```
+--feature-gates=EndpointSlice=true
+```
+
+- 重启kubelet：
+
+```
+systemctl restart kubelet
+```
+
+- 验证EndpointSlices功能：
+
+```
+kubectl get endpointslices
+```
+
+如果看到如下输出，说明EndpointSlices功能开启成功：
+
+```
+NAME         ADDRESSTYPE   PORTS   ENDPOINTS          AGE
+test-svc     IPv4          80     10.244.0.1:8080   10m
+```
+
 
 ## 参考资料
 
@@ -216,5 +358,5 @@ k8s + Istio 是一个很好的组合，可以实现微服务架构的部署、�
 - 集群扩展：通过 Custom Resource Subresource Status 可以扩展集群的功能。
 
 
-希望本文对你有所帮助，如果有任何问题，欢迎随时联系我。
+持续更新中，希望本文对你有所帮助，如果有任何问题，欢迎随时联系我。
 
