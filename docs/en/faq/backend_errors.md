@@ -1186,6 +1186,15 @@ print(b)
 2. 代码依赖操作系统相关的特性：Python 程序中存在代码依赖操作系统相关的特性，导致程序代码编写不规范。
 3. 其他可移植性问题：Python 程序运行过程中存在其他可移植性问题，导致程序代码编写不规范。
 
+### 通过idea创建python Virtualenv Environment报错“ModuleNotFoundError: No module named ‘distutils’”
+```
+报错原因：Python3.10版本中移除了distutils模块，导致virtualenv创建虚拟环境时报错。
+解决方案：
+- 创建虚拟环境时，选择Python版本为3.9.x版本。
+- 通过pip install setuptools安装setuptools模块，然后创建虚拟环境; 勾选上“inherit global site-packages”选项。
+- pip install setuptools -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+- virtualenv -p python3.9 venv
+```
 
 ## 参考资料
 
