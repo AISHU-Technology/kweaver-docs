@@ -12,7 +12,7 @@ GET  /api/eventStats/v1/menu/list
 | :--- | :------- | :------- | :------- | :------- | ---- | :----------------------------------------------------- |
 | 1    | pid      | string   | query    | 否       | 20   | 父资源，pid>=0，默认0不使用                            |
 | 2    | isTree   | int      | query    | 是       |      | 是否以树形结构返回，1-是，2-否                         |
-| 3    | menuType | int      | query    | 否       |      | 1-系统类 2-业务类 3-所有                               |
+| 3    | menuType | int      | query    | 否       |      | 1-菜单 2-按钮 3-所有                                 |
 | 4    | key      | string   | query    | 否       | 255  | 模糊查询中英文名称及菜单编码                           |
 | 5    | page     | int      | query    | 是       |      | 第几页，page>0                                         |
 | 6    | size     | int      | query    | 是       |      | 当前页显示数量，size>0 \| size=-1（size=-1时查询所有） |
@@ -40,7 +40,7 @@ pid=124124124124&isTree=1&menuType=1&key=menu&page=5&size=10
 | 6    | selectedIcon | string       | 选中图标                       |
 | 7    | path         | string       | 绝对路径                       |
 | 8    | component    | string       | 组件路径                       |
-| 9    | menuType     | int          | 菜单类型 （1-系统类 2-业务类） |
+| 9    | menuType     | int          | 菜单类型 （1-菜单 2-按钮）      |
 | 10   | pid          | string       | 父菜单id                       |
 | 11   | sortOrder    | int          | 排序数值                       |
 | 11   | visible      | int          | 是否显示（1-显示 2-不显示）    |
@@ -150,7 +150,7 @@ id=124124124124
 | 6    | selectedIcon | string       | 选中图标                       |
 | 7    | path         | string       | 绝对路径                       |
 | 8    | component    | string       | 组件路径                       |
-| 9    | menuType     | int          | 菜单类型 （1-系统类 2-业务类） |
+| 9    | menuType     | int          | 菜单类型 （1-菜单 2-按钮） |
 | 10   | pid          | string       | 父菜单id                       |
 | 11   | sortOrder    | int          | 排序数值                       |
 | 12   | visible      | int          | 是否显示（0-显示 1-不显示）    |
@@ -223,7 +223,7 @@ POST  /api/eventStats/v1/menu/add
 | 5    | selectedIcon | string   | body     | 否       | 128  | 选中图标                       |
 | 6    | path         | string   | body     | 否       | 128  | 绝对路径                       |
 | 7    | component    | string   | body     | 否       | 255  | 组件路径                       |
-| 8    | menuType     | int      | body     | 是       |      | 菜单类型 （1-系统类 2-业务类） |
+| 8    | menuType     | int      | body     | 是       |      | 菜单类型 （1-菜单 2-按钮） |
 | 9    | pid          | string   | body     | 否       | 20   | 父菜单id                       |
 | 10   | sortOrder    | int      | body     | 否       |      | 排序数值                       |
 | 11   | visible      | int      | body     | 否       |      | 是否显示（0-显示 1-不显示）    |
@@ -299,7 +299,7 @@ POST  /api/eventStats/v1/menu/update
 | 5    | selectedIcon | string   | body     | 否       | 128  | 选中图标                       |
 | 6    | path         | string   | body     | 否       | 128  | 绝对路径                       |
 | 7    | component    | string   | body     | 否       | 255  | 组件路径                       |
-| 8    | menuType     | int      | body     | 是       |      | 菜单类型 （1-系统类 2-业务类） |
+| 8    | menuType     | int      | body     | 是       |      | 菜单类型 （1-菜单 2-按钮） |
 | 9    | pid          | string   | body     | 否       | 20   | 父菜单id                       |
 | 10   | sortOrder    | int      | body     | 否       |      | 排序数值                       |
 | 11   | visible      | int      | body     | 否       |      | 是否显示（0-显示 1-不显示）    |
