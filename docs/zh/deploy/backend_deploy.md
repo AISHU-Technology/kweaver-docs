@@ -1,150 +1,111 @@
 # 后端部署
 
-## 前提条件
+## 准备工作
 
 - 已安装Golang环境
 - 已安装Python3环境
-- 已安装MySQL或NebulaGraph数据库
+- 已安装MySQL和NebulaGraph数据库
 - 已安装Redis或Redis Cluster
 - 已安装Opensearch
 - 已安装MongoDB
 
-## 准备工作 
+## Golang安装
 
-- 下载代码
-- 配置数据库
-- 配置Redis
-- 配置Opensearch
-- 配置MongoDB
-- 配置Celery
-- 配置NebulaGraph
-- 配置向量服务
-- 启动服务
-- 启动Celery任务
+    安装文档 https://golang.google.cn/doc/install
 
+    从https://golang.org/dl/ 或 https://go.dev/dl/ 下载对应操作系统平台指定的版本即可。
 
-## 一、Golang安装
-安装文档 https://golang.google.cn/doc/install
+### windows 安装
 
-从https://golang.org/dl/ 或 https://go.dev/dl/ 下载对应操作系统平台指定的版本即可。
-
-### 1、windows 安装
-#### 1.1 从官网下载 go1.x.y.windows-amd64.msi ，按照安装向导安装
-
-#### 1.2 添加环境变量
 ```
-go env -w GO111MODULE=on
-go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
+从官网下载 go1.x.y.windows-amd64.msi ，按照安装向导安装
+添加环境变量：
+    go env -w GO111MODULE=on
+    go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 ```
 
-### 2、Linux 安装
+### Linux 安装
+
+```
 以下以centos7为例：
-
-#### 2.1 解压
-```
-tar xf go1.20.12.linux-amd64.tar.gz -C /usr/local
-```
-
-#### 2.2 添加到环境变量PATH，修改$HOME/.profile或/etc/profile
-```
-export GO111MODULE=on
-export GOROOT=/usr/local/data/go
-export PATH=$PATH:$GOROOT/bin
-export GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
-export GOPATH=/usr/local/data/go_path
+1、解压： tar xf go1.20.12.linux-amd64.tar.gz -C /usr/local
+2、添加到环境变量PATH，修改$HOME/.profile或/etc/profile文件：
+    export GO111MODULE=on
+    export GOROOT=/usr/local/data/go
+    export PATH=$PATH:$GOROOT/bin
+    export GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
+    export GOPATH=/usr/local/data/go_path
+3、加载环境变量：source $HOME/.profile或/etc/profile
+4、查看go环境变量：go env
 ```
 
-#### 2.3 加载环境变量
+### Mac 安装
+
 ```
-source $HOME/.profile或/etc/profile
-```
-#### 2.4 查看go环境变量
-```
-go env
+1、从官网下载双击下载的.pkg文件，然后按照向导指示完成安装。
+2、配置环境变量，vim ~/.zshrc或~/.bash_profile文件：
+    export GOROOT=/usr/local/go
+    export GOPATH=/Users/xxx/go_path
+    export GO111MODULE=on
+    export GOPROXY=https://goproxy.cn,direct
+    export PATH=$PATH:$GOROOT/bin:$GOPATH
+
+3、创建GOPATH：mkdir /Users/xxx/go_path
+4、重新加载zshrc文件：source ~/.zshrc或source ~/.bash_profile
+5、验证go环境变量：go env
 ```
 
-### 3、Mac 安装
-#### 3.1 双击下载的.pkg文件，然后按照向导指示完成安装。
-#### 3.2 配置环境变量
-```
-vim ~/.zshrc
+## Python安装
 
-export GOROOT=/usr/local/go
-export GOPATH=/Users/xxx/go_path
-export GO111MODULE=on
-export GOPROXY=https://goproxy.cn,direct
-export PATH=$PATH:$GOROOT/bin:$GOPATH
-
-# 创建GOPATH
-mkdir /Users/xxx/go_path
-```
-#### 3.3 重新加载zshrc文件
-```
-source ~/.zshrc
-```
-## 二、Python安装
 下载地址：（选择3.9.x版本）
 
-https://www.python.org/downloads
-https://www.python.org/downloads/windows/
+    https://www.python.org/downloads
+    https://www.python.org/downloads/windows/
 
-### 1、windows 安装
-#### 1.1 根据系统位数下载相应的安装包，然后按照向导指示完成安装
-#### 1.2 验证Python版本
+### windows 安装
 ```
-python -V
+1、根据系统位数下载相应的安装包，然后按照向导指示完成安装
+2、验证Python版本：python --V 或 python --version
 ```
-### 2、Linux 安装
+
+### Linux 安装
 以下以centos7为例：
 
 centos系统本身默认安装有python2.x，版本x根据不同版本系统有所不同，可通过 python --V 或 python --version 查看系统自带的python版本。
 有一些系统命令时需要用到python2，不能卸载。
-#### 2.1 安装依赖包
 
-1）首先安装gcc编译器，gcc有些系统版本已经默认安装，通过  gcc --version  查看，没安装的先安装gcc，yum -y install gcc
+```
+1、下载安装包和安装依赖包
+   - 首先安装gcc编译器，gcc有些系统版本已经默认安装，通过  gcc --version 查看，没安装的先安装gcc，yum -y install gcc
+   - 安装其它依赖包（注：不要缺少，否则有可能安装python出错）：
+        yum install libffi-devel -y
+        yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel
+2、编译安装步骤：
+   - 下载源码包：wget https://www.python.org/ftp/python/3.9.16/Python-3.9.16.tgz
+   - 解压源码包：tar -zxvf Python-3.9.16.tgz
+   - 进入源码包目录：cd Python-3.9.16
+   - 配置：./configure --prefix=/usr/local/python3  --enable-optimizations
+   - 编译：make
+   - 安装：make install
+   - 建立软连接：ln -sf /usr/local/python3/bin/python3.9 /usr/bin/python
+   - 验证：python3 -V
+   - 验证pip3：pip3 -V
+   - 配置pip3：pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+3、配置环境变量：
+   - vim ~/.bashrc或~/.zshrc文件：
+        export PATH=$PATH:/usr/local/python3/bin
+        export PYTHONPATH=/usr/local/python3/lib/python3.9/site-packages
+   - 重新加载环境变量：source ~/.bashrc或source ~/.zshrc
+4、验证python版本：python3 -V
+```
 
-2）安装其它依赖包（注：不要缺少，否则有可能安装python出错）
-```
-yum install libffi-devel -y
-yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel
-```
-#### 2.2、编译安装 
-```
-wget https://www.python.org/ftp/python/3.9.16/Python-3.9.16.tgz
-tar -zxvf Python-3.9.16.tgz
-cd Python-3.9.16
-
-./configure --prefix=/usr/local/python3  --enable-optimizations
-make 
-make install
-ln -sf /usr/local/python3/bin/python3.9 /usr/bin/python
- 
-python3 -V
-```
-注意：python 没有指向python3 或者说python3.9的
-
-检查python和python3
-```
-which python
-which python3
-
-whereis python 或者whereis python3 也可以检查
-```
-检查 pip3 和pip
-```
-which pip3 
-which pip
-
-默认没有pip命令，所以还要建立连接一下，yum install pip就有
-ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
-ln -s /usr/local/python3/bin/pip /usr/bin/pip
-```
 ### 3、Mac 安装
-#### 3.1 根据操作系统相应的安装包，然后按照向导指示完成安装
-#### 3.2 验证Python版本
+
 ```
-python3 -V
+1、下载安装包，然后按照向导指示完成安装
+2、验证Python版本：python3 --V 或 python3 --version
 ```
+
 ## 三、环境变量配置
 ```
 CELERY_CONCURRENCY=4
