@@ -6,6 +6,7 @@
 - [页面性能优化](#_4)
 - [前端localStorage、sessionStorage、cookie使用场景](#localstoragesessionstoragecookie)
 - [React性能优化](#react)
+- [Service Worker性能优化](#service-worker)
 - [前端抓包分析](#_5)
 - [前端安全相关](#_6)
 - [其他问题集锦](#_10)
@@ -661,6 +662,137 @@ new CompressionPlugin({
 2.使用React的useCallback、useMemo等hooks来避免不必要的渲染、缓存计算结果、传递相同的props、传递函数、传递大对象、传递可变对象、传递过多的props、传递过多的state、传递过多的依赖。
 3.使用React的 useCallback、useMemo等hooks来避免不必要的事件绑定、事件冒泡、事件捕获、事件委托。
 4.使用React的useRef、useImperativeHandle等hooks来避免不必要的渲染。
+```
+
+## Service Worker性能优化？
+
+  Service workers 本质上充当Web应用程序与浏览器之间的代理服务器，也可以在网络可用时作为浏览器和网络间的代理。它们旨在（除其他之外）使得能够创建有效的离线体验，拦截网络请求并基于网络是否可用以及更新的资源是否驻留在服务器上来采取适当的动作。他们还允许访问推送通知和后台同步API。
+
+```
+1.使用React的Service Worker来缓存静态资源，提高应用的响应速度。
+2.sw将页面的文件存储在客户端，下次打开页面可以不向服务器发出资源请求，极大的加快页面加载速度。
+2.sw运行在页面后台，使用了sw的页面可以利用sw来拦截页面发出的请求，同时配合CacheAPI可以将请求缓存到客户本地，提高应用的响应速度。
+3.离线打开页面的同时可以在sw发出请求，更新本地的资源文件
+4.sw可以监听页面的激活状态，当页面处于激活状态时，可以更新页面的资源文件，提高应用的响应速度。
+5.sw的生命周期：sw的生命周期分为安装、激活、fetch、message、sync、push、notificationclick、pushsubscriptionchange、sync、periodicsync等事件。
+  - install：sw安装成功后，会触发install事件，此时可以进行资源的预缓存，将静态资源缓存到sw的缓存中，提高页面的响应速度。
+  - activate：sw激活成功后，会触发activate事件，此时可以将缓存的资源更新到最新版本。
+  - fetch：当页面发起请求时，会触发fetch事件，此时可以从缓存中获取资源，提高页面的响应速度。
+  - message：当页面发起消息时，会触发message事件，此时可以接收到消息。
+  - sync：当页面发起同步请求时，会触发sync事件，此时可以同步数据。
+  - push：当页面发起推送消息时，会触发push事件，此时可以接收到推送消息。
+  - notificationclick：当用户点击通知时，会触发notificationclick事件，此时可以处理通知。
+  - pushsubscriptionchange：当订阅发生变化时，会触发pushsubscriptionchange事件，此时可以更新订阅。
+  - sync：当页面发起同步请求时，会触发sync事件，此时可以同步数据。
+  - periodicsync：当页面发起定期同步请求时，会触发periodicsync事件，此时可以同步定期数据。
+
+缺点：
+1.sw无法监听页面的激活状态，无法更新页面的资源文件，无法实现离线打开页面的同时可以在sw发出请求，更新本地的资源文件。
+2.sw的缓存机制有限，缓存的资源有限，缓存的有效期有限。
+3.由于打开页面不再向服务器发出页面请求，因此当服务器上的页面有新版本的时候客户端无法及时升级
+4.sw存在一定的兼容性问题，不同浏览器的兼容性不同。
+5.sw文件至少要与入口页面文件在同一目录下，否则无法正常工作。如果入口页面文件与sw文件不在同一目录下，则需要配置webpack的publicPath属性。
+```
+
+- 如何使用webpack-sw-plugin插件配置Service Worker？
+
+```
+1、安装：npm install webpack-sw-plugin --save-dev
+
+2、配置webpack.config.js文件：
+    const WebpackSWPlugin = require('webpack-sw-plugin');
+    module.exports = {
+      entry: {
+        app: './src/index.js',
+        sw: './src/sw.js'
+      },
+      plugins: [
+        new WebpackSWPlugin({
+          cacheId: 'cache-id',
+          filename: 'service-worker.js',
+          minify: true,
+          clientsClaim: true,
+          skipWaiting: true,
+          runtimeCaching: [
+            {
+              urlPattern: '/',
+              handler: 'NetworkFirst',
+              options: {
+                cacheName: 'cache-name',
+                networkTimeoutSeconds: 20,
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 30
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            }
+          ]
+        })
+      ]
+    } 
+
+3、编写sw.js文件：
+
+    // 监听install事件
+    self.addEventListener('install', event => {
+      event.waitUntil(
+        caches.open('cache-name').then(cache => {
+          return cache.addAll([
+            '/',
+            '/index.html',
+            '/index.js',
+            '/style.css'
+          ]);
+        })
+      );
+    });
+    
+    // 监听fetch事件
+    self.addEventListener('fetch', event => {
+      event.respondWith(
+        caches.match(event.request).then(response => {
+          if (response) {
+            return response;
+          }
+          return fetch(event.request);
+        })
+      );
+    });
+    
+    // 监听activate事件
+    self.addEventListener('activate', event => {
+      event.waitUntil(
+        caches.keys().then(cacheNames => {
+          return Promise.all(
+            cacheNames.map(cacheName => {
+              if (cacheName !== 'cache-name') {
+                return caches.delete(cacheName);
+              }
+            })
+          );
+        })
+      );
+    });
+
+4、入口注册sw文件：
+
+  import './sw.js';
+  // 判断是否支持sw
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+       .then(registration => {
+          console.log('SW registered: ', registration);
+        })
+       .catch(registrationError => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+
 ```
 
 ## 前端如何抓包？
