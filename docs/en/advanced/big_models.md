@@ -810,26 +810,6 @@ for epoch in range(10):
 - 过采样（Oversampling）是指通过对少数类样本进行复制，生成新的样本集。
 - 欠采样（Undersampling）是指通过对多数类样本进行删除，生成新的样本集。
 
-### 模型量化
-
-- 模型量化（Model Quantization）是指对模型进行量化的方法，包括模型的量化、量化训练、量化推理等。
-- 量化训练（Quantization Training）是指对模型进行量化训练的方法，包括量化训练的预处理、量化训练的训练、量化训练的评估等。
-- 量化推理（Quantization Inference）是指对量化后的模型进行推理的方法，包括量化推理的预处理、量化推理的推理等。
-- 量化（Quantization）是指对模型进行量化的方法，包括模型的量化、量化训练、量化推理等。
-
-#### 量化训练
-
-- 量化训练（Quantization Training）是指对模型进行量化训练的方法，包括量化训练的预处理、量化训练的训练、量化训练的评估等。
-- 量化训练的预处理（Quantization Training Preprocessing）是指对量化训练的数据进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
-- 量化训练的训练（Quantization Training Training）是指对模型进行量化训练的方法，包括量化训练的训练、量化训练的评估等。
-- 量化训练的评估（Quantization Training Evaluation）是指对量化训练的结果进行评估的方法，包括量化训练的指标、量化训练的性能评估等。
-
-#### 量化推理
-
-- 量化推理（Quantization Inference）是指对量化后的模型进行推理的方法，包括量化推理的预处理、量化推理的推理等。
-- 量化推理的预处理（Quantization Inference Preprocessing）是指对量化推理的数据进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
-- 量化推理的推理（Quantization Inference Inference）是指对量化后的模型进行推理的方法。
-
 
 ### 评估模型
 
@@ -904,6 +884,27 @@ for epoch in range(10):
 - 损失函数值：损失函数值（Loss Value）是指模型训练过程中，损失函数计算得到的数值。
 - 其他评估工具：其他评估工具（Other Evaluation Tool）是指模型训练时，用于评估模型性能的其他工具。
 ```
+
+### 模型量化
+
+- 模型量化（Model Quantization）是指对模型进行量化的方法，包括模型的量化、量化训练、量化推理等。
+- 量化训练（Quantization Training）是指对模型进行量化训练的方法，包括量化训练的预处理、量化训练的训练、量化训练的评估等。
+- 量化推理（Quantization Inference）是指对量化后的模型进行推理的方法，包括量化推理的预处理、量化推理的推理等。
+- 量化（Quantization）是指对模型进行量化的方法，包括模型的量化、量化训练、量化推理等。
+
+#### 量化训练
+
+- 量化训练（Quantization Training）是指对模型进行量化训练的方法，包括量化训练的预处理、量化训练的训练、量化训练的评估等。
+- 量化训练的预处理（Quantization Training Preprocessing）是指对量化训练的数据进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
+- 量化训练的训练（Quantization Training Training）是指对模型进行量化训练的方法，包括量化训练的训练、量化训练的评估等。
+- 量化训练的评估（Quantization Training Evaluation）是指对量化训练的结果进行评估的方法，包括量化训练的指标、量化训练的性能评估等。
+
+#### 量化推理
+
+- 量化推理（Quantization Inference）是指对量化后的模型进行推理的方法，包括量化推理的预处理、量化推理的推理等。
+- 量化推理的预处理（Quantization Inference Preprocessing）是指对量化推理的数据进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
+- 量化推理的推理（Quantization Inference Inference）是指对量化后的模型进行推理的方法。
+
 
 ## 模型压缩
 
