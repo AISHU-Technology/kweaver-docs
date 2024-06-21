@@ -19,6 +19,40 @@
     - 训练技巧：需要掌握一些训练技巧，包括模型并行、数据并行、混合精度训练、半精度训练、动态图、XLA、AMP、ONNX、TorchScript、TensorRT、DeepSpeed、FairSeq、Ignite、Lightning、PyTorch Hub、TorchServe、TorchText、TorchAudio、TorchVision、TorchData、TorchModelHub 等。
     - 训练注意事项：需要了解一些训练注意事项，包括模型保存、模型加载、模型微调、模型蒸馏、模型量化、模型剪枝
 
+
+## 数据集
+
+- 数据集（Training Dataset）是指模型训练时，用于训练模型的数据集。
+- 验证集（Validation Set）是指模型训练时，用于验证模型性能的数据集。
+- 测试集（Test Set）是指模型训练后，用于评估模型性能的数据集。
+- 预处理（Preprocessing）是指对数据集进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
+- 增广（Augmentation）是指对数据集进行数据增广的方法，包括数据增强、数据生成等。
+- 采样（Sampling）是指对数据集进行采样的方法，包括随机采样、分层采样、过采样、欠采样等。
+
+### 数据集准备
+
+- 数据集准备（Dataset Preparation）是指对数据集进行准备的方法，包括数据集的下载、数据集的解压、数据集的划分、数据集的预处理等。
+- 数据集下载（Dataset Download）是指从公开数据集或第三方数据集中下载数据集的方法。
+- 数据集解压（Dataset Unzip）是指解压数据集的方法。
+- 数据集划分（Dataset Split）是指将数据集划分为训练集、验证集、测试集的方法。
+- 数据集预处理（Dataset Preprocessing）是指对数据集进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
+
+
+### 数据集增广
+
+- 数据集增广（Dataset Augmentation）是指对数据集进行数据增广的方法，包括数据增强、数据生成等。
+- 数据增强（Data Augmentation）是指通过对数据进行随机变换、扰动等方式，生成新的样本，增强数据集的规模。
+- 数据生成（Data Generation）是指通过生成模型所需的数据，生成新的样本，增强数据集的规模。
+
+### 数据集采样
+
+- 数据集采样（Dataset Sampling）是指对数据集进行采样的方法，包括随机采样、分层采样、过采样、欠采样等。
+- 随机采样（Random Sampling）是指随机从数据集中抽取样本，生成新的样本集。
+- 分层采样（Stratified Sampling）是指根据样本的类别分布，将样本按照类别比例抽取，生成新的样本集。
+- 过采样（Oversampling）是指通过对少数类样本进行复制，生成新的样本集。
+- 欠采样（Undersampling）是指通过对多数类样本进行删除，生成新的样本集。
+
+
 ## 大模型训练
 大模型训练是指使用大模型（如 Llama3、GPT-3、BERT、RoBERTa 等）进行训练，以提升模型的训练速度。大模型训练通常需要大量的计算资源，因此，如何有效地利用这些资源，提升模型的训练速度，是提升模型性能的关键。
 
@@ -777,39 +811,6 @@ for epoch in range(10):
     writer.add_scalar("loss", loss, epoch)
     writer.add_scalar("accuracy", accuracy, epoch)
 ```
-
-### 训练数据集
-
-- 数据集（Training Dataset）是指模型训练时，用于训练模型的数据集。
-- 验证集（Validation Set）是指模型训练时，用于验证模型性能的数据集。
-- 测试集（Test Set）是指模型训练后，用于评估模型性能的数据集。
-- 预处理（Preprocessing）是指对数据集进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
-- 增广（Augmentation）是指对数据集进行数据增广的方法，包括数据增强、数据生成等。
-- 采样（Sampling）是指对数据集进行采样的方法，包括随机采样、分层采样、过采样、欠采样等。
-
-#### 数据集准备
-
-- 数据集准备（Dataset Preparation）是指对数据集进行准备的方法，包括数据集的下载、数据集的解压、数据集的划分、数据集的预处理等。
-- 数据集下载（Dataset Download）是指从公开数据集或第三方数据集中下载数据集的方法。
-- 数据集解压（Dataset Unzip）是指解压数据集的方法。
-- 数据集划分（Dataset Split）是指将数据集划分为训练集、验证集、测试集的方法。
-- 数据集预处理（Dataset Preprocessing）是指对数据集进行预处理的方法，包括数据清洗、数据转换、数据归一化等。
-
-
-#### 数据集增广
-
-- 数据集增广（Dataset Augmentation）是指对数据集进行数据增广的方法，包括数据增强、数据生成等。
-- 数据增强（Data Augmentation）是指通过对数据进行随机变换、扰动等方式，生成新的样本，增强数据集的规模。
-- 数据生成（Data Generation）是指通过生成模型所需的数据，生成新的样本，增强数据集的规模。
-
-#### 数据集采样
-
-- 数据集采样（Dataset Sampling）是指对数据集进行采样的方法，包括随机采样、分层采样、过采样、欠采样等。
-- 随机采样（Random Sampling）是指随机从数据集中抽取样本，生成新的样本集。
-- 分层采样（Stratified Sampling）是指根据样本的类别分布，将样本按照类别比例抽取，生成新的样本集。
-- 过采样（Oversampling）是指通过对少数类样本进行复制，生成新的样本集。
-- 欠采样（Undersampling）是指通过对多数类样本进行删除，生成新的样本集。
-
 
 ### 评估模型
 
