@@ -701,6 +701,30 @@ DLRover 主要功能为：
 
 ```
 
+#### LLaMa-Factory
+LLaMA-Factory 是一个易于使用的大规模语言模型（Large Language Model, LLM）微调框架，它支持多种模型，包括 LLaMA、BLOOM、Mistral、Baichuan、Qwen 和 ChatGLM 等。该框架旨在简化大型语言模型的微调过程，提供了一套完整的工具和接口，使得用户能够轻松地对预训练的模型进行定制化的训练和调整，以适应特定的应用场景。
+
+```
+LLaMA-Factory优点：
+- 多种模型：LLaMA、Mistral、Mixtral-MoE、Qwen、Yi、Gemma、Baichuan、ChatGLM、Phi 等等。
+- 集成方法：（增量）预训练、指令监督微调、奖励模型训练、PPO 训练、DPO 训练和 ORPO 训练。
+- 多种精度：32 比特全参数微调、16 比特冻结微调、16 比特 LoRA 微调和基于 AQLM/AWQ/GPTQ/LLM.int8 的 2/4/8 比特 QLoRA 微调。
+- 先进算法：GaLore、DoRA、LongLoRA、LLaMA Pro、LoRA+、LoftQ 和 Agent 微调。
+- 实用技巧：FlashAttention-2、Unsloth、RoPE scaling、NEFTune 和 rsLoRA。
+- 实验监控：LlamaBoard、TensorBoard、Wandb、MLflow 等等。
+- 极速推理：基于 vLLM 的 OpenAI 风格 API、浏览器界面和命令行接口
+- 数据集：LLaMA-Factory 目前只支持指定名称，位置放在项目的data目录下
+- 模型压缩：LLaMA-Factory 提供了基于 AQLM/AWQ/GPTQ/LLM.int8 的 2/4/8 比特 QLoRA 微调，以实现模型的压缩和加速。
+- 模型评估：LLaMA-Factory 提供了多种模型评估指标，如 PPL、BLEU、ROUGE、METEOR、SQuAD、GLUE、SST-2、MNLI、QQP、QNLI、RTE、MRPC、CoLA、STS-B、QQP、MNLI、RTE、MRPC、CoLA、STS-B 等。
+
+LLaMA-Factory缺点：
+- 易用性：LLaMA-Factory 是一个易于使用的大规模语言模型微调框架，但仍然存在一些限制。
+- 性能：LLaMA-Factory 目前的性能仍然不及原生框架，尤其是在大规模模型上。
+- 稳定性：LLaMA-Factory 仍然存在一些限制，如内存泄漏、随机性、分布式训练等。
+```
+
+
+
 ### 训练监控
 
 - 训练监控（Training Monitoring）是指模型训练过程中，对模型的训练状态进行监控，以便及时发现和解决问题。
