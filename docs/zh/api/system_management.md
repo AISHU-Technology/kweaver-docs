@@ -43,7 +43,7 @@ pid=124124124124&isTree=1&menuType=1&key=menu&page=5&size=10
 | 9    | menuType     | int          | 菜单类型 （1-菜单 2-按钮）      |
 | 10   | pid          | string       | 父菜单id                       |
 | 11   | sortOrder    | int          | 排序数值                       |
-| 11   | visible      | int          | 是否显示（1-显示 2-不显示）    |
+| 11   | visible      | int          | 是否显示（0-显示 1-不显示） |
 | 12   | createTime   | string       | 创建时间                       |
 | 13   | updateTime   | string       | 修改时间                       |
 | 14   | delFlag      | int          | 删除标识（0-未删除 1-已删除）  |
@@ -68,7 +68,7 @@ pid=124124124124&isTree=1&menuType=1&key=menu&page=5&size=10
                 "menuType":1,
                 "pid":0,
                 "sortOrder":0,
-                "visible": 1,
+                "visible": 0,
                 "createTime": "2024-05-14 00:00:00",
                 "updateTime": "2024-05-14 00:00:00",
                 "delFlag": 0,
@@ -85,7 +85,7 @@ pid=124124124124&isTree=1&menuType=1&key=menu&page=5&size=10
                         "menuType":1,
                         "pid":1,
                         "sortOrder":0,
-                        "visible": 1,
+                        "visible": 0,
                         "createTime": "2024-05-14 00:00:00",
                         "updateTime": "2024-05-14 00:00:00",
                 		"delFlag": 0,
@@ -446,7 +446,7 @@ GET  /api/eventStats/v1/menu/tree
 | 9    | menuType     | int          | 菜单类型 （1-菜单 2-按钮）    |
 | 10   | pid          | string       | 父菜单id                      |
 | 11   | sortOrder    | int          | 排序数值                      |
-| 11   | visible      | int          | 是否显示（1-显示 2-不显示）   |
+| 11   | visible      | int          | 是否显示（0-显示 1-不显示）   |
 | 12   | createTime   | string       | 创建时间                      |
 | 13   | updateTime   | string       | 修改时间                      |
 | 14   | delFlag      | int          | 删除标识（0-未删除 1-已删除） |
