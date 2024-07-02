@@ -413,6 +413,113 @@ POST  /api/eventStats/v1/menu/delete
     "ErrorLink": ""
 }
 ```
+### 1.6、获取菜单树
+
+```
+GET  /api/eventStats/v1/menu/tree
+```
+
+请求参数：
+
+| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明              |
+| :--- | :------- | :------- | :------- | :------- | ---- | :-------------------- |
+| 1    | pid      | string   | query    | 否       | 20   | 父资源，pid>=0，默认0 |
+
+请求示例：
+
+```
+/api/eventStats/v1/menu/tree?pid=124124124124
+```
+
+响应参数：
+
+| 序号 | 字段名称     | 字段类型     | 字段说明                      |
+| :--- | ------------ | :----------- | :---------------------------- |
+| 1    | id           | string       | 菜单id                        |
+| 2    | cName        | string       | 中文名称                      |
+| 3    | eName        | string       | 英文名称                      |
+| 4    | code         | string       | 菜单编码                      |
+| 5    | icon         | string       | 默认图标                      |
+| 6    | selectedIcon | string       | 选中图标                      |
+| 7    | path         | string       | 绝对路径                      |
+| 8    | component    | string       | 组件路径                      |
+| 9    | menuType     | int          | 菜单类型 （1-菜单 2-按钮）    |
+| 10   | pid          | string       | 父菜单id                      |
+| 11   | sortOrder    | int          | 排序数值                      |
+| 11   | visible      | int          | 是否显示（1-显示 2-不显示）   |
+| 12   | createTime   | string       | 创建时间                      |
+| 13   | updateTime   | string       | 修改时间                      |
+| 14   | delFlag      | int          | 删除标识（0-未删除 1-已删除） |
+| 15   | children     | list<object> | 下级菜单列表                  |
+
+响应示例：
+
+```json
+{
+    "res": [              
+       {          
+            "id": "1",
+            "cName": "知识网络",
+            "eName": "knowledge network",
+            "code": "kn",
+            "icon":"xxx",
+            "selectedIcon":"xxx",
+            "path": "绝对路径",
+            "component": "组件路径",
+            "menuType":1,
+            "pid":0,
+            "sortOrder":0,
+            "visible": 1,
+            "createTime": "2024-05-14 00:00:00",
+            "updateTime": "2024-05-14 00:00:00",
+            "delFlag": 0,
+            "children": [
+                 {
+                    "id": "2",
+                    "cName": "知识网络",
+                    "eName": "knowledge network",
+                    "code": "kn",
+                    "icon":"xxx",
+                    "selectedIcon":"xxx",
+                    "path": "绝对路径",
+                    "component": "组件路径",
+                    "menuType":1,
+                    "pid":1,
+                    "sortOrder":0,
+                    "visible": 1,
+                    "createTime": "2024-05-14 00:00:00",
+                    "updateTime": "2024-05-14 00:00:00",
+                    "delFlag": 0,
+                    "children": []
+                 }
+             ]  
+       }
+    ]
+}
+```
+
+异常返回参数：
+
+| 序号 | 参数         | 含义         |
+| :--- | :----------- | :----------- |
+| 1    | ErrorCode    | 错误码       |
+| 2    | Description  | 错误描述     |
+| 3    | Solution     | 错误处理建议 |
+| 4    | ErrorDetails | 错误细节     |
+| 5    | ErrorLink    | 错误信息地址 |
+
+异常返回示例：
+
+```json
+{
+    "ErrorCode": "EventStats.Common.ParameterError",
+    "Description":  "Parameter error",
+    "Solution": "",
+    "ErrorDetails"：[],
+    "ErrorLink": ""
+}
+```
+
 ## 2、字典管理
 ### 2.1、获取字典列表
 
