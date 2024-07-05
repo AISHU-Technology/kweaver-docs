@@ -5,8 +5,12 @@ on:
       - main
 jobs:
   deploy:
-#    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
       - name: Mike Deploy master
         run: |
           # 指定要部署的版本
