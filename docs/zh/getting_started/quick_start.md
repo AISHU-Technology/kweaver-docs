@@ -2,5 +2,6 @@
 
 ## 如何使用KWeaver
 
+- ## [知识图谱](./quick_start_kn.md)
 
-更新中，敬请期待。。。
+- ## [模型工厂](./quick_start_mf.md)
