@@ -10,12 +10,27 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: 3.9
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-static-i18n
-      - run: pip install mkdocs-macros-plugin
-      - run: pip install mkdocs-git-revision-date-localized-plugin
-      - run: pip install mike
+          python-version: 3.10
+      - name: Mike Deploy master
+        run: |
+          # 指定要部署的版本
+          mike deploy 0.2.0 -p --rebase
+          # 指定文档中心默认跳转的版本，同时在历史版本中删除这句话。
+          mike set-default 0.2.0 -p --rebase
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-python@v2
+#        with:
+#          python-version: 3.10
+#      - run: pip install mkdocs
+#      - run: pip install mkdocs-material
+#      - run: pip install mkdocs-static-i18n
+#      - run: pip install mkdocs-macros-plugin
+#      - run: pip install mkdocs-git-revision-date-localized-plugin
+#      - run: pip install mike
 #      - run: mike deploy 0.2.0 -p --rebase
 #      - run: mike set-default 0.2.0 -p --rebase
-      - run: mkdocs gh-deploy --force
+#      - run: mkdocs gh-deploy --force
