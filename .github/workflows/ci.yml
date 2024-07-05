@@ -11,11 +11,11 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      - run: pip install mkdocs==1.5.3
-      - run: pip install mkdocs-material==8.0.0
-      - run: pip install mkdocs-static-i18n==1.2.0
-      - run: pip install mkdocs-macros-plugin==0.6.0
-      - run: pip install mkdocs-git-revision-date-localized-plugin==1.2.2
+      - run: pip install mkdocs==1.6.0
+      - run: pip install mkdocs-material
+      - run: pip install mkdocs-static-i18n
+      - run: pip install mkdocs-macros-plugin
+      - run: pip install mkdocs-git-revision-date-localized-plugin
       - run: pip install mike
       - run: git config --global user.name "${{ secrets.GIT_USER_NAME }}"
       - run: git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
