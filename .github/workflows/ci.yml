@@ -17,9 +17,9 @@ jobs:
       - run: pip install mkdocs-static-i18n==1.2.3
       - run: pip install mkdocs-macros-plugin==1.0.5
       - run: pip install mkdocs-git-revision-date-localized-plugin==1.2.6
-      - run: pip install mike==2.1.2
+#      - run: pip install mike==2.1.2
       - run: git config --global user.name "${{ secrets.GIT_USER_NAME }}"
       - run: git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
-      - run: mike deploy --push --update-aliases 0.2.0
-      - run: mike set-default --push --update-aliases 0.2.0
-#      - run: mkdocs gh-deploy --force
+#      - run: mike deploy --push --update-aliases 0.2.0
+#      - run: mike set-default --push --update-aliases 0.2.0
+      - run: mkdocs gh-deploy --force
