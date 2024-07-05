@@ -19,7 +19,7 @@ jobs:
       - run: pip install mike
       - run: git config --global user.name "${{ secrets.GIT_USER_NAME }}"
       - run: git config --global user.email "${{ secrets.GIT_USER_EMAIL }}"
-      - run: git pull --rebase origin gh-pages
+#      - run: git pull --rebase origin gh-pages
 #      - run: mike deploy --push --update-aliases 0.2.0
       - run: mike deploy 0.2.0
       - run: mike set-default 0.2.0 -p
