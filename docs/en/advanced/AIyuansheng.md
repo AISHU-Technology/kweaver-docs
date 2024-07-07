@@ -15,12 +15,13 @@
 - 第三种方法是添加一个基于 AI 的模块，由它驱动传统模块，就像一个Sidecar，在传统模块之上，提供基于 AI 的自动化、优化或额外的功能
 ```
 
-![AI_yuansheng_lct](../../images/AINative/AI_yuansheng_lct.jpg)
+  ![AI_yuansheng_lct](../../images/AINative/AI_yuansheng_lct.jpg)
 
  但无论是简单地使用 AI 替换一个、多个或所有模块中的现有功能，甚至添加新功能，这些并不能实现严格意义上的 AI Native，类比到应用架构中：AI 应该和代码、数据一样成为一等公民，即无代码、不编程；无 AI、不工作。一等公民可以在整个架构中横向、纵向使用，而不仅限于某一层，数据基础设施也是如此，数据和知识需要跨层共享，AI 技术也可以应用于每一层甚至跨层，以实现架构中无处不在的智能。
 
 ## AI原生应用概念简要定义
-AI原生应用是指在设计、开发、部署、运营和维护过程中，具有内在安全、可信的AI能力应用，其中AI是功能的自然组成部分。 实现一个AI原生应用的过程，往往需要利用数据驱动和基于知识的生态系统，在这一过程中，数据与知识将被消费和生产，以实现新的基于AI的原生功能。在需要时通过学习和自适应的AI增强能力，来替代以往静态的、基于规则的机制。
+
+  AI原生应用是指在设计、开发、部署、运营和维护过程中，具有内在安全、可信的AI能力应用，其中AI是功能的自然组成部分。 实现一个AI原生应用的过程，往往需要利用数据驱动和基于知识的生态系统，在这一过程中，数据与知识将被消费和生产，以实现新的基于AI的原生功能。在需要时通过学习和自适应的AI增强能力，来替代以往静态的、基于规则的机制。
 
 - AI原生与基于AI的区别
 ```
@@ -28,7 +29,8 @@ AI原生应用是指在设计、开发、部署、运营和维护过程中，具
 - 基于AI：指使用AI为用户提供新功能，从这个方面看，AI就是一个附加组件。
 ```
 ## AI原生应用的架构
-AI 原生应用环境中的一个重要目标是以 AI 为中心的应用架构，它是一种AI遍及整个架构的形态，代表着应用架构全面拥抱大模型的应用范式，应用Model as A Service（AI as A Service），通过模型能力组织系统架构（以AI为中心的应用架构），将模型、后端、前端放在同等地位，共同构成完整的系统架构。
+
+   AI 原生应用环境中的一个重要目标是以 AI 为中心的应用架构，它是一种AI遍及整个架构的形态，代表着应用架构全面拥抱大模型的应用范式，应用Model as A Service（AI as A Service），通过模型能力组织系统架构（以AI为中心的应用架构），将模型、后端、前端放在同等地位，共同构成完整的系统架构。
 
 ```
 AI原生应用的架构主要分为三层：应用层、算法层、平台层。
@@ -45,11 +47,11 @@ AI原生应用的架构主要分为三层：应用层、算法层、平台层。
 
 - AI原生思维图
 
-![AI_yuansheng_swl](../../images/AINative/AI_yuansheng_swl.jpg)
+  ![AI_yuansheng_swl](../../images/AINative/AI_yuansheng_swl.jpg)
 
 - AI原生架构图
 
-![AI_yuansheng_jgt](../../images/AINative/AI_yuansheng_jgt.jpg)
+  ![AI_yuansheng_jgt](../../images/AINative/AI_yuansheng_jgt.jpg)
 
 ### 应用层
 
@@ -139,7 +141,7 @@ AI原生应用的架构主要分为三层：应用层、算法层、平台层。
 
 情境学习（In-context learning）是一种基于AI的应用模式，它通过学习用户的实际场景，来改进AI模型的性能。这种模式的核心是将用户的实际场景作为输入，通过学习用户的场景，来改进AI模型的性能。这种模式的优势在于，它可以帮助AI模型更好地理解用户的需求，提升模型的准确性和效率。
 
-![AI_yuansheng_pattern](../../images/AINative/AI_yuansheng_pattern.jpg)
+  ![AI_yuansheng_pattern](../../images/AINative/AI_yuansheng_pattern.jpg)
 
 - 设计模式 Out-of-context learning（非情境学习）
 
@@ -188,7 +190,7 @@ AI原生应用的关键技术主要包括：
 
    为了业务或产品在其AI原生应用之旅中提供指导，Ericsson开发了一个AI原生应用成熟度模型。该模型由五个级别的矩阵组成（L1到L5），另外还有一个级别为L0，表示非AI原生应用的水平。每个级别都有几个维度来进行系统评估，如架构、协作、数据摄取等，可以根据其AI原生程度进行分析。
 
-![AI_yuansheng_csmx](../../images/AINative/AI_yuansheng_csmx.jpg)
+  ![AI_yuansheng_csmx](../../images/AINative/AI_yuansheng_csmx.jpg)
 
 
 ## AI原生应用的优势
