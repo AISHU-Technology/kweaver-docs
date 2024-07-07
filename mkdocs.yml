@@ -147,7 +147,7 @@ nav:
       - GPU部署: deploy/docker_gpu.md
       - K8S部署: deploy/docker_k8s.md
   - 知识进阶:
-    - AI原生知识: advanced/agents.md
+    - AI原生知识: advanced/AIyuansheng.md
     - Agent知识: advanced/agents.md
     - 大模型知识: advanced/big_models.md
     - 知识图谱: advanced/knowledge_graphs.md
