@@ -2,11 +2,11 @@
 
 ## 介绍
 
-大模型的训练往往需要大量的计算资源，因此，如何有效地利用这些资源，提升模型的训练速度，是提升模型性能的关键。本章节将介绍如何使用大模型进行训练，以及如何使用大模型进行推理、以及如何进行模型压缩、加速训练、提升性能等。
+   大模型的训练往往需要大量的计算资源，因此，如何有效地利用这些资源，提升模型的训练速度，是提升模型性能的关键。本章节将介绍如何使用大模型进行训练，以及如何使用大模型进行推理、以及如何进行模型压缩、加速训练、提升性能等。
 
 ## 准备工作
 
-本章节将介绍一些常用的方法，来提升模型的训练速度。因此，在开始之前，请确保您已经安装了以下依赖：
+  本章节将介绍一些常用的方法，来提升模型的训练速度。因此，在开始之前，请确保您已经安装了以下依赖：
 
 - 硬件环境：NVIDIA GPU，CUDA 9.2+，cuDNN 7.6+，NCCL 2.4+
 - 软件环境：Python 3.6+，PyTorch 1.0+，CUDA 9.2+，cuDNN 7.6+，NCCL 2.4+
@@ -936,28 +936,12 @@ for epoch in range(10):
 
 ## 参考资料 
 
-- [PyTorch 1.0 新特性：混合精度训练](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：半精度训练](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：动态图](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：XLA](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：AMP](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：ONNX](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchScript](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TensorRT](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：DeepSpeed](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：FairSeq](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：Ignite](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：Lightning](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：PyTorch Hub](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchServe](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchText](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchAudio](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchVision](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchData](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：TorchModelHub](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：模型并行](https://mp.weixin.qq.com/s/y60j3)
-- [PyTorch 1.0 新特性：数据并行](https://mp.weixin.qq.com/s/y60j3)
-
+- [PyTorch 2.0 新特性：TensorBoard](https://mp.weixin.qq.com/s/y60j3)
+- [PyTorch 2.0 新特性：动态图与静态图](https://mp.weixin.qq.com/s/y60j3)
+- [PyTorch 2.0 新特性：模型量化](https://mp.weixin.qq.com/s/y60j3)
+- [PyTorch 2.0 新特性：模型压缩](https://mp.weixin.qq.com/s/y60j3)
+- [PyTorch 2.0 新特性：模型加速推理](https://mp.weixin.qq.com/s/y60j3)
+- [PyTorch 2.0 新特性：模型加速训练](https://mp.weixin.qq.com/s/y60j3)
 
 ## 后续更新
 
