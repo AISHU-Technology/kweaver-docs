@@ -207,9 +207,19 @@ Agent的部署是指将训练好的Agent部署到实际的应用场景中，让A
 解决方式：通过自动化的prompt生成工具，减少人工编写prompt的工作量，提升Agent的效率。如：大模型自动生成prompt、prompt-engineer、prompt-ops、prompt-ops-pro等。
 ```
 
-## Agent 使用案例
+
+## Agent的应用场景
+
+- 虚拟助手：通过Agent的语音交互，帮助用户完成日常生活中的各种任务。
+
+- 虚拟机器人：通过Agent的图像识别、语音识别、触觉识别等能力，帮助用户完成各种任务。
+
+- 虚拟仿真：通过Agent的模拟环境，帮助用户进行模拟实验。
+
+- 虚拟游戏：通过Agent的强化学习，帮助用户进行游戏的训练。
 
   ![agent_shiyonganli](../../images/agent/agent_shiyonganli.png)
+
 
 ## 总结
 
