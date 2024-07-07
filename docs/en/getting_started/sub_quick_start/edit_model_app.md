@@ -6,5 +6,5 @@
 
 在模型应用卡片模式中，单击“操作>编辑”按钮，进入“模型应用编辑”界面。编辑模型应用详情请见“[新建模型应用](./create_model_app.md)”。
 
-![avatar](../assets/editModelAppList.png)
-![avatar](../assets/editModelAppCard.png)
+![avatar](../../../images/getting_started/editModelAppList.png)
+![avatar](../../../images/getting_started/editModelAppCard.png)

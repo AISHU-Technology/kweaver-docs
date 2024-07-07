@@ -12,8 +12,8 @@
 
 2. 单击【新建模型应用分组】按钮，弹出“新建提示词分组”对话框。
 
-    ![avatar](../assets/newModelGroup.png)
-    ![avatar](../assets/newModelGroupModal.png)
+    ![avatar](../../../images/getting_started/newModelGroup.png)
+    ![avatar](../../../images/getting_started/newModelGroupModal.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |
@@ -29,19 +29,19 @@
 
 1. 选择模型应用分组，单击“更多>编辑”按钮，弹出“编辑模型应用分组”对话框。
 
-    ![avatar](../assets/editOrDelModelGroup.png)
+    ![avatar](../../../images/getting_started/editOrDelModelGroup.png)
 2. 在“编辑模型应用分组”对话框中修改已创建的“模型应用分组名称”，修改完成后单击【确定】按钮。
 
-    ![avatar](../assets/editModelGroup.png)
+    ![avatar](../../../images/getting_started/editModelGroup.png)
 
 ### 删除模型应用分组（一级）
 
 1. 选择模型应用分组，单击“更多>删除”按钮，弹出“删除模型应用分组”对话框。
 
-    ![avatar](../assets/editOrDelModelGroup.png)
+    ![avatar](../../../images/getting_started/editOrDelModelGroup.png)
 2. 在“删除模型应用分组”对话框中输入“确定”以确认是否删除该模型应用分组，单击【删除】按钮删除模型应用分组。
 
-    ![avatar](../assets/delModelGroup.png)
+    ![avatar](../../../images/getting_started/delModelGroup.png)
 
 ## 模型应用分组
 
@@ -49,7 +49,7 @@
 
 1. 选择模型应用一级分组，单击【新建分组】，弹出“新建分组”对话框，可新建分组。
 
-    ![avatar](../assets/newSubModelGroup.png)
+    ![avatar](../../../images/getting_started/newSubModelGroup.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |
@@ -61,27 +61,27 @@
 
 1. 选择“模型应用一级项目>模型应用分组”，单击“更多>编辑”按钮，弹出“编辑分组”对话框。
 
-    ![avatar](../assets/editOrDelSubModelGroup.png)
+    ![avatar](../../../images/getting_started/editOrDelSubModelGroup.png)
 
 2. 在“编辑分组”对话框中修改已创建的“模型应用名称”，修改完成后单击【确定】按钮。
 
-    ![avatar](../assets/editModelGroup.png)
+    ![avatar](../../../images/getting_started/editModelGroup.png)
 
 ### 删除模型应用分组
 
 1. 选择“模型应用一级分组>模型应用分组”，单击“更多>删除”按钮，弹出“删除模型应用分组”对话框。
 
-    ![avatar](../assets/editOrDelSubModelGroup.png)
+    ![avatar](../../../images/getting_started/editOrDelSubModelGroup.png)
 
 2. 在“删除模型应用分组”对话框中输入“确定”以确认是否删除该模型应用分组，单击【删除】按钮删除模型应用分组。
 
-    ![avatar](../assets/delModelGroup.png)
+    ![avatar](../../../images/getting_started/delModelGroup.png)
 
 ## 新建模型应用
 
 1. 在分组页面中单击【新建】按钮，弹出“新建模型应用”对话框。
 
-    ![avatar](../assets/newApp.png)
+    ![avatar](../../../images/getting_started/newApp.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |

@@ -10,7 +10,7 @@
 
 2. 在“新建模型应用”对话框中填写信息，选择文本生成型，详情见文档“[新建模型应用](../create_model_app.md)”。
 
-   ![avatar](../../assets/newCompletionApp.png)
+   ![avatar](../../../../images/getting_started/newCompletionApp.png)
 
 
 ## 填写提示词
@@ -19,8 +19,8 @@
 
 在“提示词输入框“中输入提示词，可以手动添加或单击【使用模版】按钮使用模版。
 
-![avatar](../../assets/completionInputTips.png)
-![avatar](../../assets/templeCompletion%20.png)
+![avatar](../../../../images/getting_started/completionInputTips.png)
+![avatar](../../../../images/getting_started/templeCompletion%20.png)
 
 ### 变量管理
 
@@ -28,11 +28,11 @@
 
     方式一：”提示词“输入框中输入变量，例如{{output}}，单击【同步变量】按钮将输入的变量同步在下方变量表单中。
 
-    ![avatar](../../assets/completionInputTips.png)
+    ![avatar](../../../../images/getting_started/completionInputTips.png)
 
     方式二：您也可以在变量表单中单击【添加】按钮，添加变量。
 
-    ![avatar](../../assets/completionVariable.png)
+    ![avatar](../../../../images/getting_started/completionVariable.png)
 
     填写如下信息：
 
@@ -72,13 +72,13 @@
 
     单击“操作>变量设置”按钮，弹出“变量设置”对话框，用户可对变量进行配置。
 
-    ![avatar](../../assets/completionVariableConfig.png)
+    ![avatar](../../../../images/getting_started/completionVariableConfig.png)
 
 3. 删除变量
 
     单击“操作>删除”按钮，删除变量。
 
-    ![avatar](../../assets/completionVariableDel.png)
+    ![avatar](../../../../images/getting_started/completionVariableDel.png)
 
 ## 调试与预览
 
@@ -86,27 +86,27 @@
 
 1. 提示词中没有变量时，单击【运行】按钮，对提示词效果进行预览。
 
-    ![avatar](../../assets/completionRun.png)
+    ![avatar](../../../../images/getting_started/completionRun.png)
 
 2. 提示词中存在变量时
 
     - 在调试与预览的“用户输入>变量”输入框中填入变量的值。
 
-        ![avatar](../../assets/completionMustVariable.png)
+        ![avatar](../../../../images/getting_started/completionMustVariable.png)
 
     - 单击【运行】按钮，该值将在每次提交问题时自动替换到提示词中，对提示词和变量效果进行预览。
 
-        ![avatar](../../assets/completionRun.png)
+        ![avatar](../../../../images/getting_started/completionRun.png)
 
     - 单击【运行】按钮后，结果生成等待时间过长，单击【停止响应】按钮停止生成，调整变量中的文本。
 
-        ![avatar](../../assets/completionStop.png)
+        ![avatar](../../../../images/getting_started/completionStop.png)
 
 ### 调试
 
 在预览中对结果不满意，支持调整提示词和模型参数配置进行调试。单击【模型名称】按钮，弹出“配置模型和参数”对话框。
 
-![avatar](../../assets/completionConfig.png)
+![avatar](../../../../images/getting_started/completionConfig.png)
 
 修改如下信息：
 
@@ -123,16 +123,16 @@
 
 调试时在“调试与预览”的“用户输入>变量”输入框中修改变量或“配置模型与参数”后，单击【清空】按钮，重新对修改内容的效果进行预览。
 
-![avatar](../../assets/completionAgain.png)
+![avatar](../../../../images/getting_started/completionAgain.png)
 
 ### 重置
 
 调试时可以单击【重置】按钮，将提示词、变量清单和调试与预览清空。
 
-![avatar](../../assets/completionReset.png)
+![avatar](../../../../images/getting_started/completionReset.png)
 
 ## 保存
 
 在调试与预览后，单击【保存】按钮，对提示词进行保存。
 
-![avatar](../../assets/completionSave.png)
+![avatar](../../../../images/getting_started/completionSave.png)

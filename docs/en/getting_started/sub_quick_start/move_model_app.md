@@ -6,5 +6,5 @@
 
 在模型应用卡片模式中单击“操作>移动到”按钮，弹出“移动到”对话框，用户可以移动提示词到指定“模型应用一级分组>模型应用分组”中。
 
-![avatar](../assets/moveModelApp.png)
-![avatar](../assets/moveModelAppConfig.png)
+![avatar](../../../images/getting_started/moveModelApp.png)
+![avatar](../../../images/getting_started/moveModelAppConfig.png)

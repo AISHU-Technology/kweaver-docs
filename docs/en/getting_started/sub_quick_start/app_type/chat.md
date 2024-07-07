@@ -10,7 +10,7 @@
 
 2.在“新建模型应用对话框”中填写信息，选择对话型，详情见文档“[新建模型应用](../create_model_app.md)”。
 
-![avatar](../../assets/newChatApp.png)
+![avatar](../../../../images/getting_started/newChatApp.png)
 
 ## 填写提示词
 
@@ -18,8 +18,8 @@
 
 在“提示词”输入框中输入提示词，可以手动添加或单击【使用模版】按钮使用模版。
 
-![avatar](../../assets/inputChatTips.png)
-![avatar](../../assets/templeChatTips.png)
+![avatar](../../../../images/getting_started/inputChatTips.png)
+![avatar](../../../../images/getting_started/templeChatTips.png)
 
 ### 变量管理
 
@@ -27,11 +27,11 @@
 
     方式一：“提示词”输入框中可以输入变量，例如{{output}}，单击【同步变量】按钮将输入的变量同步在下方变量表单中。
 
-    ![avatar](../../assets/chatAppVariable.png)
+    ![avatar](../../../../images/getting_started/chatAppVariable.png)
 
     方式二：您也可以在变量表单中单击【添加】按钮，添加变量。
 
-    ![avatar](../../assets/chatAppAddVariable.png)
+    ![avatar](../../../../images/getting_started/chatAppAddVariable.png)
 
     填写如下信息。
 
@@ -67,23 +67,23 @@
 
     注意：在变量表单中可以直接更改变量名称和字段名称，选择该变量是否为调试与预览的必填项。
 
-    ![avatar](../../assets/chatAppUsefulTips.png)
+    ![avatar](../../../../images/getting_started/chatAppUsefulTips.png)
 
 2. 变量配置
 
     单击“操作>变量设置”按钮，弹出“变量设置”对话框，对变量进行配置。
-    ![avatar](../../assets/editChatAppVariable.png)
+    ![avatar](../../../../images/getting_started/editChatAppVariable.png)
 
 3. 删除变量
 
     单击“操作>删除”按钮，删除变量。
-    ![avatar](../../assets/delChatAppVariable.png)
+    ![avatar](../../../../images/getting_started/delChatAppVariable.png)
 
 ## 开场白设置
 
 1. 在“聊天增强>对话开场白”中，单击【编辑】按钮添加开场白。
 
-    ![avatar](../../assets/chatAppIntroduction.png)
+    ![avatar](../../../../images/getting_started/chatAppIntroduction.png)
 
 2. 填完信息后，单击【保存】按钮。右侧“调试与预览”界面出现开场白。
 
@@ -93,23 +93,23 @@
 
 1. 提示词中没有变量时，可以直接在对话框中输入内容，对提示词效果进行预览。
 
-    ![avatar](../../assets/viewChatApp.png)
+    ![avatar](../../../../images/getting_started/viewChatApp.png)
 
 2. 提示词中存在变量时
 
     - 在调试与预览的“用户输入>变量”输入框中填入变量的值。
 
-        ![avatar](../../assets/viewChatAppVariable.png)
+        ![avatar](../../../../images/getting_started/viewChatAppVariable.png)
 
     - 在对话框中输入内容进行预览。
 
-        ![avatar](../../assets/viewChatApp.png)
+        ![avatar](../../../../images/getting_started/viewChatApp.png)
 
 ### 调试
 
 在预览中对结果不满意，支持调整提示词和模型参数配置进行调试。单击【模型名称】按钮，弹出“配置模型和参数”对话框。
 
-![avatar](../../assets/viewChatAppDebug.png)
+![avatar](../../../../images/getting_started/viewChatAppDebug.png)
 
 修改如下信息：
 
@@ -126,16 +126,16 @@
 
 调试时在“调试与预览”的“用户输入>变量”输入框中修改提示词或修改配置模型与参数后，单击【重新开始】按钮，对话内容清空，重新在对话框中输入内容，对修改内容的效果进行预览。
 
-![avatar](../../assets/viewChatAppAgain.png)
+![avatar](../../../../images/getting_started/viewChatAppAgain.png)
 
 ### 重置
 
 调试时可以单击【重置】按钮，将提示词、变量清单、开场白和调试与预览清空。
 
-![avatar](../../assets/viewChatAppReset.png)
+![avatar](../../../../images/getting_started/viewChatAppReset.png)
 
 ## 保存
 
 在调试与预览完成后，单击【保存】按钮，对提示词进行保存。
 
-![avatar](../../assets/viewChatAppSave.png)
+![avatar](../../../../images/getting_started/viewChatAppSave.png)

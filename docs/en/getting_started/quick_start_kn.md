@@ -29,17 +29,17 @@
 
 3. 单击【确定】按钮，创建知识网络成功。
 
-    ![avatar](./assets/newKN.png)
+    ![avatar](../../images/getting_started/newKN.png)
 
 ## 步骤2：基本信息
 
 输入“知识图谱名称”——电影图谱，单击【下一步】按钮。
-![avatar](./assets/newGraph.png)
+![avatar](../../images/getting_started/newGraph.png)
 
 ## 步骤3：选择数据源
 
 选择将要使用的数据源。
-![avatar](./assets/chooseDataSource.png)
+![avatar](../../images/getting_started/chooseDataSource.png)
 
 ## 步骤4：创建本体
 
@@ -47,39 +47,39 @@
 
 1. 在“批量导入实体类”对话框内选择对应数据表后单击【确定】按钮。
 
-    ![avatar](./assets/batchImportEntities.png)
+    ![avatar](../../images/getting_started/batchImportEntities.png)
 
 2. 成功导入的实体类会在画布上高亮显示，用户可以设置实体类的外观样式（颜色、图标等）、修改详情信息以及配置索引/融合属性。
 
-    ![avatar](./assets/entitySetting.png)
+    ![avatar](../../images/getting_started/entitySetting.png)
 
 3. 创建实体类完成后，在画布顶部工具栏选择【批量关系类】按钮，在“批量关系类”对话框内选择起/终点，设置每一个关系类的显示名后单击【确定】按钮即可。
 
-    ![avatar](./assets/batchImportEdges.png)
+    ![avatar](../../images/getting_started/batchImportEdges.png)
 
 4. 下图是创建关系类完成后的效果图。此时，创建本体完成。
 
-    ![avatar](./assets/finishGraph.png)
+    ![avatar](../../images/getting_started/finishGraph.png)
 
 ## 步骤5：知识映射
 
 1. 添加所需抽取的数据表。
 
-    ![avatar](./assets/quickSelect.png)
-    ![avatar](./assets/sqlCreate.png)
+    ![avatar](../../images/getting_started/quickSelect.png)
+    ![avatar](../../images/getting_started/sqlCreate.png)
 
 2. 配置实体类/关系类映射。
 
-    ![avatar](./assets/finishMapping.png)
+    ![avatar](../../images/getting_started/finishMapping.png)
 
 3. 在此我们以立即运行该图谱为例。单击【提交配置】>【立即运行】按钮，弹出“请选择构建知识图谱方式”对话框，更新方式选择【全量构建】。
 
-    ![avatar](./assets/buildConfig.png)
+    ![avatar](../../images/getting_started/buildConfig.png)
 
 4. 构建完成后，我们可以单击【查看任务】按钮在图谱任务列表中查看到刚刚创建完成的图谱任务。
 
-    ![avatar](./assets/finishConfig.png)
+    ![avatar](../../images/getting_started/finishConfig.png)
 
 5. 下图为构建成功后的效果图，我们可以在画布上直观的看到每一个实体类的数量信息以及实体类间的关系。
 
-    ![avatar](./assets/finishBuildGraph.png)
+    ![avatar](../../images/getting_started/finishBuildGraph.png)

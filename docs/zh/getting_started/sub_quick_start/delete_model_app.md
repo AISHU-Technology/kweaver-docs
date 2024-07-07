@@ -6,8 +6,8 @@
 
 1. 单击模型应用卡片中“操作>删除”按钮，弹出删除确认弹窗。
 
-    ![avatar](../assets/delModelApp.png)
+    ![avatar](../../../images/getting_started/delModelApp.png)
 
 2. 单击【确定】按钮，确认删除提示词。
 
-    ![avatar](../assets/delModelAppComfirm.png)
+    ![avatar](../../../images/getting_started/delModelAppComfirm.png)

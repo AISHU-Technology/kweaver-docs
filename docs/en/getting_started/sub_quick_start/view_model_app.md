@@ -10,27 +10,27 @@
 
     - 通过单击“模型应用卡片”方式。
 
-    ![avatar](../assets/viewModelAppCard.png)
+    ![avatar](../../../images/getting_started/viewModelAppCard.png)
 
     - 通过单击“操作>查看”按钮的方式。
 
-    ![avatar](../assets/viewModelAppCardOperate.png)
+    ![avatar](../../../images/getting_started/viewModelAppCardOperate.png)
 
     列表形式中：
 
     - 通过单击列表中“模型应用名称”方式。
 
-    ![avatar](../assets/viewModelAppList.png)
+    ![avatar](../../../images/getting_started/viewModelAppList.png)
 
     - 通过单击列表中“操作>查看”按钮的方式。
 
-    ![avatar](../assets/viewModelAppListOperate.png)
+    ![avatar](../../../images/getting_started/viewModelAppListOperate.png)
 
 
 2. 在“模型应用查看”界面中，左侧提示词输入框、变量清单、对话开场白和模型均不可编辑。在“调试与预览”的用户输入中修改变量与调试结果。
 
-    ![avatar](../assets/viewModelAppUnableEdit.png)
+    ![avatar](../../../images/getting_started/viewModelAppUnableEdit.png)
 
 3. 对调试与预览结果不满意，单击【编辑】按钮，界面变为编辑状态，编辑提示词详情请见“[新建模型应用](./create_model_app.md)”
 
-    ![avatar](../assets/viewModelAppEdit.png)
+    ![avatar](../../../images/getting_started/viewModelAppEdit.png)

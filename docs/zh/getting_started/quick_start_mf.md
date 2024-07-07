@@ -56,8 +56,8 @@
 
 2. 单击【新建提示词模板分组】按钮，弹出“新建提示词项目”对话框。
 
-    ![avatar](./assets/newPromptGroup.png)
-    ![avatar](./assets/newPromptGroupModal.png)
+    ![avatar](../../images/getting_started/newPromptGroup.png)
+    ![avatar](../../images/getting_started/newPromptGroupModal.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |
@@ -73,21 +73,21 @@
 
 1. 选择提示词模板分组，单击“更多>编辑”按钮，弹出“编辑提示词模板分组”对话框。
 
-    ![avatar](./assets/editOrDelPromptGroup.png)
+    ![avatar](../../images/getting_started/editOrDelPromptGroup.png)
 
 2. 在“编辑提示词模板分组”对话框中修改已创建的“提示词模板分组名称”，修改完成后单击【确定】按钮。
 
-    ![avatar](./assets/editPromptGroup.png)
+    ![avatar](../../images/getting_started/editPromptGroup.png)
 
 ##### 删除提示词模板一级分组
 
 1. 选择提示词模板分组，单击“更多>删除”按钮，弹出“删除提示词模板分组”对话框。
 
-    ![avatar](./assets/editOrDelPromptGroup.png)
+    ![avatar](../../images/getting_started/editOrDelPromptGroup.png)
 
 2. 在“删除提示词模板分组”对话框中输入“确定”以确认是否删除该提示词模板分组，单击【删除】按钮删除提示词模板分组。
 
-    ![avatar](./assets/delPromptGroup.png)
+    ![avatar](../../images/getting_started/delPromptGroup.png)
 
 #### 提示词模板分组
 
@@ -95,8 +95,8 @@
 
 1. 选择提示词模板一级分组，单击【新建分组】，弹出“新建分组”对话框，可新建分组。
 
-    ![avatar](./assets/newPromptSubGroup.png)
-    ![avatar](./assets/newPromptGroupModal.png)
+    ![avatar](../../images/getting_started/newPromptSubGroup.png)
+    ![avatar](../../images/getting_started/newPromptGroupModal.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |
@@ -108,27 +108,27 @@
 
 1. 选择“提示词模板一级分组>提示词模板分组”，单击“更多>编辑”按钮，弹出“编辑分组”对话框。
 
-    ![avatar](./assets/editOrDelPromptSubGroup.png)
+    ![avatar](../../images/getting_started/editOrDelPromptSubGroup.png)
 
 2. 在“编辑分组”对话框中修改已创建的“提示词模板分组名称”，修改完成后单击【确定】按钮。
 
-    ![avatar](./assets/editPromptGroup.png)
+    ![avatar](../../images/getting_started/editPromptGroup.png)
 
 ##### 删除提示词模板分组
 
 1. 选择“提示词模板一级分组>提示词模板分组”，单击“更多>删除”按钮，弹出“删除提示词模板分组”对话框。
 
-    ![avatar](./assets/editOrDelPromptSubGroup.png)
+    ![avatar](../../images/getting_started/editOrDelPromptSubGroup.png)
 
 2. 在“删除提示词模板分组”对话框中输入“确定”以确认是否删除该提示词模板分组，单击【删除】按钮删除提示词模板分组。
 
-    ![avatar](./assets/delPromptGroup.png)
+    ![avatar](../../images/getting_started/delPromptGroup.png)
 
 #### 新建提示词模板
 
 1. 在分组页面中单击【新建】按钮，弹出“新建提示词”界面。
 
-    ![avatar](./assets/newPrompt.png)
+    ![avatar](../../images/getting_started/newPrompt.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |
@@ -147,8 +147,8 @@
 
 在“提示词”输入框中输入提示词，可以手动添加或单击【使用模版】按钮使用模版。
 
-![avatar](./assets/inputPrompt.png)
-![avatar](./assets/templatePrompt.png)
+![avatar](../../images/getting_started/inputPrompt.png)
+![avatar](../../images/getting_started/templatePrompt.png)
 
 ##### 变量管理
 
@@ -156,11 +156,11 @@
 
     方式一：“提示词”输入框中可以输入变量，例如{{output}}，单击【同步变量】按钮将输入的变量同步在下方变量表单中。
 
-    ![avatar](./assets/inputPromptV.png)
+    ![avatar](../../images/getting_started/inputPromptV.png)
 
     方式二：您也可以在变量表单中单击【添加变量】按钮，添加变量。
 
-    ![avatar](./assets/addPromptV.png)
+    ![avatar](../../images/getting_started/addPromptV.png)
 
 
     填写如下信息。
@@ -203,13 +203,13 @@
 
     单击“操作>变量设置”按钮，弹出“变量设置”对话框，对变量进行配置。
 
-    ![avatar](./assets/promptVEdit.png)
+    ![avatar](../../images/getting_started/promptVEdit.png)
 
 3. 删除变量
 
     单击“操作>删除”按钮，删除变量。
 
-    ![avatar](./assets/promptVDel.png)
+    ![avatar](../../images/getting_started/promptVDel.png)
 
 #### 查看提示词模板指引（参考“[查看模型应用](./sub_quick_start/view_model_app.md)”）
 
@@ -229,8 +229,8 @@
 
 2. 在大语言模型卡片模式中，单击【新建】按钮，弹出“接入模型”对话框。
 
-    ![avatar](./assets/newLLM.png)
-    ![avatar](./assets/newLLMModal.png)
+    ![avatar](../../images/getting_started/newLLM.png)
+    ![avatar](../../images/getting_started/newLLMModal.png)
     填写如下信息：
     |  参数  |  说明  |
     |  ---  |  ---  |
@@ -252,7 +252,7 @@
 
 2. 在大语言模型卡片中，单击【查看】按钮，弹出“查看模型”对话框。
 
-    ![avatar](./assets/viewOrDelOrTestLLM.png)
+    ![avatar](../../images/getting_started/viewOrDelOrTestLLM.png)
 
 ### 编辑大语言模型
 
@@ -262,7 +262,7 @@
 
 2. 在大语言模型卡片模式中，单击【编辑】按钮，弹出“编辑模型”对话框。详情见文档“[新建大语言模型](#新建大语言模型)”
 
-    ![avatar](./assets/viewOrDelOrTestLLM.png)
+    ![avatar](../../images/getting_started/viewOrDelOrTestLLM.png)
 
 ### 测试大语言模型
 
@@ -272,4 +272,4 @@
 
 2. 在大语言模型卡片中，单击【测试】按钮，测试连接配置。
 
-    ![avatar](./assets/viewOrDelOrTestLLM.png)
+    ![avatar](../../images/getting_started/viewOrDelOrTestLLM.png)
