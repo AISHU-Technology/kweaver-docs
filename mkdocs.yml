@@ -40,6 +40,13 @@ theme:
       - navigation.footer
       - navigation.tracking
 plugins:
+#  - meta-descriptions:
+#      export_csv: false
+#      quiet: false
+#      enable_checks: false
+#      min_length: 50
+#      max_length: 160
+#      trim: false
   - macros:
       # 替换默认的jinja宏标志{{}}，否则类似的地方可能报错
       # [[% raw %]]
