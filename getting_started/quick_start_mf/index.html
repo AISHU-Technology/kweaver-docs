@@ -1,0 +1,1992 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <meta name="description" content="返回上级">
+    
+    
+    
+    <link rel="canonical" href="https://docs.kweaver.ai/getting_started/quick_start_mf/">
+    
+    
+    
+    
+    <link rel="icon" href="../../assets/favicon.png">
+    <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.7">
+    
+    
+    
+    <title>模型工厂 - KWeaver官方技术手册</title>
+    
+    
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+    
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+    
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    
+    
+    
+    <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+    
+
+    
+    
+    
+</head>
+
+
+
+
+
+
+
+
+
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+
+
+
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+    
+    
+    <a href="#_1" class="md-skip">
+        跳转至
+    </a>
+    
+</div>
+<div data-md-component="announce">
+    
+</div>
+
+<div data-md-color-scheme="default" data-md-component="outdated" hidden>
+    
+</div>
+
+
+
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="KWeaver官方技术手册" class="md-header__button md-logo" aria-label="KWeaver官方技术手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KWeaver官方技术手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              模型工厂
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../en/getting_started/quick_start_mf/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AISHU-Technology/kweaver" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KWeaver
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+
+<div class="md-container" data-md-component="container">
+    
+    
+    
+    
+    
+    
+    <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+            
+            
+            
+            <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                    <div class="md-sidebar__inner">
+                        
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KWeaver官方技术手册" class="md-nav__button md-logo" aria-label="KWeaver官方技术手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    KWeaver官方技术手册
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AISHU-Technology/kweaver" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KWeaver
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KWeaver介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    架构介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    快速上手&部署文档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            快速上手&部署文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快速上手
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deploy_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开发部署简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    部署手册
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            部署手册
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/front_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前端开发环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/backend_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后端开发环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/docker_compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker-Compose部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/docker_gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/docker_k8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K8S部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    知识进阶
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            知识进阶
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/AINative/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI原生知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/agents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/big_models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    大模型知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/knowledge_graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识图谱
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/models-factory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型工厂
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/knowledge_graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/system_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    系统管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/front_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前端问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/backend_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后端问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/deploy_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/other_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其他问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    常见状态码
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            常见状态码
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../error_code/http_status_code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    http状态码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../error_code/kw_status_code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KWeaver状态码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    附录
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            附录
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/vocabulary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    词汇表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/version_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    版本日志
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/feedback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    联系我们
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                    <div class="md-sidebar__inner">
+                        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作指引（模型应用）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      提示词模板
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提示词模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      概要说明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="概要说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      提示词
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      chat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      completion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作指引（提示词模板）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="操作指引（提示词模板）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建提示词模板指引
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="新建提示词模板指引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建提示词模板一级分组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      编辑提示词模板一级分组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除提示词模板一级分组
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      提示词模板分组
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="提示词模板分组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建提示词模板分组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      编辑提示词模板分组
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除提示词模板分组
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建提示词模板
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      填写提示词
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="填写提示词">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      提示词输入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量管理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看提示词模板指引（参考“查看模型应用”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      编辑提示词模板指引（参考“编辑模型应用”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      移动提示词模板指引（参考“移动模型应用”）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      删除提示词模板指引（参考“删除模型应用”）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      大语言模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="大语言模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      新建大语言模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      查看大语言模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      编辑大语言模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      测试大语言模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="md-content" data-md-component="content">
+                <article class="md-content__inner md-typeset">
+                    <div style="float:right"><span id="busuanzi_container_page_pv"><font size="2" color="grey">本文阅读量<span id="busuanzi_value_page_pv"></span>次</font></span></div>
+                    
+                    
+
+  
+  
+
+
+<h1 id="_1">模型工厂<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><a href="../quick_start/#模型工厂">返回上级</a></p>
+<p>模型工厂基于大模型中立策略，让数据科学家能够快速接入各种大模型，通过提示词工程实现领域专业性和系统性的任务评估和优化。同时可以接入传统的机器学习和深度学习模型，提供模型使用的灵活性和多样性。</p>
+<h2 id="_2">模型应用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">简介<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>模型应用是将机器学习或人工智能模型部署到实际应用场景中，利用提示词微调等以解决特定问题或提供特定功能的过程。在模型应用中，开发人员或数据科学家将经过训练和优化的模型集成到现有的软件系统或服务中，使其能够自动地对输入数据进行预测、分类、识别等操作，并输出相应的结果。可以支持模型应用的创建、查看、编辑、移动、删除等功能。</p>
+<h3 id="_4">定义<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>提示词：提示词是指在使用大语言模型进行对话或生成文本时，用户提供给模型的关键词或短语，用于引导模型生成与该提示相关的回答或文本。提示词可以帮助模型更好地理解用户的意图和上下文，并生成更准确、有针对性的回应。</li>
+<li>chat：使用场景中采用一问一答模式与用户持续对话。对话型提示词可以适用于不同的领域场景。可以帮助组织提高工作效率、减少人工成本和提供更好的用户体验。</li>
+<li>completion：是一种能够根据用户提供的提示，使大模型自动生成高质量文本的提示词。它可以生成各种类型的文本，例如文章摘要、翻译等。</li>
+<li>对话开场白：设置对话开场白，在对话过程中让AI主动说第一段话可以拉近与用户间的距离。</li>
+</ul>
+<h3 id="_5">操作指引（模型应用）<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>说明</th>
+<th>详细指导</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新建模型应用</td>
+<td>添加提示词项目和分组，创建模型应用</td>
+<td><a href="../sub_quick_start/create_model_app/">详情</a></td>
+</tr>
+<tr>
+<td>查看模型应用</td>
+<td>创建模型应用后，查看和调试预览提示词和模型效果</td>
+<td><a href="../sub_quick_start/view_model_app/">详情</a></td>
+</tr>
+<tr>
+<td>编辑模型应用</td>
+<td>创建模型应用后，更新提示词、模型信息</td>
+<td><a href="../sub_quick_start/edit_model_app/">详情</a></td>
+</tr>
+<tr>
+<td>移动模型应用</td>
+<td>移动模型应用的项目和分组满足业务需要</td>
+<td><a href="../sub_quick_start/move_model_app/">详情</a></td>
+</tr>
+<tr>
+<td>删除模型应用</td>
+<td>删除已创建的模型应用，以适应业务变化</td>
+<td><a href="../sub_quick_start/delete_model_app/">详情</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">提示词模板<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">概要说明<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h4 id="_8">提示词<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>提示词是一种自然语言指令，告诉大语言模型（LLM）执行什么任务。
+通常：角色+角色技能+任务核心关键词+任务目标+任务背景+任务范围+ 任务解决与否判定+任务限制条件+输出格式/形式+输出量。</p>
+<h4 id="chat">chat<a class="headerlink" href="#chat" title="Permanent link">&para;</a></h4>
+<p>使用场景中采用一问一答模式与用户持续对话。对话型提示词可以适用于不同的领域场景。可以帮助组织提高工作效率、减少人工成本和提供更好的用户体验。</p>
+<h4 id="completion">completion<a class="headerlink" href="#completion" title="Permanent link">&para;</a></h4>
+<p>文本生成类应用是一种能够根据用户提供的提示，自动生成高质量文本的应用。它可以生成各种类型的文本，例如文章摘要、翻译等。</p>
+<h3 id="_9">操作指引（提示词模板）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>从“主页”进入"模型工厂"，在左侧菜单栏中选择“提示词模板”。</p>
+<h4 id="_10">新建提示词模板指引<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h5 id="_11">新建提示词模板一级分组<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>进入模型工厂，在左侧菜单栏中选择“提示词模板”，进入“提示词模板“页面。</p>
+</li>
+<li>
+<p>单击【新建提示词模板分组】按钮，弹出“新建提示词项目”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/newPromptGroup.png" />
+<img alt="avatar" src="../../images/getting_started/newPromptGroupModal.png" />
+填写如下信息：
+|  参数  |  说明  |
+|  ---  |  ---  |
+|  提示词模板分组名称  | 名称只能由大小写字母、数字、中文、特殊字符组成，长度为1-50位。|</p>
+</li>
+<li>
+<p>填完信息后，单击【确定】按钮。</p>
+<p>注意：</p>
+<p>新建提示词模板分组时，默认创建一个分组。</p>
+</li>
+</ol>
+<h5 id="_12">编辑提示词模板一级分组<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>选择提示词模板分组，单击“更多&gt;编辑”按钮，弹出“编辑提示词模板分组”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/editOrDelPromptGroup.png" /></p>
+</li>
+<li>
+<p>在“编辑提示词模板分组”对话框中修改已创建的“提示词模板分组名称”，修改完成后单击【确定】按钮。</p>
+<p><img alt="avatar" src="../../images/getting_started/editPromptGroup.png" /></p>
+</li>
+</ol>
+<h5 id="_13">删除提示词模板一级分组<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>选择提示词模板分组，单击“更多&gt;删除”按钮，弹出“删除提示词模板分组”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/editOrDelPromptGroup.png" /></p>
+</li>
+<li>
+<p>在“删除提示词模板分组”对话框中输入“确定”以确认是否删除该提示词模板分组，单击【删除】按钮删除提示词模板分组。</p>
+<p><img alt="avatar" src="../../images/getting_started/delPromptGroup.png" /></p>
+</li>
+</ol>
+<h4 id="_14">提示词模板分组<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<h5 id="_15">新建提示词模板分组<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>选择提示词模板一级分组，单击【新建分组】，弹出“新建分组”对话框，可新建分组。</p>
+<p><img alt="avatar" src="../../images/getting_started/newPromptSubGroup.png" />
+<img alt="avatar" src="../../images/getting_started/newPromptGroupModal.png" />
+填写如下信息：
+|  参数  |  说明  |
+|  ---  |  ---  |
+|  提示词模板分组名称  | 名称只能由大小写字母、数字、中文、特殊字符组成，长度为1-50位。|</p>
+</li>
+<li>
+<p>填完信息后，单击【确定】按钮。</p>
+</li>
+</ol>
+<h5 id="_16">编辑提示词模板分组<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>选择“提示词模板一级分组&gt;提示词模板分组”，单击“更多&gt;编辑”按钮，弹出“编辑分组”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/editOrDelPromptSubGroup.png" /></p>
+</li>
+<li>
+<p>在“编辑分组”对话框中修改已创建的“提示词模板分组名称”，修改完成后单击【确定】按钮。</p>
+<p><img alt="avatar" src="../../images/getting_started/editPromptGroup.png" /></p>
+</li>
+</ol>
+<h5 id="_17">删除提示词模板分组<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>选择“提示词模板一级分组&gt;提示词模板分组”，单击“更多&gt;删除”按钮，弹出“删除提示词模板分组”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/editOrDelPromptSubGroup.png" /></p>
+</li>
+<li>
+<p>在“删除提示词模板分组”对话框中输入“确定”以确认是否删除该提示词模板分组，单击【删除】按钮删除提示词模板分组。</p>
+<p><img alt="avatar" src="../../images/getting_started/delPromptGroup.png" /></p>
+</li>
+</ol>
+<h4 id="_18">新建提示词模板<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>在分组页面中单击【新建】按钮，弹出“新建提示词”界面。</p>
+<p><img alt="avatar" src="../../images/getting_started/newPrompt.png" />
+填写如下信息：
+|  参数  |  说明  |
+|  ---  |  ---  |
+|  提示词模板名称  | 名称只能由中英文、数字和键盘上的特殊字符组成，长度为1-50位。|
+|  应用类型  | 支持用户选择completion或 chat|
+|  选择分组  | 支持用户对提示词分组进行切换|
+|  填写提示词  | 见下文|
+|  颜色  | 选择提示词图标颜色|
+|  提示词模板描述  | 描述只能由中英文、数字、特殊字符组成，长度为0-255位|</p>
+</li>
+<li>
+<p>填完信息后，单击【保存】按钮。</p>
+</li>
+</ol>
+<h4 id="_19">填写提示词<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<h5 id="_20">提示词输入<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h5>
+<p>在“提示词”输入框中输入提示词，可以手动添加或单击【使用模版】按钮使用模版。</p>
+<p><img alt="avatar" src="../../images/getting_started/inputPrompt.png" />
+<img alt="avatar" src="../../images/getting_started/templatePrompt.png" /></p>
+<h5 id="_21">变量管理<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>添加变量</p>
+<p>方式一：“提示词”输入框中可以输入变量，例如{{output}}，单击【同步变量】按钮将输入的变量同步在下方变量表单中。</p>
+<p><img alt="avatar" src="../../images/getting_started/inputPromptV.png" /></p>
+<p>方式二：您也可以在变量表单中单击【添加变量】按钮，添加变量。</p>
+<p><img alt="avatar" src="../../images/getting_started/addPromptV.png" /></p>
+<p>填写如下信息。</p>
+<p><table>
+        <tr>
+            <td>参数</td>
+            <td>说明</td>
+        </tr>
+        <tr>
+            <td>变量名称</td>
+            <td>名称只能由大小写字母特殊字符组成，长度为1-50位，格式为{{input}}</td>
+        </tr>
+        <tr>
+            <td>字段名称</td>
+            <td>名称只能由中英文及特殊字符组成，长度为1-50位</td>
+        </tr>
+        <tr>
+            <td rowspan="4">字段类型</td>
+            <td>数值:支持用户输入整数和非整数。空值时最大值正无穷，最小值负无穷</td>
+        </tr>
+        <tr>
+            <td>文本:默认值48，最大值256，最小值1</td>
+        </tr>
+        <tr>
+            <td>段落:支持用户输入文本长度不限的段落文本</td>
+        </tr>
+        <tr>
+            <td>下拉选项：需要至少有一个选项，选项内容不能为空，最长50字符</td>
+        </tr>
+    </table></p>
+<p>单击【确定】按钮添加变量。</p>
+<p>注意：在变量表单中可以直接更改变量名称和字段名称，选择该变量是否为调试与预览的必填项。</p>
+<p><img alt="avatar" src="./assets/promptVMust.png" /></p>
+</li>
+<li>
+<p>变量配置</p>
+<p>单击“操作&gt;变量设置”按钮，弹出“变量设置”对话框，对变量进行配置。</p>
+<p><img alt="avatar" src="../../images/getting_started/promptVEdit.png" /></p>
+</li>
+<li>
+<p>删除变量</p>
+<p>单击“操作&gt;删除”按钮，删除变量。</p>
+<p><img alt="avatar" src="../../images/getting_started/promptVDel.png" /></p>
+</li>
+</ol>
+<h4 id="_22">查看提示词模板指引（参考“<a href="../sub_quick_start/view_model_app/">查看模型应用</a>”）<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<h4 id="_23">编辑提示词模板指引（参考“<a href="../sub_quick_start/edit_model_app/">编辑模型应用</a>”）<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<h4 id="_24">移动提示词模板指引（参考“<a href="../sub_quick_start/move_model_app/">移动模型应用</a>”）<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<h4 id="_25">删除提示词模板指引（参考“<a href="../sub_quick_start/delete_model_app/">删除模型应用</a>”）<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<h2 id="_26">大语言模型<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">新建大语言模型<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>可以在模型工厂里的大语言模型界面新建大语言模型。</p>
+<ol>
+<li>
+<p>进入模型工厂，在左侧菜单栏中选择“模型 &gt; 大语言模型”，进入“大语言模型“页面。</p>
+</li>
+<li>
+<p>在大语言模型卡片模式中，单击【新建】按钮，弹出“接入模型”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/newLLM.png" />
+<img alt="avatar" src="../../images/getting_started/newLLMModal.png" />
+填写如下信息：
+|  参数  |  说明  |
+|  ---  |  ---  |
+|  模型名称  | 名称只能由中英文、数字和键盘上的特殊字符组成，长度为1-50位。|
+|  供应商  | 供应商可选OpenAI、aishu-baichuan、aishu-qianwen  |
+|  API Model  | 模型服务的名称<br>组成：由英文、数字及键盘上的特殊字符号组成，长度为1-50位，且区分大小写|
+|  API Base  | API Base为请求地址<br>组成：由英文、数字及键盘上的特殊字符号组成，长度为1-150位。|
+|  API key  | 模型服务身份密码<br>组成：由英文、数字及键盘上的特殊字符号组成。|</p>
+</li>
+<li>
+<p>填完信息后，单击【测试连接】按钮对配置进行测试。</p>
+</li>
+<li>
+<p>测试连接成功后，单击【保存】按钮。</p>
+</li>
+</ol>
+<h3 id="_28">查看大语言模型<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>在“模型工厂&gt;大语言模型&gt;新建大语言模型”后，查看大语言模型信息。</p>
+<ol>
+<li>
+<p>进入模型工厂，在左侧菜单栏中选择“模型 &gt; 大语言模型”，进入“大语言模型“页面。</p>
+</li>
+<li>
+<p>在大语言模型卡片中，单击【查看】按钮，弹出“查看模型”对话框。</p>
+<p><img alt="avatar" src="../../images/getting_started/viewOrDelOrTestLLM.png" /></p>
+</li>
+</ol>
+<h3 id="_29">编辑大语言模型<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>在“模型工厂&gt;大语言模型&gt;新建大语言模型”后，编辑大语言模型信息。</p>
+<ol>
+<li>
+<p>进入模型工厂，在左侧菜单栏中选择“模型 &gt; 大语言模型”，进入“大语言模型“页面。</p>
+</li>
+<li>
+<p>在大语言模型卡片模式中，单击【编辑】按钮，弹出“编辑模型”对话框。详情见文档“<a href="#新建大语言模型">新建大语言模型</a>”</p>
+<p><img alt="avatar" src="../../images/getting_started/viewOrDelOrTestLLM.png" /></p>
+</li>
+</ol>
+<h3 id="_30">测试大语言模型<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p>在模型工厂&gt;大模型接入&gt;新建大语言模型后，测试大语言模型。</p>
+<ol>
+<li>
+<p>进入模型工厂，在左侧菜单栏中选择“模型 &gt; 大语言模型”，进入“大语言模型“页面。</p>
+</li>
+<li>
+<p>在大语言模型卡片中，单击【测试】按钮，测试连接配置。</p>
+<p><img alt="avatar" src="../../images/getting_started/viewOrDelOrTestLLM.png" /></p>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-07-13 17:03:07</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                    <script src="../docs/assets/giscus_client.js"
+                            data-repo="AISHU-Technology/kweaver-docs"
+                            data-repo-id="R_kgDOH1U7qA"
+                            data-category="General"
+                            data-category-id="DIC_kwDOH1U7qM4CfonX"
+                            data-mapping="pathname"
+                            data-strict="1"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="bottom"
+                            data-theme="preferred_color_scheme"
+                            data-lang="zh-CN"
+                            data-loading="lazy"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                    
+                </article>
+            </div>
+            
+            
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+        <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+    </main>
+    
+    <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - 2024 Martin Donath
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+    
+</div>
+<div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "navigation.footer", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+
+
+<script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+
+<script src="../../assets/extra.js"></script>
+
+<script src="../../assets/mathjax.js"></script>
+
+<script src="../../assets/tex-mml-chtml.js"></script>
+
+<script src="../../assets/baidu-tongji.js"></script>
+
+<script src="../../assets/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
