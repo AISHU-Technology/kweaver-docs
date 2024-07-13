@@ -273,9 +273,9 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     display: table;
     border-collapse: collapse;
 }
-.md-typeset table:not([class]) th {
+/*.md-typeset table:not([class]) th {
     background-color: lightgoldenrodyellow;
-}
+}*/
 .md-typeset table:not([class]) th,
 .md-typeset table:not([class]) td {
     padding: 0.5em;
