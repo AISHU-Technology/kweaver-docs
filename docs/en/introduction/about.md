@@ -25,7 +25,7 @@ KWeaver is a cognitive intelligence framework based on Large Language Models and
 + **Agent Factory (Under Development)**
   + **Agent Development:** Visual Agent development, supporting types such as ReAct and Tool Use. It includes built-in tools like GraphQA, Text2SQL, and Text2API. Users can also develop their own tools for integration.
   + **Agent Debugging:** Supports Agent debugging, including log monitoring and large model output.
-  + **Agent Deployment:** Supports Agent deployment, debugging, monitoring, and logging.
+  + **Agent Deployment:** Supports Agent deployment, monitoring, and logging.
 
 ## KWeaver has the following features
 
