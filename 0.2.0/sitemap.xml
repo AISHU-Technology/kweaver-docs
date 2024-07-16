@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/advanced/AINative/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/advanced/AINative/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/advanced/AINative/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/advanced/agents/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/advanced/agents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/advanced/agents/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/advanced/big_models/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/advanced/big_models/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/advanced/big_models/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/advanced/knowledge_graphs/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/advanced/knowledge_graphs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/advanced/knowledge_graphs/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/api/knowledge_graphs/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/api/knowledge_graphs/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/api/knowledge_graphs/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/api/models-factory/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/api/models-factory/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/api/models-factory/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/api/system_management/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/api/system_management/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/api/system_management/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/appendix/feedback/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/appendix/feedback/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/appendix/feedback/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/appendix/version_log/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/appendix/version_log/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/appendix/version_log/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/appendix/vocabulary/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/appendix/vocabulary/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/appendix/vocabulary/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/deploy/backend_deploy/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/deploy/backend_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/deploy/backend_deploy/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/deploy/docker_compose/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/deploy/docker_compose/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/deploy/docker_compose/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/deploy/docker_gpu/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/deploy/docker_gpu/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/deploy/docker_gpu/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/deploy/docker_k8s/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/deploy/docker_k8s/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/deploy/docker_k8s/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/deploy/front_deploy/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/deploy/front_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/deploy/front_deploy/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/error_code/http_status_code/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/error_code/http_status_code/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/error_code/http_status_code/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/error_code/kw_status_code/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/error_code/kw_status_code/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/error_code/kw_status_code/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/faq/backend_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/faq/backend_errors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/faq/backend_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/faq/deploy_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/faq/deploy_errors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/faq/deploy_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/faq/front_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/faq/front_errors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/faq/front_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/faq/other_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/faq/other_errors/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/faq/other_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/deploy_introduction/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/deploy_introduction/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/deploy_introduction/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/quick_start/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/quick_start_kn/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/quick_start_kn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/quick_start_kn/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/quick_start_mf/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/quick_start_mf/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/quick_start_mf/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/create_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/create_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/create_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/delete_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/delete_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/delete_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/edit_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/edit_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/edit_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/move_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/move_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/move_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/view_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/view_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/view_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/app_type/chat/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/app_type/chat/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/app_type/chat/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/app_type/completion/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/getting_started/sub_quick_start/app_type/completion/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/getting_started/sub_quick_start/app_type/completion/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/introduction/about/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/introduction/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/introduction/about/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/introduction/framework/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0/introduction/framework/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0en/introduction/framework/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/advanced/AINative/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/advanced/AINative/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0advanced/AINative/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/advanced/agents/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/advanced/agents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0advanced/agents/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/advanced/big_models/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/advanced/big_models/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0advanced/big_models/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/advanced/knowledge_graphs/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/advanced/knowledge_graphs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0advanced/knowledge_graphs/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/api/knowledge_graphs/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/api/knowledge_graphs/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0api/knowledge_graphs/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/api/models-factory/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/api/models-factory/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0api/models-factory/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/api/system_management/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/api/system_management/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0api/system_management/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/appendix/feedback/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/appendix/feedback/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0appendix/feedback/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/appendix/version_log/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/appendix/version_log/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0appendix/version_log/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/appendix/vocabulary/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/appendix/vocabulary/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0appendix/vocabulary/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/deploy/backend_deploy/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/deploy/backend_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0deploy/backend_deploy/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/deploy/docker_compose/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/deploy/docker_compose/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0deploy/docker_compose/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/deploy/docker_gpu/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/deploy/docker_gpu/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0deploy/docker_gpu/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/deploy/docker_k8s/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/deploy/docker_k8s/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0deploy/docker_k8s/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/deploy/front_deploy/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/deploy/front_deploy/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0deploy/front_deploy/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/error_code/http_status_code/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/error_code/http_status_code/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0error_code/http_status_code/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/error_code/kw_status_code/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/error_code/kw_status_code/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0error_code/kw_status_code/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/faq/backend_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/faq/backend_errors/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0faq/backend_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/faq/deploy_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/faq/deploy_errors/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0faq/deploy_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/faq/front_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/faq/front_errors/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0faq/front_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/faq/other_errors/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/faq/other_errors/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0faq/other_errors/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/deploy_introduction/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/deploy_introduction/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/deploy_introduction/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/quick_start/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/quick_start/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/quick_start/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/quick_start_kn/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/quick_start_kn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/quick_start_kn/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/quick_start_mf/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/quick_start_mf/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/quick_start_mf/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/create_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/create_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/create_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/delete_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/delete_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/delete_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/edit_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/edit_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/edit_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/move_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/move_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/move_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/view_model_app/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/view_model_app/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/view_model_app/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/app_type/chat/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/app_type/chat/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/app_type/chat/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/app_type/completion/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/getting_started/sub_quick_start/app_type/completion/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0getting_started/sub_quick_start/app_type/completion/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/introduction/about/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/introduction/about/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0introduction/about/"/>
+    </url>
+    <url>
+        <loc>https://docs.kweaver.ai/0.2.0/en/introduction/framework/</loc>
+        <lastmod>2024-07-16</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kweaver.ai/0.2.0/en/introduction/framework/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.kweaver.ai/0.2.0introduction/framework/"/>
+    </url>
+</urlset>
