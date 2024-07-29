@@ -1,0 +1,1843 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <meta name="description" content="价值驱动，认知智能走向开源共创">
+    
+    
+    
+    <link rel="canonical" href="https://docs.kweaver.ai/0.2.0/error_code/http_status_code/">
+    
+    
+    <link rel="prev" href="../../faq/other_errors/">
+    
+    
+    <link rel="next" href="../kw_status_code/">
+    
+    
+    <link rel="icon" href="../../assets/favicon.png">
+    <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.4.7">
+    
+    
+    
+    <title>http状态码 - KWeaver官方技术手册</title>
+    
+    
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+    
+    
+    <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+    
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+    <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+    
+    
+    
+    <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+    
+
+    
+    
+    
+</head>
+
+
+
+
+
+
+
+
+
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+
+
+
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+
+<input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+<input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+    
+    
+    <a href="#http" class="md-skip">
+        跳转至
+    </a>
+    
+</div>
+<div data-md-component="announce">
+    
+</div>
+
+<div data-md-color-scheme="default" data-md-component="outdated" hidden>
+    
+</div>
+
+
+
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="KWeaver官方技术手册" class="md-header__button md-logo" aria-label="KWeaver官方技术手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KWeaver官方技术手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              http状态码
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../en/error_code/http_status_code/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AISHU-Technology/kweaver" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KWeaver
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+
+<div class="md-container" data-md-component="container">
+    
+    
+    
+    
+    
+    
+    <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+            
+            
+            
+            <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                    <div class="md-sidebar__inner">
+                        
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KWeaver官方技术手册" class="md-nav__button md-logo" aria-label="KWeaver官方技术手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    KWeaver官方技术手册
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AISHU-Technology/kweaver" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KWeaver
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    简介
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            简介
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KWeaver介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    架构介绍
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    快速上手&部署文档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            快速上手&部署文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/quick_start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    快速上手
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/deploy_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开发部署简介
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    部署手册
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            部署手册
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/front_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前端开发环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/backend_deploy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后端开发环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/docker_compose/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker-Compose部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/docker_gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deploy/docker_k8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    K8S部署
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    知识进阶
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            知识进阶
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/AINative/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI原生知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/agents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/big_models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    大模型知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/knowledge_graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识图谱
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/models-factory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型工厂
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/knowledge_graphs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    知识网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/system_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    系统管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/front_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前端问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/backend_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后端问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/deploy_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/other_errors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    其他问题集锦
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    常见状态码
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            常见状态码
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    http状态码
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    http状态码
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      3XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      4XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      5XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考地址
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kw_status_code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KWeaver状态码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    附录
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            附录
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/vocabulary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    词汇表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/version_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    版本日志
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/feedback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    联系我们
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                    <div class="md-sidebar__inner">
+                        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      1XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      3XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      4XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      5XX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考地址
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            <div class="md-content" data-md-component="content">
+                <article class="md-content__inner md-typeset">
+                    <div style="float:right"><span id="busuanzi_container_page_pv"><font size="2" color="grey">本文阅读量<span id="busuanzi_value_page_pv"></span>次</font></span></div>
+                    
+                    
+
+  
+  
+
+
+<h1 id="http">HTTP状态码<a class="headerlink" href="#http" title="Permanent link">&para;</a></h1>
+<h2 id="1xx">1XX<a class="headerlink" href="#1xx" title="Permanent link">&para;</a></h2>
+<p>​        这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。由于HTTP/1.0协议中没有定义任何1xx状态码，所以除非在某些试验条件下，服务器禁止向此类客户端发送1xx响应。这些状态码代表的响应都是信息性的，标示客户应该采取的其他行动。</p>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>HTTP <strong><code>100 Continue</code></strong> 信息型状态响应码表示目前为止一切正常，客户端应该继续请求，如果已完成请求则忽略。</td>
+</tr>
+<tr>
+<td>101</td>
+<td>HTTP <strong><code>101 Switching Protocol</code></strong>（协议切换）状态码表示服务器应客户端升级协议的请求（<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Upgrade"><code>Upgrade</code> (en-US)</a>请求头）正在切换协议。</td>
+</tr>
+<tr>
+<td>103</td>
+<td><strong><code>103 Early Hints</code></strong> 信息状态响应码，一般和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Link"><code>Link</code></a> header（首部）一起使用，来允许用户在服务器还在准备响应数据的时候预加载一些资源。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2xx">2XX<a class="headerlink" href="#2xx" title="Permanent link">&para;</a></h2>
+<p>​      这一类型的状态码，代表请求已成功被服务器接收、理解、并接受。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">状态码</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">状态码 <strong><code>200 OK</code></strong> 表明请求已经成功。默认情况下状态码为 200 的响应可以被缓存。</td>
+</tr>
+<tr>
+<td style="text-align: left;">201</td>
+<td style="text-align: left;">在 HTTP 协议中，<strong><code>201 Created</code></strong> 是一个代表成功的应答状态码，表示请求已经被成功处理，并且创建了新的资源。新的资源在应答返回之前已经被创建。同时新增的资源会在应答消息体中返回，其地址或者是原始请求的路径，或者是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location"><code>Location</code></a> 首部的值。</td>
+</tr>
+<tr>
+<td style="text-align: left;">202</td>
+<td style="text-align: left;">在 HTTP 协议中，<strong><code>102 Processing</code></strong> 状态码向客户端表示已收到完整请求，并且服务器正在处理该请求。（已废弃）</td>
+</tr>
+<tr>
+<td style="text-align: left;">203</td>
+<td style="text-align: left;">在 HTTP 协议中，响应状态码 <strong><code>203 Non-Authoritative Information</code></strong> 表示请求已经成功被响应，但是获得的负载与源头服务器的状态码为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/200"><code>200</code></a> (<code>OK</code>) 的响应相比，经过了拥有转换功能的 <a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Proxy_server">proxy</a>（代理服务器）的修改。</td>
+</tr>
+<tr>
+<td style="text-align: left;">204</td>
+<td style="text-align: left;">HTTP <strong><code>204 No Content</code></strong> 成功状态响应码，表示该请求已经成功了，但是客户端客户不需要离开当前页面。默认情况下 204 响应是可缓存的。一个 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag"><code>ETag</code></a> 标头包含在此类响应中。</td>
+</tr>
+<tr>
+<td style="text-align: left;">205</td>
+<td style="text-align: left;">在 HTTP 协议中，响应状态码 <strong><code>205 Reset Content</code></strong> 用来通知客户端重置文档视图，比如清空表单内容、重置 canvas 状态或者刷新用户界面。</td>
+</tr>
+<tr>
+<td style="text-align: left;">206</td>
+<td style="text-align: left;">HTTP <strong><code>206 Partial Content</code></strong> 成功状态响应代码表示请求已成功，服务器已经成功处理了部分GET请求。类似于FlashGet或者迅雷这类的HTTP 下载工具都是使用此类响应实现断点续传或者将一个大文档分解为多个下载段同时下载。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3xx">3XX<a class="headerlink" href="#3xx" title="Permanent link">&para;</a></h2>
+<p>​        这类状态码代表需要客户端采取进一步的操作才能完成请求。通常，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的Location域中指明。</p>
+<p>​        当且仅当后续的请求所使用的方法是GET或者HEAD时，用户浏览器才可以在没有用户介入的情况下自动提交所需要的后续请求。客户端应当自动监测无限循环重定向（例如：A→B→C→……→A或A→A），因为这会导致服务器和客户端大量不必要的资源消耗。按照HTTP/1.0版规范的建议，浏览器不应自动访问超过5次的重定向。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">状态码</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">300</td>
+<td style="text-align: left;"><strong><code>300 Multiple Choices</code></strong> 是一个用来表示重定向的响应状态码，表示该请求拥有多种可能的响应。用户代理或者用户自身应该从中选择一个。由于没有如何进行选择的标准方法，这个状态码极少使用。</td>
+</tr>
+<tr>
+<td style="text-align: left;">301</td>
+<td style="text-align: left;">HTTP <strong><code>301 Moved Permanently</code></strong> 说明请求的资源已经被移动到了由 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location"><code>Location</code></a> 头部指定的 url 上，是固定的不会再改变。搜索引擎会根据该响应修正。</td>
+</tr>
+<tr>
+<td style="text-align: left;">302</td>
+<td style="text-align: left;">HTTP <strong><code>302 Found</code></strong> 重定向状态码表明请求的资源被暂时的移动到了由该 HTTP 响应的响应头 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location"><code>Location</code></a> 指定的 URL 上。浏览器会重定向到这个 URL，但是搜索引擎不会对该资源的链接进行更新</td>
+</tr>
+<tr>
+<td style="text-align: left;">303</td>
+<td style="text-align: left;">HTTP <strong>303 See Other</strong> 重定向状态码，通常作为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/PUT"><code>PUT</code></a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/POST"><code>POST</code></a> 操作的返回结果，它表示重定向链接指向的不是新上传的资源，而是另外一个页面，比如消息确认页面或上传进度页面。而请求重定向页面的方法要总是使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a>。</td>
+</tr>
+<tr>
+<td style="text-align: left;">304</td>
+<td style="text-align: left;">HTTP <strong><code>304 Not Modified</code></strong> 说明无需再次传输请求的内容，也就是说可以使用缓存的内容。这通常是在一些安全的方法（<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Safe">safe</a>），例如<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a> 或<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a> 或在请求中附带了头部信息： <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-None-Match"><code>If-None-Match</code></a> 或<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Modified-Since"><code>If-Modified-Since</code></a>。如果是 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/200"><code>200</code></a> <code>OK</code> ，响应会带有头部 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control"><code>Cache-Control</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Location"><code>Content-Location</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date"><code>Date</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/ETag"><code>ETag</code></a>, <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expires"><code>Expires</code></a>，和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Vary"><code>Vary</code></a>。</td>
+</tr>
+<tr>
+<td style="text-align: left;">307</td>
+<td style="text-align: left;"><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/HTTP">HTTP</a> <strong><code>307 Temporary Redirect</code></strong>，临时重定向响应状态码，表示请求的资源暂时地被移动到了响应的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location"><code>Location</code></a> 首部所指向的 URL 上。</td>
+</tr>
+<tr>
+<td style="text-align: left;">308</td>
+<td style="text-align: left;">在 HTTP 协议中， <strong>308 Permanent Redirect</strong>（永久重定向）是表示重定向的响应状态码，说明请求的资源已经被永久的移动到了由 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Location"><code>Location</code></a> 首部指定的 URL 上。浏览器会进行重定向，同时搜索引擎也会更新其链接（用 SEO 的行话来说，意思是“链接汁”（link juice）被传递到了新的 URL）。在重定向过程中，请求方法和消息主体不会发生改变，然而在返回 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/301"><code>301</code></a> 状态码的情况下，请求方法有时候会被客户端错误地修改为 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a> 方法。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4xx">4XX<a class="headerlink" href="#4xx" title="Permanent link">&para;</a></h2>
+<p>​         这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。除非响应的是一个HEAD请求，否则服务器就应该返回一个解释当前错误状况的实体，以及这是临时的还是永久性的状况。这些状态码适用于任何请求方法。浏览器应当向用户显示任何包含在此类错误响应中的实体内容。</p>
+<p>​        如果错误发生时客户端正在传送数据，那么使用TCP的服务器实现应当仔细确保在关闭客户端与服务器之间的连接之前，客户端已经收到了包含错误信息的数据包。如果客户端在收到错误信息后继续向服务器发送数据，服务器的TCP栈将向客户端发送一个重置数据包，以清除该客户端所有还未识别的输入缓冲，以免这些数据被服务器上的应用程序读取并干扰后者。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">状态码</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">超文本传输协议（HTTP）<strong>400 <code>Bad Request</code></strong> 响应状态码表示服务器因某些被认为是客户端错误的原因（例如，请求语法错误、无效请求消息格式或者欺骗性请求路由），而无法或不会处理该请求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">状态码 <strong><code>401 Unauthorized</code></strong> 代表客户端错误，指的是由于缺乏目标资源要求的身份验证凭证，发送的请求未得到满足。</td>
+</tr>
+<tr>
+<td style="text-align: left;">402</td>
+<td style="text-align: left;"><strong><code>402 Payment Required</code></strong> 是一个被保留使用的非标准客户端错误状态响应码。</td>
+</tr>
+<tr>
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">状态码 <strong><code>403 Forbidden</code></strong> 代表客户端错误，指的是服务器端有能力处理该请求，但是拒绝授权访问。</td>
+</tr>
+<tr>
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">HTTP 响应状态码 <strong><code>404 Not Found</code></strong> 指的是服务器无法找到所请求的资源。返回该响应的链接通常称为坏链（broken link）或死链（dead link），它们会导向链接出错处理（<a href="https://zh.wikipedia.org/wiki/失效連結">link rot</a>）页面。</td>
+</tr>
+<tr>
+<td style="text-align: left;">405</td>
+<td style="text-align: left;">状态码 <strong><code>405 Method Not Allowed</code></strong> 表明服务器禁止了使用当前 HTTP 方法的请求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">406</td>
+<td style="text-align: left;">HTTP 协议中的 <strong><code>406 Not Acceptable</code></strong> 状态码表示客户端错误，指代服务器端无法提供与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept-Charset"><code>Accept-Charset</code></a> 以及 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Accept-Language"><code>Accept-Language</code></a> 消息头指定的值相匹配的响应。</td>
+</tr>
+<tr>
+<td style="text-align: left;">407</td>
+<td style="text-align: left;">状态码 <strong><code>407 Proxy Authentication Required</code></strong> 代表客户端错误，指的是由于缺乏位于浏览器与可以访问所请求资源的服务器之间的代理服务器（<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Proxy_server">proxy server</a> ）要求的身份验证凭证，发送的请求尚未得到满足。</td>
+</tr>
+<tr>
+<td style="text-align: left;">408</td>
+<td style="text-align: left;">响应状态码 <strong><code>408 Request Timeout</code></strong> 表示服务器想要将没有在使用的连接关闭。一些服务器会在空闲连接上发送此信息，即便是在客户端没有发送任何请求的情况下。</td>
+</tr>
+<tr>
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">响应状态码 <strong><code>409 Conflict</code></strong> 表示请求与服务器端目标资源的当前状态相冲突。</td>
+</tr>
+<tr>
+<td style="text-align: left;">410</td>
+<td style="text-align: left;">HTTP <strong><code>410 Gone</code></strong> 说明请求的目标资源在原服务器上不存在了，并且是永久性的丢失。如果不清楚是否为永久或临时的丢失，应该使用<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/404"><code>404</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;">411</td>
+<td style="text-align: left;">响应状态码 <strong><code>411 Length Required</code></strong> 属于客户端错误，表示由于缺少确定的<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Content-Length"><code>Content-Length</code></a> 首部字段，服务器拒绝客户端的请求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">在 HTTP 协议中，响应状态码 <strong>412 Precondition Failed</strong>（先决条件失败）表示客户端错误，意味着对于目标资源的访问请求被拒绝。这通常发生于采用除 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a> 之外的方法进行条件请求时，由首部字段 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Unmodified-Since"><code>If-Unmodified-Since</code></a> 或 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-None-Match"><code>If-None-Match</code></a> 规定的先决条件不成立的情况下。这时候，请求的操作——通常是上传或修改文件——无法执行，从而返回该错误状态码。</td>
+</tr>
+<tr>
+<td style="text-align: left;">413</td>
+<td style="text-align: left;">HTTP 响应状态码 <strong><code>413 Content Too Large</code></strong> 表示请求主体的大小超过了服务器愿意或有能力处理的限度，服务器可能会关闭连接或返回 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Retry-After"><code>Retry-After</code></a> 标头字段。</td>
+</tr>
+<tr>
+<td style="text-align: left;">414</td>
+<td style="text-align: left;">响应码 <strong><code>414 URI Too Long</code></strong> 表示客户端所请求的 URI 超过了服务器允许的范围。</td>
+</tr>
+<tr>
+<td style="text-align: left;">415</td>
+<td style="text-align: left;"><strong><code>415 Unsupported Media Type</code></strong> 是一种 HTTP 协议的错误状态代码，表示服务器由于不支持其有效载荷的格式，从而拒绝接受客户端的请求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">416</td>
+<td style="text-align: left;">HTTP <strong><code>416 Range Not Satisfiable</code></strong> 错误状态码意味着服务器无法处理所请求的数据区间。最常见的情况是所请求的数据区间不在文件范围之内，也就是说，<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Range"><code>Range</code></a> 首部的值，虽然从语法上来说是没问题的，但是从语义上来说却没有意义。</td>
+</tr>
+<tr>
+<td style="text-align: left;">417</td>
+<td style="text-align: left;">HTTP 协议中的 <strong><code>417 Expectation Failed</code></strong> 状态码表示客户端错误，意味着服务器无法满足 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Expect"><code>Expect</code></a> 请求消息头中的期望条件。</td>
+</tr>
+<tr>
+<td style="text-align: left;">421</td>
+<td style="text-align: left;">HTTP <strong><code>421 Misdirected Request</code></strong> 客户端错误响应状态码表明，请求被定向到一个无法生成响应的服务器。如果连接被重复使用或选择了其他服务，就有可能出现这种情况。</td>
+</tr>
+<tr>
+<td style="text-align: left;">422</td>
+<td style="text-align: left;">HTTP 422 状态码表示服务器理解请求实体的内容类型，并且请求实体的语法是正确的，但是服务器无法处理所包含的指令。</td>
+</tr>
+<tr>
+<td style="text-align: left;">423</td>
+<td style="text-align: left;">HTTP <strong><code>423 Locked</code></strong> 错误响应状态码表示暂定目标资源被<em>锁定</em>，即无法访问。其内容应包含一些 WebDAV XML 格式的信息。</td>
+</tr>
+<tr>
+<td style="text-align: left;">424</td>
+<td style="text-align: left;">HTTP <strong><code>424 Failed Dependency</code></strong> 客户端错误响应代码表明，由于请求的操作依赖于另一个操作，且该操作失败，因此无法在资源上执行该方法。</td>
+</tr>
+<tr>
+<td style="text-align: left;">429</td>
+<td style="text-align: left;">在 HTTP 协议中，响应状态码 <strong><code>429 Too Many Requests</code></strong> 表示在一定的时间内用户发送了太多的请求，即超出了“频次限制”。</td>
+</tr>
+<tr>
+<td style="text-align: left;">431</td>
+<td style="text-align: left;">响应码 <strong><code>431 Request Header Fields Too Large</code></strong> 表示由于请求中的首部字段的值过大，服务器拒绝接受客户端的请求。客户端可以在缩减首部字段的体积后再次发送请求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">451</td>
+<td style="text-align: left;"><strong><code>451 Unavailable For Legal Reasons</code></strong>（因法律原因不可用）是一种 HTTP 协议的错误状态代码，表示服务器由于法律原因，无法提供客户端请求的资源，例如可能会导致法律诉讼的页面。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5xx">5XX<a class="headerlink" href="#5xx" title="Permanent link">&para;</a></h2>
+<p>​       表示服务器无法完成明显有效的请求。这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。除非这是一个HEAD请求，否则服务器应当包含一个解释当前错误状态以及这个状况是临时的还是永久的解释信息实体。浏览器应当向用户展示任何在当前响应中被包含的实体。这些状态码适用于任何响应方法。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">状态码</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">在 HTTP 协议中，<strong><code>500 Internal Server Error</code></strong> 是表示服务器端错误的响应状态码，意味着所请求的服务器遇到意外的情况并阻止其执行请求。</td>
+</tr>
+<tr>
+<td style="text-align: left;">501</td>
+<td style="text-align: left;">HTTP <strong><code>501 Not Implemented</code></strong> 服务器错误响应码表示请求的方法不被服务器支持，因此无法被处理。服务器必须支持的方法（即不会返回这个状态码的方法）只有 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET"><code>GET</code></a> 和 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/HEAD"><code>HEAD</code></a>。</td>
+</tr>
+<tr>
+<td style="text-align: left;">502</td>
+<td style="text-align: left;"><strong><code>502 Bad Gateway</code></strong> 是一种 HTTP 协议的服务端错误状态代码，它表示作为网关或代理的服务器，从上游服务器中接收到的响应是无效的。</td>
+</tr>
+<tr>
+<td style="text-align: left;">503</td>
+<td style="text-align: left;"><strong><code>503 Service Unavailable</code></strong> 是一种 HTTP 协议的服务器端错误状态代码，它表示服务器尚未处于可以接受请求的状态。</td>
+</tr>
+<tr>
+<td style="text-align: left;">504</td>
+<td style="text-align: left;"><strong><code>504 Gateway Timeout</code></strong> 是一种 HTTP 协议的服务器端错误状态代码，表示扮演网关或者代理的服务器无法在规定的时间内获得想要的响应。</td>
+</tr>
+<tr>
+<td style="text-align: left;">505</td>
+<td style="text-align: left;"><strong><code>505 HTTP Version Not Supported</code></strong> 是一种 HTTP 协议的服务器端错误状态代码，表示服务器不支持请求所使用的 HTTP 版本。</td>
+</tr>
+<tr>
+<td style="text-align: left;">506</td>
+<td style="text-align: left;">HTTP 协议的 <strong><code>506 Variant Also Negotiates</code></strong> 响应状态码 可以在 TCN（透明内容协商，见 RF2295）上下文给出。TCN 协议允许客户端取回给定资源的最佳变量/变元，这里服务器支持多个变量/变元。</td>
+</tr>
+<tr>
+<td style="text-align: left;">511</td>
+<td style="text-align: left;"><strong><code>511 Network Authentication Required</code></strong> 是一种 HTTP 协议的错误状态代码，表示客户端需要通过验证才能使用该网络。该状态码不是由源头服务器生成的，而是由控制网络访问的拦截代理服务器生成的。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">参考地址<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>https://developer.mozilla.org/zh-CN/docs/Web/HTTP</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-05-18 09:01:58</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                    <script src="../docs/assets/giscus_client.js"
+                            data-repo="AISHU-Technology/kweaver-docs"
+                            data-repo-id="R_kgDOH1U7qA"
+                            data-category="General"
+                            data-category-id="DIC_kwDOH1U7qM4CfonX"
+                            data-mapping="pathname"
+                            data-strict="1"
+                            data-reactions-enabled="1"
+                            data-emit-metadata="0"
+                            data-input-position="bottom"
+                            data-theme="preferred_color_scheme"
+                            data-lang="zh-CN"
+                            data-loading="lazy"
+                            crossorigin="anonymous"
+                            async>
+                    </script>
+                    
+                </article>
+            </div>
+            
+            
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+        <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+    </main>
+    
+    <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../faq/other_errors/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 其他问题集锦">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                其他问题集锦
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kw_status_code/" class="md-footer__link md-footer__link--next" aria-label="下一页: KWeaver状态码">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                KWeaver状态码
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - 2024 Martin Donath
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+    
+</div>
+<div class="md-dialog" data-md-component="dialog">
+    <div class="md-dialog__inner md-typeset"></div>
+</div>
+
+
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.top", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "navigation.footer", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+
+
+<script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+
+<script src="../../assets/extra.js"></script>
+
+<script src="../../assets/mathjax.js"></script>
+
+<script src="../../assets/tex-mml-chtml.js"></script>
+
+<script src="../../assets/baidu-tongji.js"></script>
+
+<script src="../../assets/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
