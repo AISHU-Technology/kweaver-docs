@@ -1,9 +1,9 @@
 # 一、模型工厂
 ## 1、大模型接入管理
-### 1.1、获取大模型列表信息接口
+### 1.1、获取大模型列表
 
 ```
-GET  /api/model-factory/v1/llm-source
+GET  /api/model-factory/v1/llm/page
 ```
 
 请求参数：
@@ -98,10 +98,10 @@ page=5&size=10&order=desc&name=baichuan-llm&rule=update_time&series=openai
 }
 ```
 
-### 1.2、新增大模型接口-参数获取
+### 1.2、新增大模型-参数获取
 
 ```
-GET  /api/model-factory/v1/llm-param
+GET  /api/model-factory/v1/llm/param
 ```
 
 请求参数：无
@@ -209,10 +209,10 @@ GET  /api/model-factory/v1/llm-param
 }
 ```
 
-### 1.3、大模型测试接口
+### 1.3、测试大模型
 
 ```
-POST  /api/model-factory/v1/llm-test
+POST  /api/model-factory/v1/llm/test
 ```
 
 请求参数：
@@ -301,10 +301,10 @@ openai：api_key, api_model
 }
 ```
 
-### 1.4、新增大模型接口-数据保存
+### 1.4、新增大模型-数据保存
 
 ```
-POST  /api/model-factory/v1/llm-add
+POST  /api/model-factory/v1/llm/add
 ```
 
 请求参数：
@@ -378,10 +378,10 @@ aishu-baichuan：api_base, api_key, api_model
 }
 ```
 
-### 1.5、删除大模型接口
+### 1.5、删除大模型
 
 ```
-POST  /api/model-factory/v1/llm-remove
+POST  /api/model-factory/v1/llm/delete
 ```
 
 请求参数：
@@ -434,10 +434,10 @@ POST  /api/model-factory/v1/llm-remove
 }
 ```
 
-### 1.6、查看大模型信息接口
+### 1.6、查看大模型
 
 ```
-GET  /api/model-factory/v1/llm-check
+GET  /api/model-factory/v1/llm/detail
 ```
 
 请求参数：
@@ -503,10 +503,10 @@ model_id=1234567890123456789
 }
 ```
 
-### 1.7、修改大模型配置接口
+### 1.7、修改大模型配置
 
 ```
-POST  /api/factory/v1/llm-edit
+POST  /api/factory/v1/llm/edit
 ```
 
 请求参数：
@@ -572,7 +572,7 @@ POST  /api/factory/v1/llm-edit
 ### 1.8、URL调用接口
 
 ```
-POST  /api/model-factory/v1/llm-used/{llm_id}
+POST  /api/model-factory/v1/llm/used/{llm_id}
 ```
 
 请求参数：
@@ -655,10 +655,10 @@ POST  /api/model-factory/v1/llm-used/{llm_id}
 }
 ```
 ## 2、提示词工程管理
-### 2.1、获取提示词项目列表信息接口
+### 2.1、获取提示词项目列表
 
 ```
-GET  /api/model-factory/v1/prompt-item-source
+GET  /api/model-factory/v1/prompt/item/list
 ```
 
 请求参数：
@@ -747,10 +747,10 @@ prompt_item_name=AnyShare
 }
 ```
 
-### 2.2、新建提示词项目接口
+### 2.2、新建提示词项目
 
 ```
-POST  /api/model-factory/v1/prompt-item-add
+POST  /api/model-factory/v1/prompt/item/add
 ```
 
 请求参数：
@@ -803,10 +803,10 @@ POST  /api/model-factory/v1/prompt-item-add
 }
 ```
 
-### 2.3、编辑提示词项目接口
+### 2.3、编辑提示词项目
 
 ```
-POST  /api/model-factory/v1/prompt-item-edit
+POST  /api/model-factory/v1/prompt/item/edit
 ```
 
 请求参数：
@@ -861,10 +861,10 @@ POST  /api/model-factory/v1/prompt-item-edit
 }
 ```
 
-### 2.4、新建提示词分组接口
+### 2.4、新建提示词分组
 
 ```
-POST  /api/model-factory/v1/prompt-type-add
+POST  /api/model-factory/v1/prompt/type/add
 ```
 
 请求参数：
@@ -919,10 +919,10 @@ POST  /api/model-factory/v1/prompt-type-add
 }
 ```
 
-### 2.5、编辑提示词分组接口
+### 2.5、编辑提示词分组
 
 ```
-POST  /api/model-factory/v1/prompt-type-edit
+POST  /api/model-factory/v1/prompt/type/edit
 ```
 
 请求参数：
@@ -977,10 +977,10 @@ POST  /api/model-factory/v1/prompt-type-edit
 }
 ```
 
-### 2.6、获取提示词列表信息接口
+### 2.6、获取提示词列表
 
 ```
-GET  /api/model-factory/v1/prompt-source
+GET  /api/model-factory/v1/prompt/page
 ```
 
 请求参数：
@@ -1109,10 +1109,10 @@ prompt_item_id=1234567890123456789&prompt_item_type_id=2134567890123456742&page=
 }
 ```
 
-### 2.7、新增提示词接口-数据保存
+### 2.7、新增提示词-数据保存
 
 ```
-POST  /api/model-factory/v1/prompt-add
+POST  /api/model-factory/v1/prompt/add
 ```
 
 请求参数：
@@ -1208,10 +1208,10 @@ POST  /api/model-factory/v1/prompt-add
 }
 ```
 
-### 2.8、获取大模型列表接口
+### 2.8、获取大模型列表
 
 ```
-GET  /api/model-factory/v1/prompt-llm-source
+GET  /api/model-factory/v1/prompt/llm/list
 ```
 
 请求参数：
@@ -1392,10 +1392,10 @@ types=chat
 }
 ```
 
-### 2.9、提示词名称编辑接口
+### 2.9、编辑提示词名称
 
 ```
-POST  /api/factory/v1/prompt-name-edit
+POST  /api/factory/v1/prompt/edit_name
 ```
 
 请求参数：
@@ -1460,10 +1460,10 @@ POST  /api/factory/v1/prompt-name-edit
 }
 ```
 
-### 2.10、获取提示词模板列表信息接口
+### 2.10、获取提示词模板列表
 
 ```
-GET  /api/model-factory/v1/prompt-template-source
+GET  /api/model-factory/v1/prompt/template/list
 ```
 
 请求参数：
@@ -1601,7 +1601,7 @@ prompt_name=阅读理解&prompt_type=chat
 }
 ```
 
-### 2.11、提示词查看接口
+### 2.11、查看提示词
 
 ```
 GET  /api/model-factory/v1/prompt/{prompt_id}
@@ -1704,10 +1704,10 @@ GET  /api/model-factory/v1/prompt/{prompt_id}
 }
 ```
 
-### 2.12、提示词编辑接口
+### 2.12、编辑提示词
 
 ```
-POST  /api/factory/v1/prompt-edit
+POST  /api/factory/v1/prompt/edit
 ```
 
 请求参数：
@@ -1783,66 +1783,10 @@ POST  /api/factory/v1/prompt-edit
 }
 ```
 
-### 2.13、提示词发布接口
+### 2.13、发布提示词
 
 ```
-POST  /api/model-factory/v1/prompt-deploy
-```
-
-请求参数：
-
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
-| :--- | :-------- | :------- | -------- | :------- | ---- | :------- |
-| 1    | prompt_id | string   | body     | 是       | 50   | 提示词id |
-
-请求示例：
-
-```json
-{
-   "prompt_id": "1723933405655207936"
-}
-```
-
-响应参数：
-
-| 序号 | 字段名称 | 字段类型 | 字段说明 |
-| :--- | :------- | :------- | :------- |
-| 1    | res      | boolean  | 发布结果 |
-
-响应示例：
-
-```json
-{
-    "res": True
-}
-```
-
-异常返回参数：
-
-| 序号 | 参数         | 含义         |
-| :--- | :----------- | :----------- |
-| 1    | ErrorCode    | 错误码       |
-| 2    | Description  | 错误描述     |
-| 3    | Solution     | 错误处理建议 |
-| 4    | ErrorDetails | 错误细节     |
-| 5    | ErrorLink    | 错误信息地址 |
-
-异常返回示例：
-
-```json
-{
-    "ErrorCode": "ModelFactory.Mydb.DataBase.ParameterError",
-    "Description": "数据库连接失败",
-    "Solution": "请核对数据库的连接参数.",
-    "ErrorDetails": "数据库登录信息错误",
-    "ErrorLink": ""
-}
-```
-
-### 2.14、提示词取消发布接口
-
-```
-POST  /api/model-factory/v1/prompt-undeploy
+POST  /api/model-factory/v1/prompt/deploy
 ```
 
 请求参数：
@@ -1895,10 +1839,66 @@ POST  /api/model-factory/v1/prompt-undeploy
 }
 ```
 
-### 2.15、提示词运行接口
+### 2.14、取消发布提示词
 
 ```
-POST  /api/model-factory/v1/prompt-run
+POST  /api/model-factory/v1/prompt/undeploy
+```
+
+请求参数：
+
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :------- |
+| 1    | prompt_id | string   | body     | 是       | 50   | 提示词id |
+
+请求示例：
+
+```json
+{
+   "prompt_id": "1723933405655207936"
+}
+```
+
+响应参数：
+
+| 序号 | 字段名称 | 字段类型 | 字段说明 |
+| :--- | :------- | :------- | :------- |
+| 1    | res      | boolean  | 发布结果 |
+
+响应示例：
+
+```json
+{
+    "res": True
+}
+```
+
+异常返回参数：
+
+| 序号 | 参数         | 含义         |
+| :--- | :----------- | :----------- |
+| 1    | ErrorCode    | 错误码       |
+| 2    | Description  | 错误描述     |
+| 3    | Solution     | 错误处理建议 |
+| 4    | ErrorDetails | 错误细节     |
+| 5    | ErrorLink    | 错误信息地址 |
+
+异常返回示例：
+
+```json
+{
+    "ErrorCode": "ModelFactory.Mydb.DataBase.ParameterError",
+    "Description": "数据库连接失败",
+    "Solution": "请核对数据库的连接参数.",
+    "ErrorDetails": "数据库登录信息错误",
+    "ErrorLink": ""
+}
+```
+
+### 2.15、运行提示词
+
+```
+POST  /api/model-factory/v1/prompt/run
 ```
 
 请求参数：
@@ -1997,10 +1997,10 @@ POST  /api/model-factory/v1/prompt-run
 }
 ```
 
-### 2.16、提示词运行接口-流式返回
+### 2.16、运行提示词-流式返回
 
 ```
-POST  /api/model-factory/v1/prompt-run-stream
+POST  /api/model-factory/v1/prompt/run_stream
 ```
 
 请求参数：
@@ -2081,7 +2081,7 @@ POST  /api/model-factory/v1/prompt-run-stream
 }
 ```
 
-### 2.17、提示词调用接口
+### 2.17、调用提示词
 
 ```
 POST  /api/model-factory/v1/prompt/{service_id}/used
@@ -2159,10 +2159,10 @@ POST  /api/model-factory/v1/prompt/{service_id}/used
 }
 ```
 
-### 2.18、查看代码接口
+### 2.18、查看代码
 
 ```
-GET /api/model-factory/v1/prompt-code
+GET /api/model-factory/v1/prompt/code
 ```
 
 请求参数：
@@ -2226,65 +2226,10 @@ model_id=1723933405655207936&prompt_id=353467867978094
 }
 ```
 
-### 2.19、填充提示词接口
+### 2.20、删除提示词
 
 ```
-GET /api/model-factory/v1/open/prompt_completion/{prompt_id}
-```
-
-请求参数：
-
-| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明   |
-| :--- | :-------- | :------- | -------- | :------- | ---- | :--------- |
-| 1    | prompt_id | string   | path     | 是       | 50   | 提示词id   |
-| 2    | inputs    | string   | query    | 否       |      | 输入的变量 |
-
-请求示例：
-
-```
-{"inputs": {"var1": "变量值1","var2": "变量值2","var3": "变量值3","var4": "变量值4"}}
-```
-
-响应参数：
-
-| 序号 | 字段名称 | 字段类型 | 字段说明           |
-| :--- | :------- | :------- | :----------------- |
-| 1    | res      | string   | 填充后的提示词文本 |
-
-响应示例：
-
-```json
-{
-    "res": "这是对提示词中的变量进行填充的结果"
-}
-```
-
-异常返回参数：
-
-| 序号 | 参数         | 含义         |
-| :--- | :----------- | :----------- |
-| 1    | ErrorCode    | 错误码       |
-| 2    | Description  | 错误描述     |
-| 3    | Solution     | 错误处理建议 |
-| 4    | ErrorDetails | 错误细节     |
-| 5    | ErrorLink    | 错误信息地址 |
-
-异常返回示例：
-
-```json
-{
-    "ErrorCode": "ModelFactory.Mydb.DataBase.ParameterError",
-    "Description": "数据库连接失败",
-    "Solution": "请核对数据库的连接参数.",
-    "ErrorDetails": "数据库登录信息错误",
-    "ErrorLink": ""
-}
-```
-
-### 2.20、删除提示词接口
-
-```
-POST /api/model-factory/v1/delete-prompt
+POST /api/model-factory/v1/prompt/delete
 ```
 
 请求参数：
@@ -2350,10 +2295,10 @@ POST /api/model-factory/v1/delete-prompt
 }
 ```
 
-### 2.21、获取服务id接口
+### 2.21、获取服务id
 
 ```
-GET /api/model-factory/v1/get-id
+GET /api/model-factory/v1/get_id
 ```
 
 请求参数：无
@@ -2396,7 +2341,7 @@ GET /api/model-factory/v1/get-id
 }
 ```
 
-### 2.22、移动提示词接口
+### 2.22、移动提示词
 
 ```
 POST /api/model-factory/v1/prompt/move
@@ -2456,10 +2401,10 @@ POST /api/model-factory/v1/prompt/move
 }
 ```
 
-### 2.23、使用创建的提示词模板调用大模型接口
+### 2.23、使用创建的提示词模板调用大模型
 
 ```
-POST  /api/model-factory/v1/prompt-template-run
+POST  /api/model-factory/v1/prompt/template/run
 ```
 
 请求参数：
@@ -2545,7 +2490,7 @@ POST  /api/model-factory/v1/prompt-template-run
 ### 2.24、提示词管理内编辑接口
 
 ```
-POST  /api/model-factory/v1/prompt-template-edit
+POST  /api/model-factory/v1/prompt/template/edit
 ```
 
 请求参数：

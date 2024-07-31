@@ -3,22 +3,22 @@
 ### 1.1、获取知识网络列表
 
 ```
-GET  /api/builder/v1/knw/get_all
+GET  /api/builder/v1/knw/page
 ```
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                    |
-| :--- | :------- | :------- | -------- | :------- | ---- | :---------------------------------------------------------- |
-| 1    | size     | int      | query    | 是       |      | 分页大小                                                    |
-| 2    | page     | int      | query    | 是       |      | 页码，1开始                                                 |
-| 3    | rule     | string   | query    | 是       | 20   | 排序条件,（intelligence_score, creation_time，update_time） |
-| 4    | order    | string   | query    | 是       | 4    | 排序顺序 (desc，asc)                                        |
+| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                        |
+| :--- | :------- | :------- | -------- | :------- | ---- | :---------------------------------------------- |
+| 1    | size     | int      | query    | 是       |      | 分页大小                                        |
+| 2    | page     | int      | query    | 是       |      | 页码，1开始                                     |
+| 3    | rule     | string   | query    | 是       | 20   | 排序条件,（intelligence_score, create，update） |
+| 4    | order    | string   | query    | 是       | 4    | 排序顺序 (desc，asc)                            |
 
 请求示例：
 
 ```
-page=5&size=10&order=desc&rule=creation_time
+page=5&size=10&order=desc&rule=create
 ```
 
 响应参数：
@@ -28,22 +28,22 @@ page=5&size=10&order=desc&rule=creation_time
 | 1    | count    | int          | 总个数   |
 | 2    | df       | list<object> | 具体信息 |
 
-| 序号 | 字段名称           | 字段类型 | 字段说明                             |
-| :--- | ------------------ | :------- | :----------------------------------- |
-| 1    | color              | string   | 知识网络颜色                         |
-| 2    | creation_time      | string   | 创建时间                             |
-| 4    | creator_id         | string   | 创建用户id                           |
-| 5    | creator_name       | string   | 创建用户名称                         |
-| 6    | final_operator     | string   | 最终操作人id                         |
-| 7    | group_column       | int      |                                      |
-| 8    | id                 | int      | 知识网络id                           |
-| 9    | identify_id        | string   | 知识网络唯一id                       |
-| 10   | intelligence_score | string   | 领域知识值                           |
-| 11   | knw_description    | string   | 知识网络描述                         |
-| 12   | knw_name           | string   | 知识网络名称                         |
-| 14   | operator_name      | string   | 最终操作人名称                       |
-| 15   | update_time        | string   | 更新时间                             |
-| 16   | to_be_uploaded     | int      | 新增字段。知识图谱是否需要上传的开关 |
+| 序号 | 字段名称           | 字段类型 | 字段说明                   |
+| :--- | ------------------ | :------- | :------------------------- |
+| 1    | color              | string   | 知识网络颜色               |
+| 2    | create_time        | string   | 创建时间                   |
+| 4    | create_by          | string   | 创建用户id                 |
+| 5    | creator_name       | string   | 创建用户名称               |
+| 6    | update_by          | string   | 最终操作人id               |
+| 7    | group_column       | int      |                            |
+| 8    | id                 | int      | 知识网络id                 |
+| 9    | identify_id        | string   | 知识网络唯一id             |
+| 10   | intelligence_score | string   | 领域知识值                 |
+| 11   | knw_description    | string   | 知识网络描述               |
+| 12   | knw_name           | string   | 知识网络名称               |
+| 14   | operator_name      | string   | 最终操作人名称             |
+| 15   | update_time        | string   | 更新时间                   |
+| 16   | to_be_uploaded     | int      | 知识图谱是否需要上传的开关 |
 
 响应示例：
 
@@ -54,10 +54,10 @@ page=5&size=10&order=desc&rule=creation_time
     "df": [
       {
         "color": "icon-color-110",
-        "creation_time": "2022-09-15 15:05:20",
-        "creator_id": "9d753e00-34c4-11ed-81e4-dad875ec6ee2",
+        "create_time": "2022-09-15 15:05:20",
+        "create_by": "9d753e00-34c4-11ed-81e4-dad875ec6ee2",
         "creator_name": "test",
-        "final_operator": "853ba1db-4e37-11eb-a57d-0242ac190002",
+        "update_by": "853ba1db-4e37-11eb-a57d-0242ac190002",
         "group_column": 1,
         "id": 1,
         "identify_id": "c2c3e452-34c4-11ed-84c8-6ea0325d6f93",
@@ -76,7 +76,7 @@ page=5&size=10&order=desc&rule=creation_time
 ### 1.2、根据名称分页查询知识网络
 
 ```
-GET  /api/builder/v1/knw/get_by_name
+GET  /api/builder/v1/knw/page_by_name
 ```
 
 请求参数：
@@ -92,7 +92,7 @@ GET  /api/builder/v1/knw/get_by_name
 请求示例：
 
 ```
-knw_name=xxx&page=5&size=10&order=desc&rule=creation_time
+knw_name=xxx&page=5&size=10&order=desc&rule=create
 ```
 
 响应参数：
@@ -105,10 +105,10 @@ knw_name=xxx&page=5&size=10&order=desc&rule=creation_time
 | 序号 | 字段名称           | 字段类型 | 字段说明                             |
 | :--- | ------------------ | :------- | :----------------------------------- |
 | 1    | color              | string   | 知识网络颜色                         |
-| 2    | creation_time      | string   | 创建时间                             |
-| 4    | creator_id         | string   | 创建用户id                           |
+| 2    | create_time        | string   | 创建时间                             |
+| 4    | create_by          | string   | 创建用户id                           |
 | 5    | creator_name       | string   | 创建用户名称                         |
-| 6    | final_operator     | string   | 最终操作人id                         |
+| 6    | update_by          | string   | 最终操作人id                         |
 | 7    | group_column       | int      |                                      |
 | 8    | id                 | int      | 知识网络id                           |
 | 9    | identify_id        | string   | 知识网络唯一id                       |
@@ -128,10 +128,10 @@ knw_name=xxx&page=5&size=10&order=desc&rule=creation_time
     "df": [
       {
         "color": "icon-color-110",
-        "creation_time": "2022-09-15 15:05:20",
-        "creator_id": "9d753e00-34c4-11ed-81e4-dad875ec6ee2",
+        "create_time": "2022-09-15 15:05:20",
+        "create_by": "9d753e00-34c4-11ed-81e4-dad875ec6ee2",
         "creator_name": "test",
-        "final_operator": "853ba1db-4e37-11eb-a57d-0242ac190002",
+        "update_by": "853ba1db-4e37-11eb-a57d-0242ac190002",
         "group_column": 1,
         "id": 1,
         "identify_id": "c2c3e452-34c4-11ed-84c8-6ea0325d6f93",
@@ -150,7 +150,7 @@ knw_name=xxx&page=5&size=10&order=desc&rule=creation_time
 ### 1.3、 新建知识网络
 
 ```
-POST  /api/builder/v1/knw/network
+POST  /api/builder/v1/knw/add
 ```
 
 请求参数：
@@ -194,7 +194,7 @@ POST  /api/builder/v1/knw/network
 ### 1.4、 编辑知识网络
 
 ```
-POST  /api/builder/v1/knw/edit_knw
+POST  /api/builder/v1/knw/edit
 ```
 
 请求参数：
@@ -236,7 +236,7 @@ POST  /api/builder/v1/knw/edit_knw
 ### 1.5、 删除知识网络
 
 ```
-POST  /api/builder/v1/knw/delete_knw
+POST  /api/builder/v1/knw/delete
 ```
 
 请求参数：
@@ -270,7 +270,7 @@ POST  /api/builder/v1/knw/delete_knw
 ### 1.6、 根据知识网络获取图谱列表
 
 ```
-GET  /api/builder/v1/knw/get_graph_by_knw
+GET  /api/builder/v1/knw/graph/page
 ```
 
 请求参数：
@@ -280,15 +280,15 @@ GET  /api/builder/v1/knw/get_graph_by_knw
 | 1    | knw_id   | int      | query    | 是       |      | 知识网络id（传 -1 返回全部的知识图谱）                       |
 | 2    | page     | int      | query    | 是       |      | 页码                                                         |
 | 3    | size     | int      | query    | 是       |      | 每页数量                                                     |
-| 4    | order    | string   | query    | 是       |      | desc（从新到旧排序）asc（从旧到新排序）                      |
+| 4    | order    | string   | query    | 是       | 4    | desc（从新到旧排序）asc（从旧到新排序）                      |
 | 5    | name     | string   | query    | 是       | 100  | 对图谱名称模糊搜索                                           |
-| 6    | rule     | string   | query    | 是       |      | 默认按更新时间排序update（按更新时间排序）create（按创建时间排序）name（按图谱名称排序） |
-| 7    | filter   | string   | query    | 否       |      | 可选值：all(默认)，upload，export，running_success           |
+| 6    | rule     | string   | query    | 是       | 6    | 默认按更新时间排序update（按更新时间排序）create（按创建时间排序）name（按图谱名称排序） |
+| 7    | filter   | string   | query    | 否       | 20   | 可选值：all(默认)，upload，export，running_success           |
 
 请求示例：
 
 ```
-/api/builder/v1/knw/get_graph_by_knw?knw_id=1&page=1&size=20&order=desc&name&rule=create
+/api/builder/v1/knw/graph/page?knw_id=1&page=1&size=20&order=desc&name&rule=create
 ```
 
 响应参数：
@@ -351,22 +351,22 @@ GET  /api/builder/v1/knw/get_graph_by_knw
 ### 2.1、执行图谱构建任务
 
 ```
-POST  /api/builder/v1/task/{graph_id}
+POST  /api/builder/v1/task/add/{graph_id}
 ```
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                              |
-| :--- | :------- | :------- | -------- | :------- | ---- | :------------------------------------ |
-| 1    | graph_id | int      | path     | 是       |      | 图谱id                                |
-| 2    | tasktype | string   | body     | 是       |      | 全量构建（full）增量构建（increment） |
+| 序号 | 字段名称  | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明         |
+| :--- | :-------- | :------- | -------- | :------- | ---- | :--------------- |
+| 1    | graph_id  | int      | path     | 是       |      | 图谱id           |
+| 2    | task_type | string   | body     | 是       | 10   | 全量构建（full）增量构建（increment） |
 
 请求示例：
 
 ```
-/api/builder/v1/task/121
+/api/builder/v1/task/add/121
 {
-	"tasktype":"full"
+	"task_type":"full"
 }
 ```
 
@@ -389,26 +389,26 @@ POST  /api/builder/v1/task/{graph_id}
 ### 2.2、执行图谱分批构建任务
 
 ```
-POST  /api/builder/v1/task/batch/{graph_id}
+POST  /api/builder/v1/task/batch_add/{graph_id}
 ```
 
 请求参数：
 
-| 序号 | 字段名称     | 字段类型 | 字段位置 | 是否必须 | 长度 | 字段说明                                                     |
-| ---- | :----------- | :------- | :------- | :------- | ---- | :----------------------------------------------------------- |
-| 1    | graph_id     | int      | path     | 是       |      | 图谱id                                                       |
-| 2    | subgraph_ids | string   | body     | 是       |      | 子图配置id列表                                               |
-| 3    | write_mode   | string   | body     | 是       |      | 在一次分组运行中多个组之间相同的类执行的写入模式（skip: 跳过   overwrite: 重新运行） |
-| 4    | flag         | string   | body     | 否       |      | 构建方式  （full：全量构建，默认）                           |
+| 序号 | 字段名称     | 字段类型  | 字段位置 | 是否必须 | 长度 | 字段说明                                                     |
+| ---- | :----------- | :-------- | :------- | :------- | ---- | :----------------------------------------------------------- |
+| 1    | graph_id     | int       | path     | 是       |      | 图谱id                                                       |
+| 2    | subgraph_ids | list<int> | body     | 是       |      | 子图配置id列表                                               |
+| 3    | write_mode   | string    | body     | 是       | 10   | 在一次分组运行中多个组之间相同的类执行的写入模式（skip: 跳过   overwrite: 重新运行） |
+| 4    | flag         | string    | body     | 是       | 5    | 构建方式  （full：全量构建，默认   increment：增量构建）     |
 
 请求示例：
 
 ```
-/api/builder/v1/task/batch/121
+/api/builder/v1/task/batch_add/121
 {
-	"subgraph_ids":"1"
-	"write_mode":"skip"
-	"tasktype":"full"
+	"subgraph_ids":[1],
+	"write_mode":"skip",
+	"flag":"full"
 }
 ```
 
@@ -465,7 +465,7 @@ POST  /api/builder/v1/task/delete/{graph_id}
 ### 2.4、分页获取图谱构建任务列表
 
 ```
-GET  /api/builder/v1/task/{graph_id}
+GET  /api/builder/v1/task/page/{graph_id}
 ```
 
 请求参数：
@@ -479,13 +479,13 @@ GET  /api/builder/v1/task/{graph_id}
 | 5    | rule         | string   | query    | 是       |      | 排序字段（start_time/end_time)                               |
 | 6    | status       | string   | query    | 是       | 100  | 任务状态，（normal, running, waiting, failed, stop, all，前端默认传all） |
 | 7    | graph_name   | string   | query    | 是       | 100  | 图谱名称（前端默认传空）                                     |
-| 8    | task_type    | string   | query    | 是       | 50   | 构建任务类型（all：返回全部，前端默认      full：全量构建）  |
-| 9    | trigger_type | string   | query    | 是       |      | 触发方式（all：返回全部前端默认    0：手动触发    1：自动触发     2：实时触发） |
+| 8    | task_type    | string   | query    | 是       | 50   | 构建任务类型（all：返回全部，前端默认   full：全量构建   increment：增量构建） |
+| 9    | trigger_type | string   | query    | 是       | 3    | 触发方式（all：返回全部，前端默认    0：手动触发    1：自动触发     2：实时触发） |
 
 请求示例：
 
 ```
-/api/builder/v1/task/17?page=1&size=10&order=asc&rule=start_time&status=all&graph_name=&task_type=all&trigger_type=all
+/api/builder/v1/task/page/17?page=1&size=10&order=asc&rule=start_time&status=all&graph_name=&task_type=all&trigger_type=all
 ```
 
 响应参数：
@@ -501,7 +501,7 @@ GET  /api/builder/v1/task/{graph_id}
 | 1    | all_time          | string       | 是       | 总耗时                                                      |
 | 2    | celery_task_id    | string       | 是       | celery任务id                                                |
 | 3    | count_status      | int          | 是       | nebula实体和关系数量是否统计完成    0：未完成   1：统计完成 |
-| 4    | create_user       | string       | 是       | 创建人userId                                                |
+| 4    | create_by         | string       | 是       | 创建人userId                                                |
 | 5    | edge              | string       | 是       | 关系类信息                                                  |
 | 6    | edge_num          | int          | 是       | 关系类数量                                                  |
 | 7    | edge_pro_num      | int          | 是       | 关系类属性信息                                              |
@@ -538,13 +538,13 @@ GET  /api/builder/v1/task/{graph_id}
                 "all_time": null,
                 "celery_task_id": "6a6d3704-c61a-4ee9-bf60-134fe6c2ae1e",
                 "count_status": 0,
-                "create_user": null,
+                "create_by": null,
                 "edge": "[{'edge_id': 8, 'name': 'account_2_account_role', 'description': '', 'alias': '3框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_account_role', 'account_role'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}, {'edge_id': 7, 'name': 'account_2_async_tasks', 'description': '', 'alias': '2框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_async_tasks', 'async_tasks'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}]",
                 "edge_num": null,
                 "edge_pro_num": null,
                 "effective_storage": true,
                 "end_time": null,
-                "entity": "[{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'created_time', 'description': '', 'alias': 'created_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}]",
+                "entity": "[{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'create_time', 'description': '', 'alias': 'create_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}]",
                 "entity_num": null,
                 "entity_pro_num": null,
                 "error_report": null,
@@ -574,7 +574,7 @@ GET  /api/builder/v1/task/{graph_id}
 ### 2.5、终止图谱构建任务
 
 ```
-POST  /api/builder/v1/task/stoptask
+POST  /api/builder/v1/task/stop
 ```
 
 请求参数：
@@ -624,15 +624,15 @@ GET  /api/builder/v1/task/detail/{task_id}
 | 1    | task_id     | int      | path     | 是       |      | 任务id                                             |
 | 2    | task_type   | string   | query    | 否       | 50   | 任务类型，可选值：entity, edge, model              |
 | 3    | task_status | string   | query    | 否       | 50   | 任务状态，可选值：waiting, running, normal, failed |
-| 4    | rule        | string   | query    | 否       |      | 排序字段，可选值：start_time, end_time             |
-| 5    | order       | string   | query    | 否       |      | 排序顺序，可选值：asc, desc                        |
+| 4    | rule        | string   | query    | 否       | 10   | 排序字段，可选值：start_time, end_time             |
+| 5    | order       | string   | query    | 否       | 4    | 排序顺序，可选值：asc, desc                        |
 | 6    | page        | int      | query    | 否       |      | 第几页                                             |
 | 7    | size        | int      | query    | 否       |      | 当前页显示数量                                     |
 
 请求示例：
 
 ```
-/api/builder/v1/task/17?page=1&size=10&order=asc&rule=start_time&task_status=running&task_type=model&task_id=1
+/api/builder/v1/task/17?page=1&size=10&order=asc&rule=start_time&task_status=running&task_type=model
 ```
 
 响应参数：
@@ -671,7 +671,7 @@ GET  /api/builder/v1/task/detail/{task_id}
 | :--- | :---------- | :------- | :----------------------------------------------------------- |
 | 1    | file_name   | string   | 对mysql、hive：表名对SQLserver、KingbaseES、postgreSQL: 模式名/表名对AS：文件名，例："user.csv"SQL抽取时，为SQL数据文件名称 |
 | 2    | file_path   | string   | 对数据库：数据库名对AS：文件路径，例："部门文档库1/csv/user.csv" |
-| 3    | file_source | string   | 对mysql、hive：表名对SQLserver、KingbaseES、postgreSQL: 模式名/表名对AS：文件标识，例："gns: //CBBB3180731847DA9CE55F262C7CD3D8/458DFD06824E4520855-DE87969AF6A86/C0CFB1A0DA3046CB834BA42E011ED6B7"SQL抽取时，为SQL语句 |
+| 3    | file_source | string   | 数据源类型为mysql、hive、clickhouse：数据表<br />数据源类型为sqlserver、kingbesees、postgresql： 模式/数据表<br />SQL抽取时，为SQL语句 |
 | 4    | file_type   | string   | 仅对模型抽取才返回file：文件dir：文件夹                      |
 
 响应示例：
@@ -795,7 +795,7 @@ GET  /api/builder/v1/task/detail/{task_id}
 ### 2.7、创建图谱
 
 ```
-POST  /api/builder/v1/graph
+POST  /api/builder/v1/graph/add
 ```
 
 请求参数：
@@ -838,7 +838,7 @@ POST  /api/builder/v1/graph
 ### 2.8、查询图谱数据库连接信息
 
 ```
-GET  /api/builder/v1/graph/getgraphdb
+GET  /api/builder/v1/graph/graph_db
 ```
 
 响应参数：
@@ -864,14 +864,14 @@ GET  /api/builder/v1/graph/getgraphdb
 ### 2.9、查询图谱
 
 ```
-GET  /api/builder/v1/graph/{graphid}
+GET  /api/builder/v1/graph/{graph_id}
 ```
 
 请求参数：
 
 | 序号 | 字段名称 | 字段类型 | 字段位置 | 是否必须 | 长度 | 字段说明 |
 | ---- | :------- | :------- | :------- | :------- | ---- | :------- |
-| 1    | graphid  | int      | path     | 是       |      | 图谱id   |
+| 1    | graph_id | int      | path     | 是       |      | 图谱id   |
 
 请求示例：
 
@@ -885,9 +885,9 @@ GET  /api/builder/v1/graph/{graphid}
 {
     "res": {
         "id": 2,
-        "create_user": "",
+        "create_by": "",
         "create_time": "2024-04-02 11:01:58",
-        "update_user": "",
+        "update_by": "",
         "update_time": "2024-05-22 13:59:59",
         "graph_name": "test",
         "graph_baseInfo": {
@@ -900,12 +900,12 @@ GET  /api/builder/v1/graph/{graphid}
         "graph_ds": [
             {
                 "id": 3,
-                "create_user": "",
+                "create_by": "",
                 "create_time": "2024-04-02 11:02:41",
-                "update_user": "",
+                "update_by": "",
                 "update_time": "2024-06-06 11:32:05",
-                "dsname": "kom",
-                "dataType": "structured",
+                "ds_name": "kom",
+                "data_type": "structured",
                 "data_source": "mysql",
                 "ds_user": "root",
                 "ds_password": "RWlzb29fMTIz",
@@ -924,9 +924,9 @@ GET  /api/builder/v1/graph/{graphid}
         "graph_otl": [
             {
                 "id": 2,
-                "create_user": "",
+                "create_by": "",
                 "create_time": "2024-04-02 11:01:58",
-                "update_user": "",
+                "update_by": "",
                 "update_time": "2024-04-02 18:10:25",
                 "ontology_name": "",
                 "ontology_des": "",
@@ -1080,12 +1080,12 @@ GET  /api/builder/v1/graph/{graphid}
         "graph_used_ds": [
             {
                 "id": 3,
-                "create_user": "",
+                "create_by": "",
                 "create_time": "2024-04-02 11:02:41",
-                "update_user": "",
+                "update_by": "",
                 "update_time": "2024-06-06 11:32:05",
-                "dsname": "kom",
-                "dataType": "structured",
+                "ds_name": "kom",
+                "data_type": "structured",
                 "data_source": "mysql",
                 "ds_user": "root",
                 "ds_password": "RWlzb29fMTIz",
@@ -1108,7 +1108,7 @@ GET  /api/builder/v1/graph/{graphid}
 ### 2.10、保存并退出接口
 
 ```
-POST  /api/builder/v1/graph/savenocheck
+POST  /api/builder/v1/graph/save_no_check
 ```
 
 请求参数：
@@ -1165,7 +1165,7 @@ POST  /api/builder/v1/graph/savenocheck
 ### 2.11、根据图谱id返回数据源列表
 
 ```
-GET  /api/builder/v1/graph/getdsbygraphid
+GET  /api/builder/v1/graph/ds/list
 ```
 
 请求参数：
@@ -1173,12 +1173,12 @@ GET  /api/builder/v1/graph/getdsbygraphid
 | 序号 | 字段名称 | 字段类型 | 字段位置 | 是否必须 | 长度 | 字段说明                     |
 | :--- | :------- | :------- | -------- | :------- | ---- | :--------------------------- |
 | 1    | id       | int      | query    | 是       |      | 图谱id                       |
-| 2    | type     | string   | query    | 是       |      | 流程标识【filter，unfilter】 |
+| 2    | type     | string   | query    | 是       | 8    | 流程标识【filter，unfilter】 |
 
 请求示例：
 
 ```
-/api/builder/v1/graph/getdsbygraphid?id=1&type=filter
+/api/builder/v1/graph/ds/list?id=1&type=filter
 ```
 
 响应参数：
@@ -1191,20 +1191,20 @@ GET  /api/builder/v1/graph/getdsbygraphid
 | 序号 | 字段名称     | 字段类型 | 字段说明   |
 | ---- | :----------- | :------- | :--------- |
 | 1    | create_time  | string   | 创建时间   |
-| 2    | create_user  | string   | 创建用户   |
-| 3    | dataType     | string   | 数据类型   |
+| 2    | create_by    | string   | 创建用户   |
+| 3    | data_type    | string   | 数据类型   |
 | 4    | data_source  | string   | 数据源类型 |
 | 5    | ds_address   | string   | 地址       |
 | 6    | ds_password  | string   | 密码       |
 | 7    | ds_path      | string   | 数据库路径 |
 | 8    | ds_port      | int      | 端口       |
 | 9    | ds_user      | string   | 用户名     |
-| 10   | dsname       | string   | 数据源名称 |
+| 10   | ds_name      | string   | 数据源名称 |
 | 11   | extract_type | string   | 抽取类型   |
 | 12   | id           | int      | 数据源id   |
 | 13   | knw_id       | int      | 知识网络id |
 | 14   | update_time  | string   | 修改时间   |
-| 15   | update_user  | string   | 修改用户   |
+| 15   | update_by    | string   | 修改用户   |
 | 16   | connect_type | string   | 连接方式   |
 
 响应示例：
@@ -1215,20 +1215,20 @@ GET  /api/builder/v1/graph/getdsbygraphid
         "count": 1,
         "df": [{
             "create_time": "2023-02-06 04:19:55",
-            "create_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
-            "dataType": "structured",
+            "create_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "data_type": "structured",
             "data_source": "mysql",                  
             "ds_address": "10.4.107.112",
             "ds_password": "ZWlzb28uY29tMTIz",
             "ds_path": "anydata",
             "ds_port": 3320,
             "ds_user": "root",
-            "dsname": "\u672c\u673amysql",
+            "ds_name": "\u672c\u673amysql",
             "extract_type": "standardExtraction",
             "id": 1,
             "knw_id": 1,
             "update_time": "2023-02-06 04:19:55",
-            "update_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "update_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
             "connect_type":"odbc"                   
         }]
     }
@@ -1276,15 +1276,14 @@ POST  /api/builder/v1/graph/query
 ### 2.13、根据图谱id查询图谱名称和描述
 
 ```
-POST  /api/builder/v1/graph/graph_info
+POST  /api/builder/v1/graph/info/simple
 ```
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型  | 字段位置 | 是否必须 | 长度 | 字段说明                         |
-| :--- | :------- | :-------- | -------- | :------- | ---- | :------------------------------- |
-| 1    | info     | string    | header   | 是       |      | 内部调用鉴权信息，值为kg-manager |
-| 2    | graph_id | list<int> | body     | 是       |      | 图谱id                           |
+| 序号 | 字段名称 | 字段类型  | 字段位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :------- | :-------- | -------- | :------- | ---- | :------- |
+| 1    | graph_id | list<int> | body     | 是       |      | 图谱id   |
 
 请求示例：
 
@@ -1320,22 +1319,22 @@ POST  /api/builder/v1/graph/graph_info
 ### 2.14、批量删除图谱
 
 ```
-POST  /api/builder/v1/graph/delbyids
+POST  /api/builder/v1/graph/delete
 ```
 
 请求参数：
 
-| 序号 | 字段名称 | 字段类型  | 字段位置 | 是否必须 | 长度 | 字段说明 |
-| :--- | :------- | :-------- | -------- | :------- | ---- | :------- |
-| 1    | knw_id   | int       | body     | 是       |      | 网络id   |
-| 2    | graphids | list<int> | body     | 是       |      | 图谱id   |
+| 序号 | 字段名称  | 字段类型  | 字段位置 | 是否必须 | 长度 | 字段说明 |
+| :--- | :-------- | :-------- | -------- | :------- | ---- | :------- |
+| 1    | knw_id    | int       | body     | 是       |      | 网络id   |
+| 2    | graph_ids | list<int> | body     | 是       |      | 图谱id   |
 
 请求示例：
 
 ```json
 {
     "knw_id":1,   
-    "graphids":[1,2]   
+    "graph_ids":[1,2]   
 }
 ```
 
@@ -1369,7 +1368,7 @@ GET  /api/builder/v1/graph/ds/{graph_id}
 | 1    | graph_id | int      | path     | 是       |      | 图谱id                    |
 | 2    | page     | int      | query    | 是       |      | 页号                      |
 | 3    | size     | int      | query    | 是       |      | 每页个数                  |
-| 4    | order    | string   | query    | 是       |      | 排序方式（ascend，deend） |
+| 4    | order    | string   | query    | 是       | 6    | 排序方式（ascend，deend） |
 
 请求示例：
 
@@ -1387,20 +1386,20 @@ GET  /api/builder/v1/graph/ds/{graph_id}
 | 序号 | 字段名称     | 字段类型 | 字段说明   |
 | ---- | :----------- | :------- | :--------- |
 | 1    | create_time  | string   | 创建时间   |
-| 2    | create_user  | string   | 创建用户   |
-| 3    | dataType     | string   | 数据类型   |
+| 2    | create_by    | string   | 创建用户   |
+| 3    | data_type    | string   | 数据类型   |
 | 4    | data_source  | string   | 数据源类型 |
 | 5    | ds_address   | string   | 地址       |
 | 6    | ds_password  | string   | 密码       |
 | 7    | ds_path      | string   | 数据库路径 |
 | 8    | ds_port      | int      | 端口       |
 | 9    | ds_user      | string   | 用户名     |
-| 10   | dsname       | string   | 数据源名称 |
+| 10   | ds_name      | string   | 数据源名称 |
 | 11   | extract_type | string   | 抽取类型   |
 | 12   | id           | int      | 数据源id   |
 | 13   | knw_id       | int      | 知识网络id |
 | 14   | update_time  | string   | 修改时间   |
-| 15   | update_user  | string   | 修改用户   |
+| 15   | update_by    | string   | 修改用户   |
 | 16   | connect_type | string   | 连接方式   |
 
 响应示例：
@@ -1411,20 +1410,20 @@ GET  /api/builder/v1/graph/ds/{graph_id}
         "count": 1,
         "df": [{
             "create_time": "2023-02-06 04:19:55",
-            "create_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
-            "dataType": "structured",
+            "create_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "data_type": "structured",
             "data_source": "mysql",                  
             "ds_address": "10.4.107.112",
             "ds_password": "ZWlzb28uY29tMTIz",
             "ds_path": "anydata",
             "ds_port": 3320,
             "ds_user": "root",
-            "dsname": "\u672c\u673amysql",
+            "ds_name": "\u672c\u673amysql",
             "extract_type": "standardExtraction",
             "id": 1,
             "knw_id": 1,
             "update_time": "2023-02-06 04:19:55",
-            "update_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "update_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
             "connect_type":"odbc"                   
         }]
     }
@@ -1496,45 +1495,6 @@ POST  /api/builder/v1/graph/input
 ```json
 {
     "graph_id": [1]
-}
-```
-
-### 2.18、根据DB_name获取id
-
-```
-POST  /api/builder/v1/graph/getidbydbname
-```
-
-请求参数：
-
-| 序号 | 字段名称 | 字段类型     | 字段位置 | 是否必须 | 长度 | 字段说明    |
-| ---- | :------- | :----------- | :------- | :------- | ---- | :---------- |
-| 1    | dbnames  | list<string> | body     | 是       |      | DB_name列表 |
-
-请求示例：
-
-```json
-{
-    "dbnames": [
-        "u8c023ff2f1c711eca1fc3ed3fa76205a",
-        "u5475985ff22f11eca1fc3ed3fa76205a"
-    ]
-}
-```
-
-响应参数：
-
-| 序号 | 字段名称 | 字段类型 | 是否必须 | 字段说明   |
-| :--- | :------- | :------- | :------- | :--------- |
-| 1    | id       | int      | 是       | 图谱id     |
-| 2    | kgconfid | int      | 是       | 图谱配置id |
-
-响应示例：
-
-```json
-{
-  "u8c023ff2f1c711eca1fc3ed3fa76205a": { "id": 1, "kgconfid": 1 },
-  "u5475985ff22f11eca1fc3ed3fa76205a": { "id": 2, "kgconfid": 2 }
 }
 ```
 
@@ -1633,7 +1593,7 @@ GET  /api/builder/v1/graph/info/onto
 
 | 序号 | 字段名称 | 字段类型     | 是否必须 | 字段说明     |
 | ---- | :------- | :----------- | :------- | :----------- |
-| 1    | dbname   | string       | 是       | 图数据库名称 |
+| 1    | db_name  | string       | 是       | 图数据库名称 |
 | 2    | entity   | list<object> | 是       | 点的相关信息 |
 | 3    | edge     | list<object> | 是       | 边的相关信息 |
 
@@ -1673,7 +1633,7 @@ GET  /api/builder/v1/graph/info/onto
 ```json
 {
     "res": {
-        "dbname": "u7f7e1d70f0d411ee8e7f0242ac13000f-2",
+        "db_name": "u7f7e1d70f0d411ee8e7f0242ac13000f-2",
         "edge": [
             {
                 "alias": "1231_2_4",
@@ -1856,7 +1816,7 @@ GET  /api/builder/v1/graph/info/detail
 ### 2.23、新增子图配置
 
 ```
-POST  /api/builder/v1/graph/subgraph
+POST  /api/builder/v1/graph/subgraph/add
 ```
 
 请求参数：
@@ -1922,7 +1882,7 @@ POST  /api/builder/v1/graph/subgraph/edit/{graph_id}
 [
     {
       "edge": [{'edge_id': 8, 'name': 'account_2_account_role', 'description': '', 'alias': '3框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_account_role', 'account_role'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}, {'edge_id': 7, 'name': 'account_2_async_tasks', 'description': '', 'alias': '2框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_async_tasks', 'async_tasks'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}],
-      "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'created_time', 'description': '', 'alias': 'created_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
+      "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'create_time', 'description': '', 'alias': 'create_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'update_time', 'description': '', 'alias': 'update_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
       "name": "subgraph_name_2",
       "subgraph_id": 1
     }
@@ -1948,7 +1908,7 @@ POST  /api/builder/v1/graph/subgraph/edit/{graph_id}
 ### 2.25、子图保存不校验接口
 
 ```
-POST  /api/builder/v1/graph/subgraph/savenocheck/{graph_id}
+POST  /api/builder/v1/graph/subgraph/save_no_check/{graph_id}
 ```
 
 请求参数：
@@ -1964,11 +1924,11 @@ POST  /api/builder/v1/graph/subgraph/savenocheck/{graph_id}
 请求示例：
 
 ```json
-/api/builder/v1/graph/subgraph/savenocheck/1
+/api/builder/v1/graph/subgraph/save_no_check/1
 [
     {
       "edge": [{'edge_id': 8, 'name': 'account_2_account_role', 'description': '', 'alias': '3框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_account_role', 'account_role'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}, {'edge_id': 7, 'name': 'account_2_async_tasks', 'description': '', 'alias': '2框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_async_tasks', 'async_tasks'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}],
-      "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'created_time', 'description': '', 'alias': 'created_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
+      "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'create_time', 'description': '', 'alias': 'create_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'update_time', 'description': '', 'alias': 'update_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
       "name": "subgraph_name_2",
       "subgraph_id": 1
     }
@@ -1994,7 +1954,7 @@ POST  /api/builder/v1/graph/subgraph/savenocheck/{graph_id}
 ### 2.26、查询子图列表
 
 ```
-GET  /api/builder/v1/graph/subgraph
+GET  /api/builder/v1/graph/subgraph/list
 ```
 
 请求参数：
@@ -2008,7 +1968,7 @@ GET  /api/builder/v1/graph/subgraph
 请求示例：
 
 ```
-/api/builder/v1/graph/subgraph?graph_id=1&subgraph_name=&return_all=True
+/api/builder/v1/graph/subgraph/list?graph_id=1&subgraph_name=&return_all=True
 ```
 
 响应参数：
@@ -2028,7 +1988,7 @@ GET  /api/builder/v1/graph/subgraph
 {
     "res":[{
           "edge": [{'edge_id': 8, 'name': 'account_2_account_role', 'description': '', 'alias': '3框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_account_role', 'account_role'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}, {'edge_id': 7, 'name': 'account_2_async_tasks', 'description': '', 'alias': '2框', 'synonym': '', 'properties_index': [], 'default_tag': '', 'properties': [], 'relations': ['account', 'account_2_async_tasks', 'async_tasks'], 'colour': 'rgba(227,150,64,1)', 'shape': 'line', 'width': '0.25x', 'source_type': 'manual', 'index_default_switch': False, 'index_main_switch': False, 'model': ''}],
-          "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'created_time', 'description': '', 'alias': 'created_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
+          "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'create_time', 'description': '', 'alias': 'create_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
           "name": "subgraph_name_2",
           "edge_num": 1,
           "entity_num": 2,
@@ -2073,7 +2033,7 @@ GET  /api/builder/v1/graph/subgraph/{subgraph_id}
 {
     "res": {
           "edge": [],
-          "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'created_time', 'description': '', 'alias': 'created_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'finished_time', 'description': '', 'alias': 'finished_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
+          "entity": [{'entity_id': 4, 'name': 'async_tasks', 'description': '', 'alias': 'async_tasks', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'task_type', 'description': '', 'alias': 'task_type', 'data_type': 'string', 'synonym': ''}, {'name': 'task_status', 'description': '', 'alias': 'task_status', 'data_type': 'string', 'synonym': ''}, {'name': 'task_name', 'description': '', 'alias': 'task_name', 'data_type': 'string', 'synonym': ''}, {'name': 'celery_task_id', 'description': '', 'alias': 'celery_task_id', 'data_type': 'string', 'synonym': ''}, {'name': 'relation_id', 'description': '', 'alias': 'relation_id', 'data_type': 'string', 'synonym': ''}, {'name': 'task_params', 'description': '', 'alias': 'task_params', 'data_type': 'string', 'synonym': ''}, {'name': 'result', 'description': '', 'alias': 'result', 'data_type': 'string', 'synonym': ''}, {'name': 'create_time', 'description': '', 'alias': 'create_time', 'data_type': 'datetime', 'synonym': ''}, {'name': 'update_time', 'description': '', 'alias': 'update_time', 'data_type': 'datetime', 'synonym': ''}], 'x': 706.3500516484272, 'y': 451.4230092967168, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(92,83,155,1)', 'stroke_color': 'rgba(92,83,155,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 5, 'name': 'account_role', 'description': '', 'alias': 'account_role', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'role_id', 'description': '', 'alias': 'role_id', 'data_type': 'integer', 'synonym': ''}, {'name': 'created', 'description': '', 'alias': 'created', 'data_type': 'datetime', 'synonym': ''}, {'name': 'updated', 'description': '', 'alias': 'updated', 'data_type': 'datetime', 'synonym': ''}], 'x': 672.6638924541155, 'y': 696.1195006417407, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(216,112,122,1)', 'stroke_color': 'rgba(216,112,122,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}, {'entity_id': 6, 'name': 'account', 'description': '', 'alias': 'account', 'synonym': '', 'default_tag': 'id', 'properties_index': ['id'], 'primary_key': ['id'], 'vector_generation': [], 'properties': [{'name': 'id', 'description': '', 'alias': 'id', 'data_type': 'integer', 'synonym': ''}, {'name': 'username', 'description': '', 'alias': 'username', 'data_type': 'string', 'synonym': ''}, {'name': 'status', 'description': '', 'alias': 'status', 'data_type': 'integer', 'synonym': ''}, {'name': 'app_id', 'description': '', 'alias': 'app_id', 'data_type': 'string', 'synonym': ''}, {'name': 'account_id', 'description': '', 'alias': 'account_id', 'data_type': 'string', 'synonym': ''}, {'name': 'third_party_id', 'description': '', 'alias': 'third_party_id', 'data_type': 'string', 'synonym': ''}, {'name': 'source_type', 'description': '', 'alias': 'source_type', 'data_type': 'integer', 'synonym': ''}], 'x': 477.9860558974574, 'y': 594.4574900615426, 'icon': '', 'shape': 'circle', 'size': '0.5x', 'fill_color': 'rgba(227,150,64,1)', 'stroke_color': 'rgba(227,150,64,1)', 'text_color': 'rgba(0,0,0,1)', 'text_position': 'top', 'text_width': 15, 'index_default_switch': False, 'index_main_switch': False, 'text_type': 'adaptive', 'source_type': 'automatic', 'model': '', 'task_id': '1', 'icon_color': '#ffffff'}],
           "name": "subgraph_name_2",
           "edge_num": 0,
           "entity_num": 2,
@@ -2175,7 +2135,7 @@ POST  /api/builder/v1/graph/data/batch_del_relation
 ### 2.30、编辑图谱
 
 ```
-POST  /api/builder/v1/graph/{graphid}
+POST  /api/builder/v1/graph/edit/{graphid}
 ```
 
 请求参数：
@@ -2217,7 +2177,7 @@ POST  /api/builder/v1/graph/{graphid}
 ### 2.31、提交重建索引任务
 
 ```
-POST  /api/builder/v1/fulltextindex/{KDB_name}
+POST  /api/builder/v1/fulltext_index/{KDB_name}
 ```
 
 请求参数：
@@ -2229,7 +2189,7 @@ POST  /api/builder/v1/fulltextindex/{KDB_name}
 请求示例：
 
 ```
-/api/builder/v1/fulltextindex/u34bb613cdbf411eca482ea21cd616bd0
+/api/builder/v1/fulltext_index/u34bb613cdbf411eca482ea21cd616bd0
 ```
 
 响应参数：
@@ -2249,7 +2209,7 @@ POST  /api/builder/v1/fulltextindex/{KDB_name}
 ### 2.32、查看重建索引任务状态
 
 ```
-GET  /api/builder/v1/fulltextindex/{KDB_name}
+GET  /api/builder/v1/fulltext_index/{KDB_name}
 ```
 
 请求参数：
@@ -2327,10 +2287,10 @@ POST  /api/builder/v1/timer/add/{graph_id}
 }
 ```
 
-### 2.34、修改定时任务
+### 2.34、编辑定时任务
 
 ```
-POST  /api/builder/v1/timer/update/{graph_id}
+POST  /api/builder/v1/timer/edit/{graph_id}
 ```
 
 请求参数：
@@ -2412,7 +2372,7 @@ POST  /api/builder/v1/timer/delete/{graph_id}
 ### 2.36、分页获取定时任务
 
 ```
-GET  /api/builder/v1/timer
+GET  /api/builder/v1/timer/page
 ```
 
 请求参数：
@@ -2437,18 +2397,17 @@ GET  /api/builder/v1/timer
 | 1    | count    | int          | 是       | 返回任务总数 |
 | 2    | search   | list<object> | 是       | 返回当页数据 |
 
-| 序号 | 字段名称          | 字段类型  | 是否必须 | 字段说明                                                     |
-| :--- | :---------------- | :-------- | :------- | :----------------------------------------------------------- |
-| 1    | task_id           | string    | 是       | 定时任务id                                                   |
-| 2    | task_type         | string    | 是       | 构建任务类型（full，increment）                              |
-| 3    | cycle             | string    | 是       | 有效值为one,day,week,month，one：执行一次，day：每天执行，week：每周执行，month：每月执行 |
-| 4    | datetime          | string    | 是       | 只执行一次的传递参数为具体日期如：'2021-12-20 15:54'，每天，每周，每月返回小时分钟形如：'16:40' |
-| 5    | date_list         | list<int> | 是       | cycle值为week时表示周列表，cycle为month时表示几号的列表，执行一次和每天执行返回空列表 |
-| 6    | enabled           | int       | 是       | 任务开关，开启：1，关闭：0                                   |
-| 7    | update_user       | string    | 是       | 编辑者name                                                   |
-| 8    | update_user_email | string    | 是       | 编辑者邮箱                                                   |
-| 9    | create_time       | string    | 是       | 任务创建时间                                                 |
-| 10   | modify_time       | string    | 是       | 任务编辑时间                                                 |
+| 序号 | 字段名称    | 字段类型  | 是否必须 | 字段说明                                                     |
+| :--- | :---------- | :-------- | :------- | :----------------------------------------------------------- |
+| 1    | task_id     | string    | 是       | 定时任务id                                                   |
+| 2    | task_type   | string    | 是       | 构建任务类型（full，increment）                              |
+| 3    | cycle       | string    | 是       | 有效值为one,day,week,month，one：执行一次，day：每天执行，week：每周执行，month：每月执行 |
+| 4    | datetime    | string    | 是       | 只执行一次的传递参数为具体日期如：'2021-12-20 15:54'，每天，每周，每月返回小时分钟形如：'16:40' |
+| 5    | date_list   | list<int> | 是       | cycle值为week时表示周列表，cycle为month时表示几号的列表，执行一次和每天执行返回空列表 |
+| 6    | enabled     | int       | 是       | 任务开关，开启：1，关闭：0                                   |
+| 7    | update_by   | string    | 是       | 编辑者name                                                   |
+| 8    | create_time | string    | 是       | 任务创建时间                                                 |
+| 9    | update_time | string    | 是       | 任务编辑时间                                                 |
 
 返回样例：
 
@@ -2462,10 +2421,9 @@ GET  /api/builder/v1/timer
         "datetime": "16:40",
         "date_list": [1,2,7],
         "enabled": 1,
-        "update_user": "admin",
-        "update_user_email": "admin",        
+        "update_by": "admin",       
         "create_time": "2021-12-16 13:10:20",
-        "modify_time": "2021-12-16 13:10:20",
+        "update_time": "2021-12-16 13:10:20",
         "task_type":"full"
     }
   ]
@@ -2556,7 +2514,7 @@ POST  /api/builder/v1/timer/switch/{graph_id}
 ### 2.39、新增画布
 
 ```
-POST  /api/alg-server/v1/canvases
+POST  /api/graph/v1/canvases/add
 ```
 
 请求参数：
@@ -2598,7 +2556,7 @@ POST  /api/alg-server/v1/canvases
 ### 2.40、更新画布
 
 ```
-POST  /api/alg-server/v1/canvases/{c_id}/update
+POST  /api/graph/v1/canvases/update/{c_id}
 ```
 
 请求参数：
@@ -2617,7 +2575,7 @@ POST  /api/alg-server/v1/canvases/{c_id}/update
 请求示例：
 
 ```json
-/api/alg-server/v1/canvases/1/update
+/api/graph/v1/canvases/update/1
 {
     "knw_id":1,
     "kg_id":1,
@@ -2644,7 +2602,7 @@ POST  /api/alg-server/v1/canvases/{c_id}/update
 ### 2.41、删除画布
 
 ```
-POST  /api/alg-server/v1/canvases/{c_id}/delete
+POST  /api/graph/v1/canvases/delete/{c_id}
 ```
 
 请求参数：
@@ -2656,7 +2614,7 @@ POST  /api/alg-server/v1/canvases/{c_id}/delete
 请求示例：
 
 ```
-/api/alg-server/v1/canvases/1/delete
+/api/graph/v1/canvases/delete/1
 ```
 
 响应参数：
@@ -2676,7 +2634,7 @@ POST  /api/alg-server/v1/canvases/{c_id}/delete
 ### 2.42、批量删除画布
 
 ```
-POST  /api/alg-server/v1/canvases/delete
+POST  /api/graph/v1/canvases/delete
 ```
 
 请求参数：
@@ -2710,7 +2668,7 @@ POST  /api/alg-server/v1/canvases/delete
 ### 2.43、获取画布列表
 
 ```
-GET  /api/alg-server/v1/canvases/knws/{knw_id}
+GET  /api/graph/v1/canvases/knws/{knw_id}
 ```
 
 请求参数：
@@ -2728,7 +2686,7 @@ GET  /api/alg-server/v1/canvases/knws/{knw_id}
 请求示例：
 
 ```
-/api/alg-server/v1/canvases/knws/1?kg_id=2&query=&order_field=update_time&order_type=asc&page=1&size=10
+/api/graph/v1/canvases/knws/1?kg_id=2&query=&order_field=update_time&order_type=asc&page=1&size=10
 ```
 
 响应参数：
@@ -2789,7 +2747,7 @@ GET  /api/alg-server/v1/canvases/knws/{knw_id}
 ### 2.44、获取指定画布的信息
 
 ```
-GET  /api/alg-server/v1/canvases/{c_id}
+GET  /api/graph/v1/canvases/{c_id}
 ```
 
 请求参数：
@@ -2801,7 +2759,7 @@ GET  /api/alg-server/v1/canvases/{c_id}
 请求示例：
 
 ```
-/api/alg-server/v1/canvases/1
+/api/graph/v1/canvases/1
 ```
 
 响应参数：
@@ -2840,7 +2798,7 @@ GET  /api/alg-server/v1/canvases/{c_id}
 ### 2.45、全文检索
 
 ```
-POST  /api/engine/v1/basic-search/kgs/{kg_id}/full-text
+POST  /api/graph/v1/basic-search/kgs/{kg_id}/full-text
 ```
 
 请求参数：
@@ -2858,7 +2816,7 @@ POST  /api/engine/v1/basic-search/kgs/{kg_id}/full-text
 请求示例：
 
 ```json
-/api/engine/v1/basic-search/kgs/1/full-text
+/api/graph/v1/basic-search/kgs/1/full-text
 {
     "matching_num":1,
     "matching_rule":"completeness",
@@ -2958,7 +2916,7 @@ POST  /api/engine/v1/basic-search/kgs/{kg_id}/full-text
 ### 2.46、vid搜索
 
 ```
-POST  /api/engine/v1/basic-search/kgs/{kg_id}/vid
+POST  /api/graph/v1/basic-search/kgs/{kg_id}/vid
 ```
 
 请求参数：
@@ -2974,7 +2932,7 @@ POST  /api/engine/v1/basic-search/kgs/{kg_id}/vid
 请求示例：
 
 ```json
-/api/engine/v1/basic-search/kgs/1/vid
+/api/graph/v1/basic-search/kgs/1/vid
 {
     "page":1,
     "size":10,
@@ -3072,7 +3030,7 @@ POST  /api/engine/v1/basic-search/kgs/{kg_id}/vid
 ### 2.47、搜索边
 
 ```
-POST  /api/engine/v1/basic-search/kgs/{kg_id}/edges
+POST  /api/graph/v1/basic-search/kgs/{kg_id}/edges
 ```
 
 请求参数：
@@ -3092,7 +3050,7 @@ POST  /api/engine/v1/basic-search/kgs/{kg_id}/edges
 请求示例：
 
 ```json
-/api/engine/v1/basic-search/kgs/1/edges
+/api/graph/v1/basic-search/kgs/1/edges
 {
     "eids":[
         "xxxx",
@@ -3180,7 +3138,7 @@ POST  /api/engine/v1/basic-search/kgs/{kg_id}/edges
 ### 2.48、自定义查询
 
 ```
-POST  /api/engine/v1/custom-search/kgs/{kg_id}
+POST  /api/graph/v1/custom-search/kgs/{kg_id}
 ```
 
 请求参数：
@@ -3193,7 +3151,7 @@ POST  /api/engine/v1/custom-search/kgs/{kg_id}
 请求示例：
 
 ```json
-/api/engine/v1/custom-search/kgs/1
+/api/graph/v1/custom-search/kgs/1
 {
     "statement":["xxx"]
 }
@@ -3289,7 +3247,7 @@ POST  /api/engine/v1/custom-search/kgs/{kg_id}
 ### 2.49、两点间路径探索
 
 ```
-POST  /api/engine/v1/graph-explore/kgs/{kg_id}/paths
+POST  /api/graph/v1/graph-explore/kgs/{kg_id}/paths
 ```
 
 请求参数：
@@ -3312,7 +3270,7 @@ POST  /api/engine/v1/graph-explore/kgs/{kg_id}/paths
 请求示例：
 
 ```json
-/api/engine/v1/graph-explore/kgs/1/paths
+/api/graph/v1/graph-explore/kgs/1/paths
 {
     "direction":"positive",
     "path_type":1,
@@ -3395,7 +3353,7 @@ POST  /api/engine/v1/graph-explore/kgs/{kg_id}/paths
 ### 2.50、邻居查询
 
 ```
-POST  /api/engine/v1/graph-explore/kgs/{kg_id}/neighbors
+POST  /api/graph/v1/graph-explore/kgs/{kg_id}/neighbors
 ```
 
 请求参数：
@@ -3411,7 +3369,7 @@ POST  /api/engine/v1/graph-explore/kgs/{kg_id}/neighbors
 请求示例：
 
 ```json
-/api/engine/v1/graph-explore/kgs/1/neighbors
+/api/graph/v1/graph-explore/kgs/1/neighbors
 {
     "vids":["xxx"],
     "direction":"xxx",
@@ -3495,7 +3453,7 @@ POST  /api/engine/v1/graph-explore/kgs/{kg_id}/neighbors
 ### 2.51、统计点的进出边
 
 ```
-POST  /api/engine/v1/graph-explore/kgs/{kg_id}/expandv
+POST  /api/graph/v1/graph-explore/kgs/{kg_id}/expandv
 ```
 
 请求参数：
@@ -3508,7 +3466,7 @@ POST  /api/engine/v1/graph-explore/kgs/{kg_id}/expandv
 请求示例：
 
 ```json
-/api/engine/v1/graph-explore/kgs/1/expandv
+/api/graph/v1/graph-explore/kgs/1/expandv
 {
     "vids":"xxx"
 }
@@ -3590,9 +3548,9 @@ GET  /api/builder/v1/onto/{otl_id}
 | 9    | identify_id   | string       | 本体唯一id                 |
 | 10   | knw_id        | int          | 知识网络id                 |
 | 11   | domain        | list<string> | 本体所属领域               |
-| 12   | create_user   | string       | 本体创建者uuid             |
+| 12   | create_by     | string       | 本体创建者uuid             |
 | 13   | create_time   | string       | 本体创建时间               |
-| 14   | update_user   | string       | 本体更新uuid               |
+| 14   | update_by     | string       | 本体更新uuid               |
 | 15   | update_time   | string       | 本体更新时间               |
 | 16   | canvas        | object       | 画布信息                   |
 | 17   | otl_status    | string       | 状态                       |
@@ -3613,9 +3571,9 @@ GET  /api/builder/v1/onto/{otl_id}
         "identify_id": "cc744aed-4aa1-43f1-9b2a-cebb7640f01f",
         "knw_id": 1,
         "domain": ["domain11", "domain22"],
-        "create_user": "d52cce80-a285-47dd-a6b7-025572bc1cf9",
+        "create_by": "d52cce80-a285-47dd-a6b7-025572bc1cf9",
         "create_time": "2023-05-25 10:54:49",
-        "update_user": "d52cce80-a285-47dd-a6b7-025572bc1cf9",
+        "update_by": "d52cce80-a285-47dd-a6b7-025572bc1cf9",
         "update_time": "2023-05-25 10:54:49",
         "canvas": {
             "background_color":"white",
@@ -3629,7 +3587,7 @@ GET  /api/builder/v1/onto/{otl_id}
 ### 3.2、获取本体列表
 
 ```
-GET  /api/builder/v1/onto/getotl
+GET  /api/builder/v1/onto/page
 ```
 
 请求参数：
@@ -3647,7 +3605,7 @@ GET  /api/builder/v1/onto/getotl
 请求示例：
 
 ```
-/api/builder/v1/onto/getotl?knw_id=2&page=1&size=10&rule=create&order=desc
+/api/builder/v1/onto/page?knw_id=2&page=1&size=10&rule=create&order=desc
 ```
 
 响应参数：
@@ -3726,10 +3684,10 @@ POST  /api/builder/v1/onto/template
 本体模板.json
 ```
 
-### 3.4、保存本体
+### 3.4、创建本体
 
 ```
-POST  /api/builder/v1/onto/saveontology
+POST  /api/builder/v1/onto/add
 ```
 
 请求参数：
@@ -3787,10 +3745,10 @@ POST  /api/builder/v1/onto/saveontology
 }
 ```
 
-### 3.5、修改本体
+### 3.5、编辑本体
 
 ```
-POST  /api/builder/v1/onto/editontology/{otl_id}
+POST  /api/builder/v1/onto/edit/{otl_id}
 ```
 
 请求参数：
@@ -3849,7 +3807,7 @@ POST  /api/builder/v1/onto/editontology/{otl_id}
 ### 3.6、更改本体名称等基本信息
 
 ```
-POST  /api/builder/v1/onto/updatename/{otl_id}
+POST  /api/builder/v1/onto/edit_name/{otl_id}
 ```
 
 请求参数：
@@ -3889,7 +3847,7 @@ POST  /api/builder/v1/onto/updatename/{otl_id}
 ### 3.7、删除本体
 
 ```
-POST  /api/builder/v1/onto/deleteontology
+POST  /api/builder/v1/onto/delete
 ```
 
 请求参数：
@@ -3927,7 +3885,7 @@ POST  /api/builder/v1/onto/deleteontology
 ### 3.8、根据数据源名获取数据表
 
 ```
-GET  /api/builder/v1/onto/gettabbydsn
+GET  /api/builder/v1/onto/ds_table/list
 ```
 
 请求参数：
@@ -3940,7 +3898,7 @@ GET  /api/builder/v1/onto/gettabbydsn
 请求示例：
 
 ```
-/api/builder/v1/onto/gettabbydsn?ds_id=1&data_source=mysql
+/api/builder/v1/onto/ds_table/list?ds_id=1&data_source=mysql
 ```
 
 响应参数：
@@ -3973,7 +3931,7 @@ GET  /api/builder/v1/onto/gettabbydsn
 ### 3.9、数据源预览接口
 
 ```
-GET  /api/builder/v1/onto/previewdata
+GET  /api/builder/v1/onto/preview_data
 ```
 
 请求参数：
@@ -3987,7 +3945,7 @@ GET  /api/builder/v1/onto/previewdata
 请求示例：
 
 ```
-/api/builder/v1/onto/previewdata?data_source=mysql&name=xxx&ds_id=1
+/api/builder/v1/onto/preview_data?data_source=mysql&name=xxx&ds_id=1
 ```
 
 响应参数：
@@ -4017,7 +3975,7 @@ GET  /api/builder/v1/onto/previewdata
 ### 3.10、数据抽取接口
 
 ```
-POST  /api/builder/v1/onto/auto/autogenschema
+POST  /api/builder/v1/onto/autogen_schema
 ```
 
 请求参数：
@@ -4118,19 +4076,19 @@ POST  /api/builder/v1/onto/auto/autogenschema
 ### 3.11、根据图谱id返回本体信息
 
 ```
-GET  /api/builder/v1/onto/getbykgid/{kgid}
+GET  /api/builder/v1/onto/kg/{kg_id}
 ```
 
 请求参数：
 
 | 序号 | 字段名称 | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明 |
 | :--- | :------- | :------- | :------- | :------- | ---- | :------- |
-| 1    | kgid     | int      | path     | 是       |      | 图谱id   |
+| 1    | kg_id    | int      | path     | 是       |      | 图谱id   |
 
 请求示例：
 
 ```
-/api/builder/v1/onto/getbykgid/1
+/api/builder/v1/onto/kg/1
 ```
 
 响应参数：
@@ -4147,7 +4105,7 @@ GET  /api/builder/v1/onto/getbykgid/{kgid}
         "all_task": [],
         "canvas": {},
         "create_time": "2024-04-02 17:36:35",
-        "create_user": "",
+        "create_by": "",
         "domain": [],
         "edge": [],
         "entity": [
@@ -4213,7 +4171,7 @@ GET  /api/builder/v1/onto/getbykgid/{kgid}
         "otl_status": "available",
         "otl_temp": [],
         "update_time": "2024-06-14 15:34:55",
-        "update_user": "",
+        "update_by": "",
         "used_task": []
     }
 }
@@ -4222,7 +4180,7 @@ GET  /api/builder/v1/onto/getbykgid/{kgid}
 ### 3.12、根据数据源预测本体
 
 ```
-POST  /api/builder/v1/onto/task/build_task
+POST  /api/builder/v1/onto/task/build
 ```
 
 请求参数：
@@ -4264,7 +4222,7 @@ POST  /api/builder/v1/onto/task/build_task
 ### 3.13、获取本体任务信息接口
 
 ```
-POST  /api/builder/v1/onto/task/gettaskinfo
+POST  /api/builder/v1/onto/task/page
 ```
 
 请求参数：
@@ -4304,8 +4262,8 @@ POST  /api/builder/v1/onto/task/gettaskinfo
             "results": [{
                 "data_source": {
                     "create_time": "2023-02-06 04:19:55",
-                    "create_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
-                    "dataType": "structured",
+                    "create_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+                    "data_type": "structured",
                     "data_source": "mysql",             
                     "ds_address": "10.4.107.112",
                     "ds_auth": null,
@@ -4313,7 +4271,7 @@ POST  /api/builder/v1/onto/task/gettaskinfo
                     "ds_path": "anydata",
                     "ds_port": 3320,
                     "ds_user": "root",
-                    "dsname": "\u672c\u673amysql",
+                    "ds_name": "\u672c\u673amysql",
                     "extract_type": "standardExtraction",
                     "file_type": "",
                     "id": 1,
@@ -4321,7 +4279,7 @@ POST  /api/builder/v1/onto/task/gettaskinfo
                     "knw_id": 1,
                     "queue": "",
                     "update_time": "2023-02-06 04:19:55",
-                    "update_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+                    "update_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
                     "vhost": "",
                     "connect_type":"odbc"             
                 },
@@ -4365,7 +4323,7 @@ POST  /api/builder/v1/onto/task/gettaskinfo
 ### 3.14、删除任务
 
 ```
-POST  /api/builder/v1/onto/task/deletetask
+POST  /api/builder/v1/onto/task/delete
 ```
 
 请求参数：
@@ -4399,7 +4357,7 @@ POST  /api/builder/v1/onto/task/deletetask
 ### 3.15、获取预测文件状态
 
 ```
-GET  /api/builder/v1/onto/task/get_task_files
+GET  /api/builder/v1/onto/task_files/page
 ```
 
 请求参数：
@@ -4413,7 +4371,7 @@ GET  /api/builder/v1/onto/task/get_task_files
 请求示例：
 
 ```
-/api/builder/v1/onto/task/get_task_files?task_id=43&page=1&size=2
+/api/builder/v1/onto/task_files/page?task_id=43&page=1&size=2
 ```
 
 响应参数：
@@ -4457,7 +4415,7 @@ GET  /api/builder/v1/onto/task/get_task_files
 ### 3.16、退出不保存删除本体相关的所有的任务
 
 ```
-DELETE  /api/builder/v1/onto/task/deletealltask
+DELETE  /api/builder/v1/onto/task/batch_delete
 ```
 
 请求参数：
@@ -4490,7 +4448,7 @@ DELETE  /api/builder/v1/onto/task/deletealltask
 ### 3.17、本体入口一键导入时数据源列表
 
 ```
-GET  /api/builder/v1/onto/ds
+GET  /api/builder/v1/onto/ds/list
 ```
 
 请求参数：
@@ -4515,20 +4473,20 @@ GET  /api/builder/v1/onto/ds
 | 序号 | 字段名称     | 字段类型 | 字段说明   |
 | ---- | :----------- | :------- | :--------- |
 | 1    | create_time  | string   | 创建时间   |
-| 2    | create_user  | string   | 创建用户   |
-| 3    | dataType     | string   | 数据类型   |
+| 2    | create_by    | string   | 创建用户   |
+| 3    | data_type    | string   | 数据类型   |
 | 4    | data_source  | string   | 数据源类型 |
 | 5    | ds_address   | string   | 地址       |
 | 6    | ds_password  | string   | 密码       |
 | 7    | ds_path      | string   | 数据库路径 |
 | 8    | ds_port      | int      | 端口       |
 | 9    | ds_user      | string   | 用户名     |
-| 10   | dsname       | string   | 数据源名称 |
+| 10   | ds_name      | string   | 数据源名称 |
 | 11   | extract_type | string   | 抽取类型   |
 | 12   | id           | int      | 数据源id   |
 | 13   | knw_id       | int      | 知识网络id |
 | 14   | update_time  | string   | 修改时间   |
-| 15   | update_user  | string   | 修改用户   |
+| 15   | update_by    | string   | 修改用户   |
 | 16   | connect_type | string   | 连接方式   |
 
 响应示例：
@@ -4539,20 +4497,20 @@ GET  /api/builder/v1/onto/ds
         "count": 1,
         "df": [{
             "create_time": "2023-02-06 04:19:55",
-            "create_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
-            "dataType": "structured",
+            "create_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "data_type": "structured",
             "data_source": "mysql",                  
             "ds_address": "10.4.107.112",
             "ds_password": "ZWlzb28uY29tMTIz",
             "ds_path": "anydata",
             "ds_port": 3320,
             "ds_user": "root",
-            "dsname": "\u672c\u673amysql",
+            "ds_name": "\u672c\u673amysql",
             "extract_type": "standardExtraction",
             "id": 1,
             "knw_id": 1,
             "update_time": "2023-02-06 04:19:55",
-            "update_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "update_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
             "connect_type":"odbc"                   
         }]
     }
@@ -4674,7 +4632,7 @@ POST  /api/builder/v1/onto/sql/extract
 ### 3.20、sql预览数据接口
 
 ```
-POST  /api/builder/v1/onto/sql/previewdata
+POST  /api/builder/v1/onto/sql/preview_data
 ```
 
 请求参数：
@@ -4721,7 +4679,7 @@ POST  /api/builder/v1/onto/sql/previewdata
 ### 3.21、获取向量服务状态
 
 ```
-GET  /api/builder/v1/onto/vector/vector_service_status
+GET  /api/builder/v1/onto/vector/service_status
 ```
 
 请求参数：
@@ -4764,7 +4722,7 @@ GET  /api/builder/v1/onto/vector/vector_service_status
 ### 4.1、获取术语库列表
 
 ```
-GET  /api/builder/v1/taxonomy
+GET  /api/builder/v1/taxonomy/page
 ```
 
 请求参数：
@@ -4798,10 +4756,10 @@ knw_id=1&page=1&size=20&rule=create_time&order=asc&name=xxx
 | 3    | description      | string   | 术语库描述 |
 | 4    | default_language | string   | 默认语言   |
 | 5    | word_num         | int      | 术语数量   |
-| 6    | create_user      | string   | 创建人id   |
+| 6    | create_by        | string   | 创建人id   |
 | 7    | create_user_name | string   | 创建人名称 |
 | 8    | create_time      | string   | 创建时间   |
-| 9    | update_user      | string   | 更新人id   |
+| 9    | update_by        | string   | 更新人id   |
 | 10   | update_user_name | string   | 更新人名称 |
 | 11   | update_time      | string   | 更新时间   |
 
@@ -4814,14 +4772,14 @@ knw_id=1&page=1&size=20&rule=create_time&order=asc&name=xxx
         "taxonomies": [
             {
                 "create_time": "2023-10-26 16:59:41",
-                "create_user": "ef7eb926-4c52-11ee-ab5c-ba117504d52f",
+                "create_by": "ef7eb926-4c52-11ee-ab5c-ba117504d52f",
                 "create_user_name": "mia",
                 "default_language": "zh_CN",
                 "description": null,
                 "id": 23,
                 "name": "test",
                 "update_time": "2023-10-30 14:59:44",
-                "update_user": "ef7eb926-4c52-11ee-ab5c-ba117504d52f",
+                "update_by": "ef7eb926-4c52-11ee-ab5c-ba117504d52f",
                 "update_user_name": "mia",
                 "word_num": 12
             }
@@ -4833,7 +4791,7 @@ knw_id=1&page=1&size=20&rule=create_time&order=asc&name=xxx
 ### 4.2、创建术语库
 
 ```
-POST  /api/builder/v1/taxonomy
+POST  /api/builder/v1/taxonomy/add
 ```
 
 请求参数：
@@ -4873,7 +4831,7 @@ POST  /api/builder/v1/taxonomy
 ### 4.3、编辑术语库
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}
+POST  /api/builder/v1/taxonomy/edit/{taxonomy_id}
 ```
 
 请求参数：
@@ -4950,7 +4908,7 @@ POST  /api/builder/v1/taxonomy/delete
 ### 4.5、添加词
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}/word
+POST  /api/builder/v1/taxonomy/{taxonomy_id}/add_word
 ```
 
 请求参数：
@@ -5083,7 +5041,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/word/{word_id}/level
 ### 4.8、获取术语库的顶级词
 
 ```
-GET  /api/builder/v1/taxonomy/{taxonomy_id}/word
+GET  /api/builder/v1/taxonomy/{taxonomy_id}/top_word
 ```
 
 请求参数：
@@ -5095,7 +5053,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/word
 请求示例：
 
 ```
-/api/builder/v1/taxonomy/1/word
+/api/builder/v1/taxonomy/1/top_word
 ```
 
 响应参数：
@@ -5165,7 +5123,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/word/{word_ids}/subclass
 | 序号 | 字段名称    | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                    |
 | ---- | :---------- | :------- | :------- | :------- | ---- | :-------------------------- |
 | 1    | taxonomy_id | int      | path     | 是       |      | 术语库id                    |
-|      | word_ids    | string   | path     | 是       |      | 词的id列表，例：word1,word2 |
+| 2    | word_ids    | string   | path     | 是       |      | 词的id列表，例：word1,word2 |
 
 请求示例：
 
@@ -5377,7 +5335,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/delete_word
 ### 4.13、编辑自定义关系
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation
+POST  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation/edit
 ```
 
 请求参数：
@@ -5396,7 +5354,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation
 请求示例：
 
 ```json
-/api/builder/v1/taxonomy/1/custom_relation
+/api/builder/v1/taxonomy/1/custom_relation/edit
 {
     "change_list": [
         {
@@ -5434,7 +5392,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation
 ### 4.14、获取自定义关系列表
 
 ```
-GET  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation
+GET  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation/list
 ```
 
 请求参数：
@@ -5446,7 +5404,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation
 请求示例：
 
 ```
-/api/builder/v1/taxonomy/1/custom_relation
+/api/builder/v1/taxonomy/1/custom_relation/list
 ```
 
 响应参数：
@@ -5476,7 +5434,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/custom_relation
 ### 4.15、新建词的属性
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/create_ispartof
+POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/ispartof/add
 ```
 
 请求参数：
@@ -5490,7 +5448,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/create_ispartof
 请求示例：
 
 ```json
-/api/builder/v1/taxonomy/1/relation/create_ispartof
+/api/builder/v1/taxonomy/1/relation/ispartof/add
 {
     "start_word_id": "e0621447680011eeb70f005056baa089",
     "end_word_id_list": ["98a489f168c311eea463005056baa089"]
@@ -5514,7 +5472,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/create_ispartof
 ### 4.16、删除词的属性
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/delete_ispartof
+POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/ispartof/delete
 ```
 
 请求参数：
@@ -5528,7 +5486,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/delete_ispartof
 请求示例：
 
 ```json
-/api/builder/v1/taxonomy/1/relation/delete_ispartof
+/api/builder/v1/taxonomy/1/relation/ispartof/delete
 {
     "start_word_id": "e0621447680011eeb70f005056baa089",
     "end_word_id_list": ["98a489f168c311eea463005056baa089"]
@@ -5552,7 +5510,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/delete_ispartof
 ### 4.17、编辑词的自定义关系
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/edit_custom
+POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/custom/edit
 ```
 
 请求参数：
@@ -5568,7 +5526,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/edit_custom
 请求示例：
 
 ```json
-/api/builder/v1/taxonomy/1/relation/edit_custom
+/api/builder/v1/taxonomy/1/relation/custom/edit
 {
     "relation_id": 4,
     "start_word_id": "e0621447680011eeb70f005056baa089",
@@ -5594,7 +5552,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/edit_custom
 ### 4.18、删除词的自定义关系
 
 ```
-POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/delete_custom
+POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/custom/delete
 ```
 
 请求参数：
@@ -5608,7 +5566,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/delete_custom
 请求示例：
 
 ```json
-/api/builder/v1/taxonomy/1/relation/delete_custom
+/api/builder/v1/taxonomy/1/relation/custom/delete
 {
     "relation_ids": [4],
     "word_id": "e0621447680011eeb70f005056baa089"
@@ -5632,7 +5590,7 @@ POST  /api/builder/v1/taxonomy/{taxonomy_id}/relation/delete_custom
 ### 4.19、获取词的属性列表
 
 ```
-GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/ispartof
+GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/ispartof/list
 ```
 
 请求参数：
@@ -5647,7 +5605,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/ispartof
 请求示例：
 
 ```
-/api/builder/v1/taxonomy/1/relation/ispartof?word_id=e0621447680011eeb70f005056baa089&query=xxx&language=zh_CN
+/api/builder/v1/taxonomy/1/relation/ispartof/list?word_id=e0621447680011eeb70f005056baa089&query=xxx&language=zh_CN
 ```
 
 响应参数：
@@ -5687,7 +5645,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/ispartof
 ### 4.20、获取词的自定义关系列表
 
 ```
-GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/custom
+GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/custom/list
 ```
 
 请求参数：
@@ -5702,7 +5660,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/relation/custom
 请求示例：
 
 ```
-/api/builder/v1/taxonomy/1/relation/custom?word_id=e0621447680011eeb70f005056baa089&query=xxx&language=zh_CN
+/api/builder/v1/taxonomy/1/relation/custom/list?word_id=e0621447680011eeb70f005056baa089&query=xxx&language=zh_CN
 ```
 
 响应参数：
@@ -5820,7 +5778,7 @@ GET  /api/builder/v1/taxonomy/{taxonomy_id}/word/{word_ids}
 注意：该接口为form-data传参
 
 ```
-POST  /api/builder/v1/lexicon/create
+POST  /api/builder/v1/lexicon/add
 ```
 
 请求参数：
@@ -5857,7 +5815,7 @@ POST  /api/builder/v1/lexicon/create
 ### 5.2、根据模板创建词库接口
 
 ```
-POST  /api/builder/v1/lexicon/create/template_lexicon
+POST  /api/builder/v1/lexicon/add/template_lexicon
 ```
 
 请求参数：
@@ -5897,7 +5855,7 @@ POST  /api/builder/v1/lexicon/create/template_lexicon
 ### 5.3、执行词库构建任务接口
 
 ```
-POST  /api/builder/v1/lexicon/build_task
+POST  /api/builder/v1/lexicon/build
 ```
 
 请求参数：
@@ -5931,7 +5889,7 @@ POST  /api/builder/v1/lexicon/build_task
 ### 5.4、获取词库列表接口
 
 ```
-GET  /api/builder/v1/lexicon/getall
+GET  /api/builder/v1/lexicon/page
 ```
 
 请求参数：
@@ -5948,7 +5906,7 @@ GET  /api/builder/v1/lexicon/getall
 请求示例：
 
 ```
-/api/builder/v1/lexicon/getall?knowledge_id=1&page=1&size=20&order=asc&rule=name
+/api/builder/v1/lexicon/page?knowledge_id=1&page=1&size=20&order=asc&rule=name
 ```
 
 响应参数：
@@ -5974,7 +5932,7 @@ GET  /api/builder/v1/lexicon/getall
 ### 5.5、根据id获取词库信息接口
 
 ```
-GET  /api/builder/v1/lexicon/getbyid
+GET  /api/builder/v1/lexicon/detail
 ```
 
 请求参数：
@@ -5988,7 +5946,7 @@ GET  /api/builder/v1/lexicon/getbyid
 请求示例：
 
 ```
-/api/builder/v1/lexicon/getbyid?id=1&page=1&size=20
+/api/builder/v1/lexicon/detail?id=1&page=1&size=20
 ```
 
 响应参数：
@@ -5998,8 +5956,8 @@ GET  /api/builder/v1/lexicon/getbyid
 | 1    | id           | int          | 词库id             |
 | 2    | lexicon_name | string       | 词库名称           |
 | 3    | description  | string       | 词库描述           |
-| 4    | create_user  | string       | 创建人             |
-| 5    | operate_user | string       | 最终操作人         |
+| 4    | create_by    | string       | 创建人             |
+| 5    | update_by    | string       | 最终操作人         |
 | 6    | create_time  | string       | 创建时间           |
 | 7    | update_time  | string       | 最终操作时间       |
 | 8    | count        | int          | 词汇总数           |
@@ -6017,8 +5975,8 @@ GET  /api/builder/v1/lexicon/getbyid
     "id": 1,
     "lexicon_name": "ciku1",
     "description": "xxxxxxxxxxxx",
-    "create_user": "xiaoming",
-    "operate_user": "xiaohong",
+    "create_by": "xiaoming",
+    "update_by": "xiaohong",
     "create_time": "2022-07-25 13:47:46",
     "update_time": "2022-07-25 13:47:46",
     "count": 500,
@@ -6053,7 +6011,7 @@ GET  /api/builder/v1/lexicon/getbyid
 ### 5.6、词库内导入词汇接口
 
 ```
-POST  /api/builder/v1/lexicon/import_words
+POST  /api/builder/v1/lexicon/words/import
 ```
 
 请求参数：
@@ -6081,7 +6039,7 @@ POST  /api/builder/v1/lexicon/import_words
 ### 5.7、词库中新增词汇接口
 
 ```
-POST  /api/builder/v1/lexicon/insert
+POST  /api/builder/v1/lexicon/words/add
 ```
 
 请求参数：
@@ -6117,7 +6075,7 @@ POST  /api/builder/v1/lexicon/insert
 ### 5.8、词库中搜索词汇接口
 
 ```
-POST  /api/builder/v1/lexicon/search
+POST  /api/builder/v1/lexicon/words/search
 ```
 
 请求参数：
@@ -6164,7 +6122,7 @@ POST  /api/builder/v1/lexicon/search
 ### 5.9、词库中编辑词汇接口
 
 ```
-POST  /api/builder/v1/lexicon/edit_words
+POST  /api/builder/v1/lexicon/words/edit
 ```
 
 请求参数：
@@ -6202,7 +6160,7 @@ POST  /api/builder/v1/lexicon/edit_words
 ### 5.10、词库中删除词汇接口
 
 ```
-POST  /api/builder/v1/lexicon/delete_words
+POST  /api/builder/v1/lexicon/words/delete
 ```
 
 请求参数：
@@ -6399,7 +6357,7 @@ POST  /api/builder/v1/lexicon/template
 ### 6.1、测试连接
 
 ```
-POST  /api/builder/v1/ds/testconnect
+POST  /api/builder/v1/ds/test_connect
 ```
 
 请求参数：
@@ -6451,7 +6409,7 @@ POST  /api/builder/v1/ds/testconnect
 ### 6.2、获取数据源列表接口
 
 ```
-GET  /api/builder/v1/ds
+GET  /api/builder/v1/ds/page
 ```
 
 请求参数：
@@ -6468,7 +6426,7 @@ GET  /api/builder/v1/ds
 请求示例：
 
 ```
-ds_type=/api/builder/v1/ds?page=1&size=20&knw_id=1&order=ascend&filter=structured&ds_type=mysql
+/api/builder/v1/ds/page?page=1&size=20&knw_id=1&order=ascend&filter=structured&ds_type=mysql
 ```
 
 响应参数：
@@ -6481,20 +6439,20 @@ ds_type=/api/builder/v1/ds?page=1&size=20&knw_id=1&order=ascend&filter=structure
 | 序号 | 字段名称     | 字段类型 | 字段说明   |
 | ---- | :----------- | :------- | :--------- |
 | 1    | create_time  | string   | 创建时间   |
-| 2    | create_user  | string   | 创建用户   |
-| 3    | dataType     | string   | 数据类型   |
+| 2    | create_by    | string   | 创建用户   |
+| 3    | data_type    | string   | 数据类型   |
 | 4    | data_source  | string   | 数据源类型 |
 | 5    | ds_address   | string   | 地址       |
 | 6    | ds_password  | string   | 密码       |
 | 7    | ds_path      | string   | 数据库路径 |
 | 8    | ds_port      | int      | 端口       |
 | 9    | ds_user      | string   | 用户名     |
-| 10   | dsname       | string   | 数据源名称 |
+| 10   | ds_name      | string   | 数据源名称 |
 | 11   | extract_type | string   | 抽取类型   |
 | 12   | id           | int      | 数据源id   |
 | 13   | knw_id       | int      | 知识网络id |
 | 14   | update_time  | string   | 修改时间   |
-| 15   | update_user  | string   | 修改用户   |
+| 15   | update_by    | string   | 修改用户   |
 | 16   | connect_type | string   | 连接方式   |
 
 响应示例：
@@ -6505,20 +6463,20 @@ ds_type=/api/builder/v1/ds?page=1&size=20&knw_id=1&order=ascend&filter=structure
         "count": 1,
         "df": [{
             "create_time": "2023-02-06 04:19:55",
-            "create_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
-            "dataType": "structured",
+            "create_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "data_type": "structured",
             "data_source": "mysql",                  
             "ds_address": "10.4.107.112",
             "ds_password": "ZWlzb28uY29tMTIz",
             "ds_path": "anydata",
             "ds_port": 3320,
             "ds_user": "root",
-            "dsname": "\u672c\u673amysql",
+            "ds_name": "\u672c\u673amysql",
             "extract_type": "standardExtraction",
             "id": 1,
             "knw_id": 1,
             "update_time": "2023-02-06 04:19:55",
-            "update_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "update_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
             "connect_type":"odbc"                   
         }]
     }
@@ -6528,16 +6486,16 @@ ds_type=/api/builder/v1/ds?page=1&size=20&knw_id=1&order=ascend&filter=structure
 ### 6.3、新建数据源接口
 
 ```
-POST  /api/builder/v1/ds
+POST  /api/builder/v1/ds/add
 ```
 
 请求参数：
 
 | 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
 | :--- | :----------- | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
-| 1    | dsname       | string   | body     | 是       | 50   | 数据源名称                                                   |
+| 1    | ds_name      | string   | body     | 是       | 50   | 数据源名称                                                   |
 | 2    | data_source  | string   | body     | 是       | 20   | 数据源类型（mysql、hive、sqlserver、kingbasees、postgresql、clickhouse等） |
-| 3    | dataType     | string   | body     | 是       | 20   | 数据类型（structured、unstructured）                         |
+| 3    | data_type    | string   | body     | 是       | 20   | 数据类型（structured、unstructured）                         |
 | 4    | ds_address   | string   | body     | 是       | 256  | IP                                                           |
 | 5    | ds_port      | int      | body     | 是       |      | 端口                                                         |
 | 6    | ds_user      | string   | body     | 是       | 30   | 用户                                                         |
@@ -6551,9 +6509,9 @@ POST  /api/builder/v1/ds
 
 ```json
 {
-    "dsname": "222",
+    "ds_name": "222",
     "data_source": "mysql",
-    "dataType": "unstructured",
+    "data_type": "unstructured",
     "ds_address": "10.2.196.58",
     "ds_port": 3306,
     "ds_user": "root",
@@ -6583,7 +6541,7 @@ POST  /api/builder/v1/ds
 ### 6.4、编辑数据源接口
 
 ```
-POST  /api/builder/v1/ds/{ds_id}
+POST  /api/builder/v1/ds/edit/{ds_id}
 ```
 
 请求参数：
@@ -6591,7 +6549,7 @@ POST  /api/builder/v1/ds/{ds_id}
 | 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
 | :--- | :----------- | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
 | 1    | ds_id        | int      | path     | 是       |      | 数据源id                                                     |
-| 2    | dsname       | string   | body     | 是       | 50   | 数据源名称                                                   |
+| 2    | ds_name      | string   | body     | 是       | 50   | 数据源名称                                                   |
 | 3    | data_source  | string   | body     | 是       | 20   | 数据源类型（mysql、hive、sqlserver、kingbasees、postgresql、clickhouse等） |
 | 4    | ds_user      | string   | body     | 是       | 30   | 用户                                                         |
 | 5    | ds_password  | string   | body     | 是       | 500  | 密码                                                         |
@@ -6601,7 +6559,7 @@ POST  /api/builder/v1/ds/{ds_id}
 
 ```json
 {
-    "dsname": "222",
+    "ds_name": "222",
     "data_source": "mysql",
     "ds_user": "root",
     "ds_password": "MQ==",
@@ -6626,20 +6584,20 @@ POST  /api/builder/v1/ds/{ds_id}
 ### 6.5、删除数据源接口
 
 ```
-DELETE  /api/builder/v1/ds/delbydsids
+DELETE  /api/builder/v1/ds/delete
 ```
 
 请求参数：
 
 | 序号 | 字段名称 | 字段类型  | 参数位置 | 是否必须 | 长度 | 字段说明   |
 | :--- | :------- | :-------- | -------- | :------- | ---- | :--------- |
-| 1    | dsids    | list<int> | body     | 是       |      | 数据源的id |
+| 1    | ds_ids   | list<int> | body     | 是       |      | 数据源的id |
 
 请求示例：
 
 ```json
 {  
-    "dsids":[1,2]   
+    "ds_ids":[1,2]   
 }
 ```
 
@@ -6661,7 +6619,7 @@ DELETE  /api/builder/v1/ds/delbydsids
 ### 6.6、根据id获取数据源信息
 
 ```
-GET  /api/builder/v1/ds/get_by_id
+GET  /api/builder/v1/ds/detail
 ```
 
 请求参数：
@@ -6673,7 +6631,7 @@ GET  /api/builder/v1/ds/get_by_id
 请求示例：
 
 ```
-/api/builder/v1/ds/get_by_id?ds_id=1
+/api/builder/v1/ds/detail?ds_id=1
 ```
 
 响应参数：
@@ -6694,7 +6652,7 @@ GET  /api/builder/v1/ds/get_by_id
 {
     "res": {
         {
-            "dsname": "222",
+            "ds_name": "222",
             "data_source": "mysql",
             "ds_address": "10.2.196.58",
             "ds_port": 3306,
@@ -6709,7 +6667,7 @@ GET  /api/builder/v1/ds/get_by_id
 ### 6.7、模糊查询
 
 ```
-GET  /api/builder/v1/ds/searchbyname
+GET  /api/builder/v1/ds/search
 ```
 
 请求参数：
@@ -6718,14 +6676,14 @@ GET  /api/builder/v1/ds/searchbyname
 | :--- | :------- | :------- | -------- | :------- | ---- | :------------------------- |
 | 1    | page     | int      | query    | 是       |      | 页码                       |
 | 2    | size     | int      | query    | 是       |      | 大小                       |
-| 3    | dsname   | string   | query    | 是       | 50   | 数据源名称                 |
+| 3    | ds_name  | string   | query    | 是       | 50   | 数据源名称                 |
 | 4    | order    | string   | query    | 是       | 10   | 排序方式（ascend descend） |
 | 5    | knw_id   | int      | query    | 是       |      | 知识网络id                 |
 
 请求示例：
 
 ```
-/api/builder/v1/ds/searchbyname?page=1&size=1&dsname=k&order=ascend&knw_id=1
+/api/builder/v1/ds/search?page=1&size=1&ds_name=k&order=ascend&knw_id=1
 ```
 
 响应参数：
@@ -6738,20 +6696,20 @@ GET  /api/builder/v1/ds/searchbyname
 | 序号 | 字段名称     | 字段类型 | 字段说明   |
 | ---- | :----------- | :------- | :--------- |
 | 1    | create_time  | string   | 创建时间   |
-| 2    | create_user  | string   | 创建用户   |
-| 3    | dataType     | string   | 数据类型   |
+| 2    | create_by    | string   | 创建用户   |
+| 3    | data_type    | string   | 数据类型   |
 | 4    | data_source  | string   | 数据源类型 |
 | 5    | ds_address   | string   | 地址       |
 | 6    | ds_password  | string   | 密码       |
 | 7    | ds_path      | string   | 数据库路径 |
 | 8    | ds_port      | int      | 端口       |
 | 9    | ds_user      | string   | 用户名     |
-| 10   | dsname       | string   | 数据源名称 |
+| 10   | ds_name      | string   | 数据源名称 |
 | 11   | extract_type | string   | 抽取类型   |
 | 12   | id           | int      | 数据源id   |
 | 13   | knw_id       | int      | 知识网络id |
 | 14   | update_time  | string   | 修改时间   |
-| 15   | update_user  | string   | 修改用户   |
+| 15   | update_by    | string   | 修改用户   |
 | 16   | connect_type | string   | 连接方式   |
 
 响应示例：
@@ -6762,20 +6720,20 @@ GET  /api/builder/v1/ds/searchbyname
         "count": 1,
         "df": [{
             "create_time": "2023-02-06 04:19:55",
-            "create_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
-            "dataType": "structured",
+            "create_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "data_type": "structured",
             "data_source": "mysql",                  
             "ds_address": "10.4.107.112",
             "ds_password": "ZWlzb28uY29tMTIz",
             "ds_path": "anydata",
             "ds_port": 3320,
             "ds_user": "root",
-            "dsname": "\u672c\u673amysql",
+            "ds_name": "\u672c\u673amysql",
             "extract_type": "standardExtraction",
             "id": 1,
             "knw_id": 1,
             "update_time": "2023-02-06 04:19:55",
-            "update_user": "11c9a837-82e7-45c7-9533-00309a1dba5d",
+            "update_by": "11c9a837-82e7-45c7-9533-00309a1dba5d",
             "connect_type":"odbc"                   
         }]
     }
@@ -6785,7 +6743,7 @@ GET  /api/builder/v1/ds/searchbyname
 ### 6.8、数据源复制接口
 
 ```
-POST  /api/builder/v1/ds/ds_copy/{ds_id}
+POST  /api/builder/v1/ds/copy/{ds_id}
 ```
 
 请求参数：
@@ -6793,9 +6751,9 @@ POST  /api/builder/v1/ds/ds_copy/{ds_id}
 | 序号 | 字段名称     | 字段类型 | 参数位置 | 是否必须 | 长度 | 字段说明                                                     |
 | :--- | :----------- | :------- | -------- | :------- | ---- | :----------------------------------------------------------- |
 | 1    | ds_id        | int      | path     | 是       |      | 数据源id                                                     |
-| 2    | dsname       | string   | body     | 是       | 50   | 数据源名称                                                   |
+| 2    | ds_name      | string   | body     | 是       | 50   | 数据源名称                                                   |
 | 3    | data_source  | string   | body     | 是       | 20   | 数据源类型（mysql、hive、sqlserver、kingbasees、postgresql、clickhouse等） |
-| 4    | dataType     | string   | body     | 是       | 20   | 数据类型（structured、unstructured）                         |
+| 4    | data_type    | string   | body     | 是       | 20   | 数据类型（structured、unstructured）                         |
 | 5    | ds_address   | string   | body     | 是       | 256  | IP                                                           |
 | 6    | ds_port      | int      | body     | 是       |      | 端口                                                         |
 | 7    | ds_user      | string   | body     | 是       | 30   | 用户                                                         |
@@ -6809,9 +6767,9 @@ POST  /api/builder/v1/ds/ds_copy/{ds_id}
 
 ```json
 {
-    "dsname": "222",
+    "ds_name": "222",
     "data_source": "mysql",
-    "dataType": "unstructured",
+    "data_type": "unstructured",
     "ds_address": "10.2.196.58",
     "ds_port": 3306,
     "ds_user": "root",
@@ -6841,7 +6799,7 @@ POST  /api/builder/v1/ds/ds_copy/{ds_id}
 ### 6.9、获取hive表分区名列表
 
 ```
-GET  /api/builder/v1/ds/hive/partitions
+GET  /api/builder/v1/ds/hive/partition/list
 ```
 
 请求参数：
@@ -6854,7 +6812,7 @@ GET  /api/builder/v1/ds/hive/partitions
 请求示例：
 
 ```
-/api/builder/v1/ds/hive/partitions?ds_id=1&table_name=xxxx
+/api/builder/v1/ds/hive/partition/list?ds_id=1&table_name=xxxx
 ```
 
 响应参数：
@@ -6880,7 +6838,7 @@ GET  /api/builder/v1/ds/hive/partitions
 ### 6.10、预览分区表达式
 
 ```
-GET  /api/builder/v1/ds/hive/partition_case
+GET  /api/builder/v1/ds/hive/partition/case
 ```
 
 请求参数：
@@ -6892,7 +6850,7 @@ GET  /api/builder/v1/ds/hive/partition_case
 请求示例：
 
 ```
-/api/builder/v1/ds/hive/partition_case?expression=$date_format($hour_add($date_add($current_timestamp(),-1),-1),'YYYY-MM-dd:HH')
+/api/builder/v1/ds/hive/partition/case?expression=$date_format($hour_add($date_add($current_timestamp(),-1),-1),'YYYY-MM-dd:HH')
 ```
 
 响应参数：
@@ -6912,7 +6870,7 @@ GET  /api/builder/v1/ds/hive/partition_case
 ### 6.11、检查分区配置接口
 
 ```
-POST  /api/builder/v1/ds/hive/partition_infos/check
+POST  /api/builder/v1/ds/hive/partition/check_info
 ```
 
 请求参数：
@@ -7049,7 +7007,7 @@ POST  /api/builder/v1/ds/sql
 ### 6.14、领域数据表预览
 
 ```
-GET  /api/builder/v1/ds/previewdata
+GET  /api/builder/v1/ds/preview_data
 ```
 
 请求参数：
@@ -7087,5 +7045,3 @@ GET  /api/builder/v1/ds/previewdata
     }
 }
 ```
-
-### 
